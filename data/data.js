@@ -1,4 +1,4 @@
-export const data = {
+const data = {
 	"photographers": [
 		{
 			"name": "Mimi Keel",
@@ -591,4 +591,4 @@ export const data = {
 			"price": 80
 		}
 	]
-}
+};

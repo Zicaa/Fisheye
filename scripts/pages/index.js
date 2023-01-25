@@ -1,56 +1,25 @@
-    /*async function getPhotographers() {
-        // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet, 
-        // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
-        let photographers = [
-            {
-                "name": "Ma data test",
-                "id": 1,
-                "city": "Paris",
-                "country": "France",
-                "tagline": "Ceci est ma data test",
-                "price": 400,
-                "portrait": "account.png"
-            },
-            {
-                "name": "Autre data test",
-                "id": 2,
-                "city": "Londres",
-                "country": "UK",
-                "tagline": "Ceci est ma data test 2",
-                "price": 500,
-                "portrait": "account.png"
-            },
-        ]
-        // et bien retourner le tableau photographers seulement une fois récupéré
-        return ({
-            photographers: [...photographers, ...photographers, ...photographers]})
-    }*/
+import { data } from "../../data/data";
 
-    const data = './data/photographers.json';
-
-    let zone = document.getElementsByClassName("photographer_section");
-
-    // Je créé une fonction qui affiche tous les photographes
     async function getPhotographers() {
         try {
-            // Je récupère les données présentes dans mon fichier json
-            fetch(data)
-            // A la réponse de l'API, je récupère les données présentes dans le format json
-            .then(response => response.json())
-            // Je retourne les données
-            return data
-            // Je definie une erreur si le fetch ne fonctionne pas
+            // Je récupère les données des photographes grâce à un fetch : no cors autorise la récupération en local des données au format json
+            const request = await fetch(url, { mode: 'no-cors'})
+            // J'attends la réponse de ma requête
+            const data = await request.json();
+            console.log(data);
+            // Je retourne les informations des photographes dans ma constante data
+            return data;
+            // Je crée un message d'erreur si le fetch échoue
         } catch (error) {
-            console.error(error)
-            const errorElement = document.createElement('h2')
-            errorElement.classList.add('photographers_error')
-            errorElement.textContent = 'Erreur lors de la récupération des données des photographes.'
-            main.appendChild(errorElement)
+            const errorMessage = document.createElement('h1')
+            errorMessage.classList.add('photographers_error')
+            errorMessage.textContent = 'Erreur lors de la récupération des données des photographes.'
+            main.appendChild(errorMessage)
             return { photographers: [] }
         }
     }
 
-    async function displayData(photographers) {
+    /*async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
 
         photographers.forEach((photographer) => {
@@ -66,5 +35,5 @@
         displayData(photographers);
     };
     
-    init();
+    init();*/
     

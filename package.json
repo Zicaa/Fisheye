@@ -1,0 +1,20 @@
+{
+  "name": "fisheye",
+  "version": "1.0.0",
+  "description": "Création sur la base du langage javascript d'un site pour photographes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "module",
+    "url": "git+https://github.com/Zicaa/Fisheye.git"
+  },
+  "author": "Nausicaa CRESTA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zicaa/Fisheye/issues"
+  },
+  "homepage": "https://github.com/Zicaa/Fisheye#readme"
+  
+}

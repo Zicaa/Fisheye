@@ -1,12 +1,5 @@
-let json = "./data/photographers.json";
-
 async function getPhotographers() {
     try {
-      /*// Je récupère les données des photographes grâce à un fetch : no cors autorise la récupération en local des données au format json
-        const request = await fetch(json, { mode: 'no-cors'})
-        // J'attends la réponse de ma requête
-        const data = await request.json();*/
-        // Je retourne les informations des photographes dans ma constante data
         return data;
         // Je crée un message d'erreur si le fetch échoue
     } catch (error) {
@@ -15,7 +8,7 @@ async function getPhotographers() {
         main.appendChild(errorMessage)
         return { photographers: [] }
     }
-}console.log(data);
+}console.log(data)
 
 //
 async function displayData(photographers) {
@@ -28,7 +21,7 @@ async function displayData(photographers) {
 		const userCardDOM = photographerModel.getUserCardDOM()
 		photographersSection.appendChild(userCardDOM)
 	})
-}
+}console.log(photographerFactory);
 
 async function init() {
 	// Je récupère les données des photographes

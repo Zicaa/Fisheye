@@ -2,7 +2,7 @@
   "name": "fisheye",
   "version": "1.0.0",
   "description": "Création sur la base du langage javascript d'un site pour photographes",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

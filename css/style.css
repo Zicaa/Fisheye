@@ -44,6 +44,10 @@ h1 {
     font-size: 36px;
 }
 
+.presentation {
+    color : green;
+}
+
 .photographer_section article img {
     height: 200px;
     width: 200px;

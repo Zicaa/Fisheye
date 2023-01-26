@@ -1,4 +1,4 @@
-/* Fonction qui utilise la méthode fetch qui est obsolète sur les nouveaux navigateurs (à décommenter)
+/* Fonction qui utilise la méthode fetch et le fichier json et qui est obsolète sur les nouveaux navigateurs (à décommenter)
 
 let json = "./data/photographers.json";
 

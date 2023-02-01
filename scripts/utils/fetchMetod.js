@@ -1,11 +1,11 @@
-/* Fonction qui utilise la méthode fetch et le fichier json et qui est obsolète sur les nouveaux navigateurs (à décommenter)
+//Fonction qui utilise la méthode fetch, à utiliser avec un serveur local (CORS non autorisés)
 
 let json = "./data/photographers.json";
 
 async function getPhotographers() {
     try {
       // Je récupère les données des photographes grâce à un fetch : no cors autorise la récupération en local des données au format json
-        const request = await fetch(json, { mode: 'no-cors'})
+        const request = await fetch(json)
         // J'attends la réponse de ma requête
         const data = await request.json();
         // Je retourne les informations des photographes dans ma constante data
@@ -17,5 +17,5 @@ async function getPhotographers() {
         main.appendChild(errorMessage)
         return { photographers: [] }
     }
-}console.log(data);*/
+}console.log(data);
 

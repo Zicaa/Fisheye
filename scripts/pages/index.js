@@ -1,3 +1,5 @@
+// (problème d'import à régler) import { data } from "../data/data.js";
+
 async function getPhotographers() {
     try {
         return data;

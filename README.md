@@ -2,5 +2,5 @@
 
 ## Démarrer le projet
 
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
+Attention, il est nécessaire d'utiliser un serveur local comme wamp server pour visualiser le site. Les navigateurs récents rencontrent des erreurs de type CORS.
 

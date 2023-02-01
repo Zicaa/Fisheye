@@ -11,7 +11,7 @@ function photographerFactory(data) {
         // Je crée les liens vers le portfolio des photographes
         const photographerCard = document.createElement("a");
         photographerCard.classList.add("photographer-card-link");
-        photographerCard.setAttribute("href", `html/photographer.html?id=${id}`);
+        photographerCard.setAttribute("href", `photographer.html?id=${id}`);
         photographerCard.setAttribute(
         "aria-label", "Lien vers le portfolio de " + name,
         );

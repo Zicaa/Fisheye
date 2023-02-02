@@ -47,6 +47,7 @@
     font-weight: normal;
     text-align: center;
     object-fit: cover;
+    margin: 0px;
 }
 
 form {

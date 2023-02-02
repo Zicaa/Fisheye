@@ -26,6 +26,10 @@ function photographerFactory(data) {
         const photographerName = document.createElement( 'h2' );
         photographerName.textContent = name;
 
+        // J'ajoute les noms des photographes
+        const textContent = document.createElement( 'div' );
+        textContent.classList.add("photographer-description");
+
         // J'ajoute leur provenance
         const photographerLocation = document.createElement( 'p' );
         photographerLocation.textContent = city + ", " + country;
@@ -44,12 +48,15 @@ function photographerFactory(data) {
         // J'intègre les liens dans mes cards de photographes
         photographerCard.appendChild(photographerImg);
         photographerCard.appendChild(photographerName);
+
+        // J'intègre le texte descriptif à la div parente grâce à des appenChild
+        textContent.appendChild(photographerLocation);
+        textContent.appendChild(photographerTagline);
+        textContent.appendChild(photographerPrice);
         
         // J'intègre les données crées dans le HTML grâce à des appenChild
         article.appendChild(photographerCard);
-        article.appendChild(photographerLocation);
-        article.appendChild(photographerTagline);
-        article.appendChild(photographerPrice);
+        article.appendChild(textContent);
         return (article);
     }
     // Je retourne la fonction crée avec tous les éléments

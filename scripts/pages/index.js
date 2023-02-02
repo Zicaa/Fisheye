@@ -2,19 +2,19 @@
 
 async function getPhotographers() {
     try {
-      // Je récupère les données des photographes grâce à la fonction fetch 
+      // Je récupère les données des photographes dans le fichier json et les stocke dans une constante
 	  	const json = "./data/photographers.json";
-        // J'attends la réponse de ma requête
+        // Je formule ma requête grâce à fetch
 		const query = await fetch(json)
 		// Je stocke la réponse de ma requête dans ma constante data
         const data = await query.json();
         // Je retourne les informations des photographes de ma constante data
-        return data;
 		console.log(data);
+        return data;
         // Je crée un message d'erreur si le fetch échoue
     } catch (error) {
         const errorMessage = document.createElement('h1')
-        errorMessage.textContent = 'Erreur lors de la récupération des données des photographes.'
+        errorMessage.textContent = 'Les données des photographes ne sont pas récupérées correctement.'
         main.appendChild(errorMessage)
         return { photographers: [] }
     }

@@ -8,9 +8,11 @@ async function getPhotographers() {
 		const query = await fetch(json)
 		// Je stocke la réponse de ma requête dans ma constante data
         const data = await query.json();
-        // Je retourne les informations des photographes de ma constante data
 		console.log(data);
+        // Je retourne les informations des photographes de ma constante data
         return data;
+		
+		
         // Je crée un message d'erreur si le fetch échoue
     } catch (error) {
         const errorMessage = document.createElement('h1')

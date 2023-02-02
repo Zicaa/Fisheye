@@ -8,6 +8,7 @@ async function getPhotographers() {
 		const query = await fetch(json)
 		// Je stocke la réponse de ma requête dans ma constante data
         const data = await query.json();
+		// J'affiche les données du json dans la console
 		console.log(data);
         // Je retourne les informations des photographes de ma constante data
         return data;

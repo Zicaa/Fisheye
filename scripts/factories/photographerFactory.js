@@ -1,8 +1,10 @@
+// Fonction servant à créer les photographes à partir du fichier json
 function photographerFactory(data) {
     const { name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
+    // Fonction qui crée les cartes des photographes par le DOM
     function getUserCardDOM() {
         // Je crée l'article à intégrer dans le HTML 
         const article = document.createElement( 'article' );

@@ -1,5 +1,5 @@
 //Fonction asynchrone qui récupère les données du json grâce à la méthode fetch, à utiliser avec un serveur local (CORS non autorisés)
-async function getPhotographers() {
+export async function getPhotographers() {
     try {
     // Je récupère les données des photographes dans le fichier json et les stocke dans une constante
 	  	const json = "./data/photographers.json";

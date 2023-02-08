@@ -1,5 +1,5 @@
 // Fonction servant à créer les photographes à partir du fichier json
-function photographerFactory(data) {
+export function photographerFactory(data) {
     const { name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/photographers/${portrait}`;

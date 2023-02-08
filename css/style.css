@@ -17,6 +17,7 @@ header {
     header{
         flex-direction: column;
         height: fit-content;
+        background-color: #FAFAFA;
     }
 }
 
@@ -37,6 +38,7 @@ h1 {
 @media screen and (max-width: 768px) {
     .logo{
         margin-left: 0px;
+        margin-top: 30px;
     }
 }
 
@@ -73,6 +75,11 @@ h1 {
     color: #D3573C;
     font-size: 36px;
     margin: 0px;
+}
+@media screen and (max-width: 768px) {
+    .photographer_section article h2{
+        font-size: 32px;
+    }
 }
 
 .photographer-card-link{

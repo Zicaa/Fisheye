@@ -1,6 +1,3 @@
-//import { photographerFactory } from "../factories/photographerFactory.js";
-//import { getPhotographers } from "../utils/fetchJsonData.js";
-
 // Fonction asynchrone qui crée les éléments dans la page index
 async function displayData(photographers) {
 	// Je recupere la div ou injecter les éléments dans le DOM

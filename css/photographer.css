@@ -2,23 +2,27 @@
     display: none;
 }
 
+main {
+    margin: auto 100px;
+}
+
 .photograph-header {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     background-color: #fafafa;
-    height: 30rem;
     padding: 3em;
     margin-bottom: 2em;
+    border-radius: 5px;
 }
 
 .photograph-img {
-    height: 20rem;
-    width: 20rem;
-    -o-object-fit: cover;
+    height: 200px;
+    width: 200px;
     object-fit: cover;
     border-radius: 50%;
+    margin-bottom: 1em;
 }
 
 img, picture, video, canvas, svg {
@@ -35,28 +39,46 @@ img, picture, video, canvas, svg {
 }
 
 .media-card-img, .media-card-video {
-    width: 35rem
-;
+    width: 35rem;
     height: 30rem;
-    -o-object-fit: cover;
     object-fit: cover;
     border-radius: 0.5rem;
 }
 
-.button {
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-    padding: 1.1rem;
-    width: 19rem;
-    height: 7rem;
-    border: none;
-    background-color: #901c1c;
-    border-radius: 0.5rem;
-    cursor: pointer;
+h1{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 83px;
+    color: #D3573C;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 100px;
+}
+@media screen and (max-width: 768px) {
+    .logo{
+        margin-left: 0px;
+        margin-top: 30px;
+    }
 }
 
 .contact_button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.select_button {
     font-size: 20px;
     font-weight: bold;
     color: white;

@@ -1,5 +1,5 @@
 import { photographerFactory } from "../factories/photographerFactory.js";
-import { getPhotographers } from "../utils/fetchJson.js";
+import { fetchJson } from "../utils/getJsonData.js";
 
 // Fonction asynchrone qui crée les éléments dans la page index
 async function displayData(photographers) {
@@ -19,7 +19,7 @@ console.log(photographerFactory);
 
 async function init() {
 	// Je stocke dans une constante la réponse de ma fonction asynchrone getPhotographers
-	const { photographers } = await getPhotographers()
+	const { photographers } = await fetchJson()
 	// J'appelle ma fonction displayData
 	displayData(photographers)
 }

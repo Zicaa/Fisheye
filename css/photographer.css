@@ -3,9 +3,57 @@
 }
 
 .photograph-header {
-    background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafafa;
+    height: 30rem;
+    padding: 3em;
+    margin-bottom: 2em;
+}
+
+.photograph-img {
+    height: 20rem;
+    width: 20rem;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+.media-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 35rem);
+    justify-content: space-between;
+    gap: 2em 1em;
+    padding: 2em 0;
+}
+
+.media-card-img, .media-card-video {
+    width: 35rem
+;
+    height: 30rem;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.button {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    padding: 1.1rem;
+    width: 19rem;
+    height: 7rem;
+    border: none;
+    background-color: #901c1c;
+    border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 .contact_button {

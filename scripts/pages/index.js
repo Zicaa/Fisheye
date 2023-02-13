@@ -9,7 +9,7 @@ async function displayData(photographers) {
 	photographers.forEach((photographer) => {
 		// Je stocke le résult de ma fonction photographerFactory dans une constante et lui passe mon photographe en paramètre
 		const photographerModel = photographerFactory(photographer)
-		// Je stocke le résult de ma fonction servant à créer les cartes des photographes dans une constante
+		// Je stocke le résultat de ma fonction servant à créer les cartes des photographes dans une constante
 		const userCardDOM = photographerModel.getUserCardDOM()
 		// J'insère à l'intérieur de ma section les cartes crées grâce à un appenChild
 		photographersSection.appendChild(userCardDOM)

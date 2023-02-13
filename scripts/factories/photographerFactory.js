@@ -5,16 +5,16 @@ export function photographerFactory(data) {
 
     const picture = `assets/photographers/${portrait}`;
 
-    // Fonction qui crée les cartes des photographes par le DOM
+    // Fonction qui crée les cartes des photographes en retournqant les éléments du DOM
     function getUserCardDOM() {
-        // Je crée l'article à intégrer dans le HTML 
+        // Je crée l'article à intégrer dans le HTML pour contenir ma carte photographe 
         const article = document.createElement( 'article' );
         article.classList.add("photographer-card");
 
         // Je crée les liens vers le portfolio des photographes
         const photographerCard = document.createElement("a");
         photographerCard.classList.add("photographer-card-link");
-        photographerCard.setAttribute("href", `html/photographer.html?id=${id}`);
+        photographerCard.setAttribute("href", `photographer.html?id=${id}`);
         photographerCard.setAttribute(
         "aria-label", "Lien vers le portfolio de " + name,
         );

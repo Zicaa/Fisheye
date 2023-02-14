@@ -23,7 +23,7 @@ function createPhotographHeader(photographerElement) {
           <p class="photograph-location">${city}, ${country}</p>
           <p class="photograph-tagline">${tagline}</p>
       </div>
-      <button class="contact_button" id="contactBtn" aria-label="Bouton d'ouverture du modal de contact">Contactez-moi</button>
+      <button class="contact-button" id="contactBtn" aria-label="Bouton d'ouverture du modal de contact">Contactez-moi</button>
       <img class="photograph-img" src="assets/photographers/${portrait}" alt="Photo de ${name}">`;
 
    // J'ajoute une classe à mon élément
@@ -38,21 +38,20 @@ function createPhotographHeader(photographerElement) {
 function createFilterMenu() {
 
   // Je crée le menu de tri
-  const selectButton = document.createElement('select');
-  selectButton.innerHTML =
-  `<select class="filter-menu" id="filter-menu" aria-label="Menu de tri">
-      <option class="filter-menu-options" value=""> Trier par </option>
-      <option class="filter-menu-options" value="Popularité">Popularité</option>
-      <option class="filter-menu-options" value="Date">Date</option>
-      <option class="filter-menu-options" value="Titre">Titre</option>
-    </select>`;
-
-  // J'ajoute une classe à mon élément
-  selectButton.classList="select-button";
+  const selectDiv = document.createElement('div');
+  selectDiv.innerHTML =
+  `<div class ="select">
+    <p class ="select-p">Trier par</p>
+      <select class="select-button" id="filter-menu" aria-label="Menu de tri">
+        <option class="select-button" value="Popularité">Popularité</option>
+        <option class="select-button" value="Date">Date</option>
+        <option class="select-button" value="Titre">Titre</option>
+      </select>
+  </div>`;
 
   // J'injecte le menu de sélection dans ma balise main
   const main = document.getElementById("main");
-  main.appendChild(selectButton);
+  main.appendChild(selectDiv);
 }
 
 // Fonction qui génère la galerie de médias

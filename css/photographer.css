@@ -6,6 +6,20 @@ main {
     margin: auto 100px;
 }
 
+body {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+}
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
 .photograph-header {
     display: flex;
     flex-flow: row nowrap;
@@ -50,7 +64,6 @@ h1{
     font-style: normal;
     font-weight: 400;
     font-size: 64px;
-    line-height: 83px;
     color: #D3573C;
 }
 
@@ -65,7 +78,7 @@ h1{
     }
 }
 
-.contact_button {
+.contact-button {
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -78,7 +91,19 @@ h1{
     cursor: pointer;
 }
 
-.select_button {
+.select{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.select-p{
+    font-weight: 700;
+    font-size: 18px;
+    padding-right: 45px;
+}
+
+.select-button {
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -89,6 +114,17 @@ h1{
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.media-card {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 35rem;
+}
+
+.media-img-card{
+    width: 350px;
+    height: 300px;
 }
 
 .modal {

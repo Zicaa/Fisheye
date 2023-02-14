@@ -24,7 +24,9 @@ function createPhotographHeader(photographerElement) {
           <p class="photograph-tagline">${tagline}</p>
       </div>
       <button class="contact-button" id="contactBtn" aria-label="Bouton d'ouverture du modal de contact">Contactez-moi</button>
-      <img class="photograph-img" src="assets/photographers/${portrait}" alt="Photo de ${name}">`;
+      <div class="photograph-portrait">
+          <img class="photograph-img" src="assets/photographers/${portrait}" alt="Photo de ${name}">
+      </div>`;
 
    // J'ajoute une classe à mon élément
    photographSection.classList="photograph-header";

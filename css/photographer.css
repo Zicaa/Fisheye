@@ -4,6 +4,14 @@
 
 main {
     margin: auto 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+@media only screen and (max-width: 1023px){
+    main {
+        margin: 20px;
+    }
 }
 
 body {
@@ -38,7 +46,18 @@ header {
         text-align: center;
         row-gap: 1em;
         height: 100%;
-        width: 100%;
+        width: auto;
+    }
+}
+
+.photograph-portrait{
+    width: 375px;
+    display: flex;
+    justify-content: right;
+}
+@media only screen and (max-width: 1023px){
+    .photograph-portrait {
+        justify-content: center;
     }
 }
 
@@ -61,7 +80,6 @@ header {
     width: 200px;
     object-fit: cover;
     border-radius: 50%;
-    margin-bottom: 1em;
 }
 
 img, picture, video, canvas, svg {
@@ -74,6 +92,11 @@ img, picture, video, canvas, svg {
     grid-template-columns: repeat(auto-fill, 350px);
     justify-content: space-between;
     padding: 2em 0;
+}
+@media only screen and (max-width: 915px){
+    .media-section {
+        justify-content: center;
+    }
 }
 
 .media-info-card{
@@ -119,6 +142,7 @@ h1{
     font-weight: 400;
     font-size: 64px;
     color: #D3573C;
+    margin: 0px;
 }
 
 h2{
@@ -167,7 +191,7 @@ h2{
 }
 
 .select-button {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     color: white;
     padding: 11px;

@@ -30,6 +30,31 @@ header {
     margin-bottom: 2em;
     border-radius: 5px;
 }
+@media only screen and (max-width: 1023px){
+    .photograph-header {
+        flex-flow: column-reverse nowrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        row-gap: 1em;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.photograph-info {
+    width: 375px;
+}
+
+.photograph-location{
+    font-size: 24px;
+    color: #901C1C;
+}
+
+.photograph-tagline{
+    font-size: 18px;
+    color: #525252;
+}
 
 .photograph-img {
     height: 200px;
@@ -57,13 +82,29 @@ img, picture, video, canvas, svg {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 10px 0px 10px;
+    padding: 10px 10px 30px 10px;
+}
+
+.media-like-count{
+    font-weight: 500;
+    font-size: 24px;
+    text-align: right;
+    color: #911C1C;
 }
 
 .media-like-content{
     display: flex;
     flex-direction: row;
 }
+
+.media-like-button{
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    color: #911c1c;
+    cursor: pointer;
+}
+
 
 .media-card-img, .media-card-video {
     width: 35rem;
@@ -80,15 +121,17 @@ h1{
     color: #D3573C;
 }
 
+h2{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+    color: #911C1C;
+    margin: 0px;
+}
+
 .logo {
     height: 50px;
     margin-left: 100px;
-}
-@media screen and (max-width: 768px) {
-    .logo{
-        margin-left: 0px;
-        margin-top: 30px;
-    }
 }
 
 .contact-button {

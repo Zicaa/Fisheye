@@ -278,13 +278,22 @@ footer{
     left: 70%;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 375px;
     height: 89px;
     background: #db8876;
     color: #000000;
     border-radius: 0.5rem;
-    font-weight: 500;
-    font-size: 2.5rem;
+    font-size: 18px;
+}
+
+.footer-favicon{
+    display: flex;
+    align-items: center;
+}
+
+.footer-aside{
+    display: flex;
+    flex-direction: row;
 }

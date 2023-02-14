@@ -46,10 +46,23 @@ img, picture, video, canvas, svg {
 
 .media-section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 35rem);
+    grid-template-columns: repeat(auto-fill, 350px);
     justify-content: space-between;
-    gap: 2em 1em;
     padding: 2em 0;
+}
+
+.media-info-card{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px 0px 10px;
+}
+
+.media-like-content{
+    display: flex;
+    flex-direction: row;
 }
 
 .media-card-img, .media-card-video {
@@ -91,6 +104,13 @@ h1{
     cursor: pointer;
 }
 
+.media-button-card {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 350px;
+}
+
 .select{
     display: flex;
     flex-direction: row;
@@ -119,12 +139,14 @@ h1{
 .media-card {
     display: flex;
     flex-flow: column nowrap;
-    width: 35rem;
+    width: 350px;
 }
 
-.media-img-card{
+.media-img-card, .media-video-card {
     width: 350px;
     height: 300px;
+    object-fit: cover;
+    border-radius: 0.5rem;
 }
 
 .modal {

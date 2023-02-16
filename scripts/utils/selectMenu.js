@@ -1,33 +1,51 @@
-// Je crée les variables qui vont stocker mes éléments
-let i, j, c, selectElmt, selectLength, selectMenu, selectMenuLenght, selectedLink, newOption;
+export async function createSelectMenu(){
+
+  let customSelect;
+
+  {
+    customSelect = document.getElementsByClassName("custom-select");
   
-// Je récupère tous les éléments avec la classe "select"
-selectElmt = document.getElementsByClassName("select");
+    if (customSelect.className === "custom-select") {
+      customSelect.className += "select-selected";
+  
+    } else {
+      customSelect.className = "select-selected";
+    }
+  }
+
+}
+
+/*
+// Je crée les variables qui vont stocker mes éléments
+let i, j, customSelect, customSelectL, selectElmnt, selectElmntL, a, b, c;
+// Je récupère tous les éléments avec la classe "custom-select"
+customSelect = document.getElementsByClassName("custom-select");
 // Je les stocke dans un tableau
-selectLength = selectElmt.length;
+customSelectL = customSelect.length;
+
 // Je crée une boucle qui va servir à générer le menu déroulant
-for (i = 0; i < selectLength; i++) {
-  // Je récupère mon élément sélect et le stocke
-  selectMenu = selectElmt[i].getElementsByTagName("select")[0];
-  selectMenuLenght = selectMenu.length;
-  // Pour chaque élément, je crée une nouvelle div qui agira comme l'élément sélectionné : 
-  selectedLink = document.createElement("div");
-  selectedLink.setAttribute("class", "select-selected");
-  selectedLink.innerHTML = selectMenu.options[selectMenu.selectedIndex].innerHTML;
-  selectElmt[i].appendChild(selectedLink);
-  //  Pour chaque élément, je crée une nouvelle div qui contiendra la liste des options 
-  newOption = document.createElement("div");
-  newOption.setAttribute("class", "select-items select-hide");
-  // Je crée une boucle indexée à 1 pour faire apparaître les nouveaux menus
-  for (j = 0; j < selectMenuLenght; j++) {
-    /* For each option in the original select element,
-    create a new DIV that will act as an option item: */
-    c = document.createElement("DIV");
-    c.innerHTML = selectMenu.options[j].innerHTML;
+for (i = 0; i < customSelectL; i++) {
+  // Je récupère le premier élément sélect de mon tableau et le stocke
+  selectElmnt = customSelect[i].getElementsByTagName("select")[0];
+  selectElmntL = selectElmnt.length;
+  // Pour chaque élément, je crée une nouvelle div et lui applique la classe "select-selected"
+  a = document.createElement("div");
+  a.setAttribute("class", "select-selected");
+  // J'insère mon objet dans le HTML
+  a.innerHTML = selectElmnt.options[selectElmnt.selectedIndex].innerHTML;
+  customSelect[i].appendChild(a);
+  //  Pour chaque élément, je crée une nouvelle div et lui applique la classe "select-items select-hide"
+  b = document.createElement("div");
+  b.setAttribute("class", "select-items select-hide");
+
+  // Je crée une boucle qui va gérer l'attribution des classes
+  for (j = 0; j < selectElmntL; j++) {
+    // Pour chaque option dans l'élément de sélection original, je crée une nouvelle div qui agira comme un élément d'option
+    c = document.createElement("div");
+    c.innerHTML = selectElmnt.options[j].innerHTML;
     c.addEventListener("click", function(e) {
-        /* When an item is clicked, update the original select box,
-        and the selected item: */
-        var y, i, k, s, h, sl, yl;
+        
+        let y, i, k, s, h, sl, yl;
         s = this.parentNode.parentNode.getElementsByTagName("select")[0];
         sl = s.length;
         h = this.parentNode.previousSibling;
@@ -35,7 +53,7 @@ for (i = 0; i < selectLength; i++) {
           if (s.options[i].innerHTML == this.innerHTML) {
             s.selectedIndex = i;
             h.innerHTML = this.innerHTML;
-            y = this.parentNode.getElementsByClassName("same-as-selected");
+            y = this.parentNode.getElementsById("same-as-selected");
             yl = y.length;
             for (k = 0; k < yl; k++) {
               y[k].removeAttribute("class");
@@ -46,12 +64,11 @@ for (i = 0; i < selectLength; i++) {
         }
         h.click();
     });
-    newOption.appendChild(c);
+    b.appendChild(c);
   }
-  selectElmt[i].appendChild(newOption);
-  selectedLink.addEventListener("click", function(e) {
-    /* When the select box is clicked, close any other select boxes,
-    and open/close the current select box: */
+  customSelect[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+    
     e.stopPropagation();
     closeAllSelect(this);
     this.nextSibling.classList.toggle("select-hide");
@@ -60,8 +77,7 @@ for (i = 0; i < selectLength; i++) {
 }
 
 function closeAllSelect(elmnt) {
-  /* A function that will close all select boxes in the document,
-  except the current select box: */
+ 
   var x, y, i, xl, yl, arrNo = [];
   x = document.getElementsByClassName("select-items");
   y = document.getElementsByClassName("select-selected");
@@ -81,7 +97,8 @@ function closeAllSelect(elmnt) {
   }
 }
 
-/* If the user clicks anywhere outside the select box,
-then close all select boxes: */
-document.addEventListener("click", closeAllSelect);
+
+document.addEventListener("click", closeAllSelect);*/
+
+// Nabar qui se déploie/replie en cliquant sur le bouton select
 

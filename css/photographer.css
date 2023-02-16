@@ -327,18 +327,16 @@ footer{
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     cursor: pointer;
-    width: 170px;
   }
   
   /* Style des éléments d'option:*/
   .select-items {
     position: relative;
     background-color: #901C1C;
-    top: 40px;
-    left: -204px;
+    top: 0;
+    left: 0;
     right: 0;
-    z-index: 1;
-    width: 170px;
+    z-index: 99;
   }
   
   /*Cacher les éléments quand le select n'est pas déployé*/

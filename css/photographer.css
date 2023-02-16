@@ -274,9 +274,9 @@ form input {
 footer{
     z-index: 1;
     position: fixed;
-    bottom: -20px;
-    left: 70%;
-    display: flex;
+    bottom: 0px;
+    right: 5%;
+    display: fixed;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;

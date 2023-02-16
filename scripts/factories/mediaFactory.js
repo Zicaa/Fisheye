@@ -16,7 +16,7 @@ export function mediaFactory(data) {
         article.innerHTML =
         // Je crée le bouton ouvrant la lightbox et intègre les images dans les cards
         `<button class="media-button-card" aria-label="Bouton ouvrant la lightbox">
-          <img class="media-img-card" src="assets/images/${photographerId}/${image}" alt="${title}">
+            <img class="media-img-card" src="assets/images/${photographerId}/${image}" alt="${title}">
         </button>
         <section class="media-info-card">
             <h2 class="media-title-card">${title}</h2>

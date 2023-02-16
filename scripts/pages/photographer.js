@@ -83,15 +83,15 @@ function createMediaSection(array) {
 // Fonction qui génère le prix en bas de page
 function createFooter(photographPrice) {
   // Je destructurise l'objet relatif aux photographes pour extraire les prix et les stocker
-  const price = photographPrice;
+  const {price} = photographPrice;
 
   const photographFooter = document.createElement('aside');
   photographFooter.innerHTML =`
     <aside class="footer-aside">
-      <div class="footer-favicon">
-        <i class="fa-solid fa-heart"></i>
-      </div>
-      <p>${price} € / jour</p>
+        <div class="footer-favicon">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <p>${price} € / jour</p>
     </aside>`;
 
   // Add the footer section HTML to the footer element
@@ -111,7 +111,7 @@ async function createPhotographPage() {
   await createMediaSection(photographerMedia);
 
   // Intégration du footer
-  await createFooter();
+  await createFooter(photographerInfo);
 
 }
 

@@ -45,15 +45,100 @@ function createFilterMenu() {
   `<div class ="select">
     <p class ="select-p">Trier par</p>
       <select class="select-button" id="filter-menu" aria-label="Menu de tri">
-        <option class="select-button" value="Popularité">Popularité</option>
-        <option class="select-button" value="Date">Date</option>
-        <option class="select-button" value="Titre">Titre</option>
+        <option value="0">Popularité</option>
+        <option value="1">Date</option>
+        <option value="2">Titre</option>
       </select>
   </div>`;
 
   // J'injecte le menu de sélection dans ma balise main
   const main = document.getElementById("main");
   main.appendChild(selectDiv);
+
+  // Je crée les variables qui vont stocker mes éléments
+  let i, j, selectElmt, selectLength, selectMenu, selectMenuLenght, selectedLink, newOption, newOptionChoice;
+  
+  // Je récupère tous les éléments avec la classe "select"
+  selectElmt = document.getElementsByClassName("select");
+  // Je les stocke dans un tableau
+  selectLength = selectElmt.length;
+  // Je crée une boucle qui va servir à générer le menu déroulant
+  for (i = 0; i < selectLength; i++) {
+    // Je récupère mon élément sélect et le stocke
+    selectMenu = selectElmt[i].getElementsByTagName("select")[0];
+    selectMenuLenght = selectMenu.length;
+    // Pour chaque élément, je crée une nouvelle div qui agira comme l'élément sélectionné : 
+    selectedLink = document.createElement("div");
+    selectedLink.setAttribute("class", "select-selected");
+    selectedLink.innerHTML = selectMenu.options[selectMenu.selectedIndex].innerHTML;
+    selectElmt[i].appendChild(selectedLink);
+    //  Pour chaque élément, je crée une nouvelle div qui contiendra la liste des options 
+    newOption = document.createElement("div");
+    newOption.setAttribute("class", "select-items select-hide");
+    // Je crée une boucle indexée à 0 pour faire apparaître les nouveaux menus
+    for (j = 0; j < selectMenuLenght; j++) {
+      // Pour chaque option dans l'élément de sélection original, je crée une nouvelle div qui agira comme un élément d'option : 
+      newOptionChoice = document.createElement("div");
+      newOptionChoice.innerHTML = selectMenu.options[j].innerHTML;
+      newOptionChoice.addEventListener("click", function(e) {
+
+          // Lorsqu'un élément est cliqué, mettre à jour la boîte de sélection originale et l'élément sélectionné 
+          let i, k, newOptionParentElmt, newOptionParentElmtLenght, previousParentElmnt, parentNode, parentNodeLenght;
+
+          newOptionParentElmt = this.parentNode.parentNode.getElementsByTagName("select")[0];
+          newOptionParentElmtLenght = newOptionParentElmt.length;
+          previousParentElmnt = this.parentNode.previousSibling;
+          for (i = 0; i < newOptionParentElmtLenght; i++) {
+            if (newOptionParentElmt.options[i].innerHTML == this.innerHTML) {
+              newOptionParentElmt.selectedIndex = i;
+              previousParentElmnt.innerHTML = this.innerHTML;
+              parentNode = this.parentNode.getElementsByClassName("same-as-selected");
+              parentNodeLenght = parentNode.length;
+              for (k = 0; k < parentNodeLenght; k++) {
+                this.parentNode[k].removeAttribute("class");
+              }
+              this.setAttribute("class", "same-as-selected");
+              break;
+            }
+          }
+          this.parentNode.click();
+      });
+      newOption.appendChild(newOptionChoice);
+    }
+    selectElmt[i].appendChild(newOption);
+    selectedLink.addEventListener("click", function(e) {
+      //Lorsque la boîte de sélection est cliquée, je ferme toutes les boîtes de sélection, j'ouvre la boîte de sélection actuelle :
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+  }
+
+  function closeAllSelect(elmnt) {
+    // Fonction qui ferme toutes les boîtes de sélection dans le document, sauf la boîte de sélection actuelle :
+    let x, y, i, xl, yl, arrNo = [];
+    x = document.getElementsByClassName("select-items");
+    y = document.getElementsByClassName("select-selected");
+    xl = x.length;
+    yl = y.length;
+    for (i = 0; i < yl; i++) {
+      if (elmnt == y[i]) {
+        arrNo.push(i)
+      } else {
+        y[i].classList.remove("select-arrow-active");
+      }
+    }
+    for (i = 0; i < xl; i++) {
+      if (arrNo.indexOf(i)) {
+        x[i].classList.add("select-hide");
+      }
+    }
+  }
+
+  // Si l'utilisateur clique n'importe où en dehors de la boîte de sélection on ferme toutes les boîtes de sélection
+  document.addEventListener("click", closeAllSelect);
+
 }
 
 // Fonction qui génère la galerie de médias

@@ -45,7 +45,7 @@ function createFilterMenu() {
   selectDiv.innerHTML =
   `
   <div class="custom-select" style="width:170px;">
-    <select>
+    <select class="select-selected">
       <option value="0" id="select-first">Popularité</option>
       <option value="1">Date</option>
       <option value="2">Titre</option>

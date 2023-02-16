@@ -1,8 +1,10 @@
 export async function createSelectMenu(){
 
+  /*
+  // Nabar qui se déploie/replie en cliquant sur le bouton select
   let customSelect;
 
-  {
+  
     customSelect = document.getElementsByClassName("custom-select");
   
     if (customSelect.className === "custom-select") {
@@ -11,11 +13,10 @@ export async function createSelectMenu(){
     } else {
       customSelect.className = "select-selected";
     }
-  }
 
 }
+*/
 
-/*
 // Je crée les variables qui vont stocker mes éléments
 let i, j, customSelect, customSelectL, selectElmnt, selectElmntL, a, b, c;
 // Je récupère tous les éléments avec la classe "custom-select"
@@ -98,7 +99,7 @@ function closeAllSelect(elmnt) {
 }
 
 
-document.addEventListener("click", closeAllSelect);*/
+document.addEventListener("click", closeAllSelect);
 
-// Nabar qui se déploie/replie en cliquant sur le bouton select
+}
 

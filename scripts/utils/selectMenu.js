@@ -17,6 +17,7 @@ export async function createSelectMenu(){
 }
 */
 
+
 // Je crée les variables qui vont stocker mes éléments
 let i, j, customSelect, customSelectL, selectElmnt, selectElmntL, a, b, c;
 // Je récupère tous les éléments avec la classe "custom-select"
@@ -42,7 +43,7 @@ for (i = 0; i < customSelectL; i++) {
   b.setAttribute("class", "select-items select-hide");
 
   // Je crée une boucle qui va gérer l'attribution des classes
-  for (j = 0; j < selectElmntL; j++) {
+  for (j = 1; j < selectElmntL; j++) {
     // Pour chaque option dans l'élément de sélection original, je crée une nouvelle div qui agira comme un élément d'option
     c = document.createElement("div");
     // J'intègre dans mon HTML la première option indexée
@@ -59,7 +60,7 @@ for (i = 0; i < customSelectL; i++) {
         // Je vais chercher mon noeud parent immédiat grâce à previousSibling
         previousParent = this.parentNode.previousSibling;
 
-        for (i = 0; i < parentNodeL; i++) {
+        for (i = 1; i < parentNodeL; i++) {
           if (parentNode.options[i].innerHTML == this.innerHTML) {
             parentNode.selectedIndex = i;
             previousParent.innerHTML = this.innerHTML;
@@ -85,6 +86,19 @@ for (i = 0; i < customSelectL; i++) {
     this.classList.toggle("select-arrow-active");
   });
 }
+
+function modifySelect() {
+
+  let customSelect = document.getElementsByClassName("custom-select");
+  let selectClass = document.getElementsByClassName("select-class");
+  
+  if (customSelect === selectClass) {
+    customSelect.innerHTML +="Popularité";
+  } else {
+    customSelect.innerHTML +="Popularité";
+  }
+}
+document.addEventListener("click", modifySelect);
 
 function closeAllSelect(elmnt) {
  

@@ -43,8 +43,7 @@ function createFilterMenu() {
   // Je crée le menu de tri
   const selectDiv = document.createElement('div');
   selectDiv.innerHTML =
-  `
-  <div class="custom-select" style="width:170px;">
+  `<div class="custom-select" style="width:170px;">
     <select class="select-selected">
       <option value="0">Popularité</option>
       <option value="1">Date</option>

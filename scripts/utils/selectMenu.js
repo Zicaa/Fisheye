@@ -59,12 +59,22 @@ for (i = 0; i < customSelectL; i++) {
         parentNodeL = parentNode.length;
         // Je vais chercher mon noeud parent immédiat grâce à previousSibling
         previousParent = this.parentNode.previousSibling;
+        // selectClass = document.getElementsByClassName("select-selected");
+        //selectClass.innerHTML +="Popularité";
+
+        function modifySelect(selectClass) {
+          
+          if (selectClass) {
+            selectClass.innerHTML +="Popularité";
+        }
+      }
+        document.addEventListener("click", modifySelect);
 
         for (i = 1; i < parentNodeL; i++) {
           if (parentNode.options[i].innerHTML == this.innerHTML) {
             parentNode.selectedIndex = i;
             previousParent.innerHTML = this.innerHTML;
-            y = this.parentNode.getElementsById("same-as-selected");
+            y = this.parentNode.getElementsByClassName("same-as-selected");
             yl = y.length;
             for (k = 0; k < yl; k++) {
               y[k].removeAttribute("class");
@@ -73,7 +83,7 @@ for (i = 0; i < customSelectL; i++) {
             break;
           }
         }
-        h.click();
+        parentNode.click();
     });
     b.appendChild(c);
   }
@@ -86,19 +96,6 @@ for (i = 0; i < customSelectL; i++) {
     this.classList.toggle("select-arrow-active");
   });
 }
-
-function modifySelect() {
-
-  let customSelect = document.getElementsByClassName("custom-select");
-  let selectClass = document.getElementsByClassName("select-class");
-  
-  if (customSelect === selectClass) {
-    customSelect.innerHTML +="Popularité";
-  } else {
-    customSelect.innerHTML +="Popularité";
-  }
-}
-document.addEventListener("click", modifySelect);
 
 function closeAllSelect(elmnt) {
  

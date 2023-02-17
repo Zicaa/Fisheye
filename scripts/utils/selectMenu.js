@@ -59,16 +59,8 @@ for (i = 0; i < customSelectL; i++) {
         parentNodeL = parentNode.length;
         // Je vais chercher mon noeud parent immédiat grâce à previousSibling
         previousParent = this.parentNode.previousSibling;
-        // selectClass = document.getElementsByClassName("select-selected");
+        //selectClass = document.getElementsByClassName("select-selected");
         //selectClass.innerHTML +="Popularité";
-
-        function modifySelect(selectClass) {
-          
-          if (selectClass) {
-            selectClass.innerHTML +="Popularité";
-        }
-      }
-        document.addEventListener("click", modifySelect);
 
         for (i = 1; i < parentNodeL; i++) {
           if (parentNode.options[i].innerHTML == this.innerHTML) {
@@ -97,29 +89,40 @@ for (i = 0; i < customSelectL; i++) {
   });
 }
 
-function closeAllSelect(elmnt) {
+  function closeAllSelect(elmnt) {
+  
+    var x, y, i, xl, yl, arrNo = [];
+    x = document.getElementsByClassName("select-items");
+    y = document.getElementsByClassName("select-selected");
+    xl = x.length;
+    yl = y.length;
+    for (i = 0; i < yl; i++) {
+      if (elmnt == y[i]) {
+        arrNo.push(i)
+      } else {
+        y[i].classList.remove("select-arrow-active");
+      }
+    }
+    for (i = 0; i < xl; i++) {
+      if (arrNo.indexOf(i)) {
+        x[i].classList.add("select-hide");
+      }
+    }
+  }
+
+  document.addEventListener("click", closeAllSelect);
+  //document.addEventListener("click", createSelectMenu);
+
  
-  var x, y, i, xl, yl, arrNo = [];
-  x = document.getElementsByClassName("select-items");
-  y = document.getElementsByClassName("select-selected");
-  xl = x.length;
-  yl = y.length;
-  for (i = 0; i < yl; i++) {
-    if (elmnt == y[i]) {
-      arrNo.push(i)
-    } else {
-      y[i].classList.remove("select-arrow-active");
+  function modifySelect(selectClass) {
+
+   selectClass = document.getElementsByClassName("select-selected");
+            
+      if (selectElmnt === selectClass) {
+        selectClass[0].innerHTML +="Popularité";
     }
   }
-  for (i = 0; i < xl; i++) {
-    if (arrNo.indexOf(i)) {
-      x[i].classList.add("select-hide");
-    }
-  }
-}
-
-
-document.addEventListener("click", closeAllSelect);
+  customSelect[0].addEventListener("click", modifySelect);
 
 }
 

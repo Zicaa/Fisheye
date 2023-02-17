@@ -29,13 +29,15 @@ for (i = 0; i < customSelectL; i++) {
   // Je récupère le premier élément sélect de mon tableau et le stocke
   selectElmnt = customSelect[i].getElementsByTagName("select")[0];
   selectElmntL = selectElmnt.length;
-  // Pour chaque élément, je crée une nouvelle div et lui applique la classe "select-selected"
+  // Pour chaque élément, je crée une nouvelle div et lui applique la classe "select-selected", 
+  // qui indiquera que mon élmnt est sélectionné
   a = document.createElement("div");
   a.setAttribute("class", "select-selected");
   // J'insère mon objet dans le HTML
   a.innerHTML = selectElmnt.options[selectElmnt.selectedIndex].innerHTML;
   customSelect[i].appendChild(a);
-  //  Pour chaque élément, je crée une nouvelle div et lui applique la classe "select-items select-hide"
+  // Pour chaque élément, je crée une nouvelle div et lui applique la classe "select-items select-hide"
+  // qui masquera mes éléments non sélectionnés
   b = document.createElement("div");
   b.setAttribute("class", "select-items select-hide");
 
@@ -43,17 +45,24 @@ for (i = 0; i < customSelectL; i++) {
   for (j = 0; j < selectElmntL; j++) {
     // Pour chaque option dans l'élément de sélection original, je crée une nouvelle div qui agira comme un élément d'option
     c = document.createElement("div");
+    // J'intègre dans mon HTML la première option indexée
     c.innerHTML = selectElmnt.options[j].innerHTML;
+    // Au clic sur l'option, je déclenche une fonction 
     c.addEventListener("click", function(e) {
         
-        let y, i, k, s, h, sl, yl;
-        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-        sl = s.length;
-        h = this.parentNode.previousSibling;
-        for (i = 0; i < sl; i++) {
-          if (s.options[i].innerHTML == this.innerHTML) {
-            s.selectedIndex = i;
-            h.innerHTML = this.innerHTML;
+      // Je crée les variables qui vont stocker mes éléments
+        let y, i, k, parentNode, parentNodeL, previousParent, yl;
+        // Je vais chercher mon premier élément parent qui est le sélect et le stocke
+        parentNode = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        // Je génère un tableau de tous mes noeuds d'éléments parents 
+        parentNodeL = parentNode.length;
+        // Je vais chercher mon noeud parent immédiat grâce à previousSibling
+        previousParent = this.parentNode.previousSibling;
+
+        for (i = 0; i < parentNodeL; i++) {
+          if (parentNode.options[i].innerHTML == this.innerHTML) {
+            parentNode.selectedIndex = i;
+            previousParent.innerHTML = this.innerHTML;
             y = this.parentNode.getElementsById("same-as-selected");
             yl = y.length;
             for (k = 0; k < yl; k++) {

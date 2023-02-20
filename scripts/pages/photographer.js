@@ -46,7 +46,7 @@ function createFilterMenu() {
   selectDiv.style="width:170px";
 
   selectDiv.innerHTML =
-  ` <select class="select-selected" id="select-menu>
+  ` <select class="select-selected" id="select-menu">
       <option value="Popularité">Popularité</option>
       <option value="Date">Date</option>
       <option value="Titre">Titre</option>
@@ -89,10 +89,10 @@ async function sortMediaSection() {
       return 0;
     });
   }
-  
+  const selectMenu = document.getElementById("select-menu");
+  selectMenu.addEventListener("change", sortMediaSection);
 }
-const selectMenu = document.getElementById("select-menu");
-selectMenu.addEventListener("change", sortMediaSection);
+
 
 // Fonction qui génère la galerie de médias
 function createMediaSection(array) {
@@ -144,7 +144,6 @@ async function createPhotographPage() {
 
   // Intégration du menu de sélection
   await createFilterMenu();
-  await createSelectMenu();
   await sortMediaSection();
 
   // Intégration de la section de médias

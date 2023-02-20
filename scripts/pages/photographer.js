@@ -10,6 +10,9 @@ const photographerInfo = await getPhotographer();
 // Je récupère les médias des photographes
 const photographerMedia = await getMedia();
 
+// J'initialise une variable qui contiendra l'id du média actuel
+let currentLightboxMediaId = 0;
+
 // Fonction qui génère le header de chaque photographe
 function createPhotographHeader(photographerElement) {
 
@@ -42,14 +45,17 @@ function createFilterMenu() {
 
   // Je crée le menu de tri
   const selectDiv = document.createElement('div');
+
+  // J'ajoute une classe à mon élément
+  selectDiv.classList="custom-select";
+  selectDiv.style="width:170px";
+
   selectDiv.innerHTML =
-  `<div class="custom-select" style="width:170px;">
-    <select class="select-selected">
-      <option value="0">Popularité</option>
-      <option value="1">Date</option>
-      <option value="2">Titre</option>
-    </select>
-  </div>`;
+  ` <select class="select-selected">
+      <option value="Popularité">Popularité</option>
+      <option value="Date">Date</option>
+      <option value="Titre">Titre</option>
+    </select>`;
 
   // J'injecte le menu de sélection dans ma balise main
   const main = document.getElementById("main");
@@ -108,6 +114,7 @@ async function createPhotographPage() {
   // Intégration du menu de sélection
   await createFilterMenu();
   await createSelectMenu();
+  // await sortMediaSection();
 
   // Intégration de la section de médias
   await createMediaSection(photographerMedia);

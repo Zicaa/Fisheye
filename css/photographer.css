@@ -302,7 +302,21 @@ footer{
     background-color: #901C1C;
   }
   
-  /* Style de la flèche à l'intérieur de l'élément de sélection : */
+  /* The container must be positioned relative: */
+.custom-select {
+    position: relative;
+    font-family: Arial;
+  }
+  
+  .custom-select select {
+    display: none; /*hide original SELECT element: */
+  }
+  
+  .select-selected {
+    background-color: #901c1c;
+  }
+  
+  /* Style the arrow inside the select element: */
   .select-selected:after {
     position: absolute;
     content: "";
@@ -314,13 +328,13 @@ footer{
     border-color: #fff transparent transparent transparent;
   }
   
-  /* Flèche vers le haut lorsque la boîte de sélection est active : */
-  .select-arrow-active::before {
+  /* Point the arrow upwards when the select box is open (active): */
+  .select-selected.select-arrow-active:after {
     border-color: transparent transparent #fff transparent;
     top: 7px;
   }
   
-  /* Style des éléments d'options, y compris l'élément sélectionné  */
+  /* style the items (options), including the selected item: */
   .select-items div,.select-selected {
     color: #ffffff;
     padding: 8px 16px;
@@ -329,17 +343,17 @@ footer{
     cursor: pointer;
   }
   
-  /* Style des éléments d'option:*/
+  /* Style items (options): */
   .select-items {
-    position: relative;
-    background-color: #901C1C;
-    top: 0;
+    position: absolute;
+    background-color: #901c1c;
+    top: 100%;
     left: 0;
     right: 0;
     z-index: 99;
   }
   
-  /*Cacher les éléments quand le select n'est pas déployé*/
+  /* Hide the items when the select box is closed: */
   .select-hide {
     display: none;
   }

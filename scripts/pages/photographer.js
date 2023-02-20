@@ -1,8 +1,6 @@
 import { mediaFactory } from "../factories/mediaFactory.js";
 import { getPhotographer } from "../utils/getJsonData.js";
 import { getMedia } from "../utils/getJsonData.js";
-import { createSelectMenu } from "../utils/selectMenu.js";
-
 
 // Je récupère les données des photographes
 const photographerInfo = await getPhotographer();
@@ -62,24 +60,24 @@ function createFilterMenu() {
 
 // Fonction qui effectue le tri
 async function sortMediaSection() {
-  // Retrieve the selected option value
+  // Je récupère la valeur de l'option sélectionnée
   const selectedOption = this.value;
 
-  // Sort the photographerMedia array using the likes key if the selected option is "Popularité"
+  // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Popularité".
   if (selectedOption == "Popularité") {
     await photographerMedia.sort((a, b) => {
       return b.likes - a.likes;
     });
   }
 
-  // Sort the photographerMedia array using the date key if the selected option is "Date"
+  // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Date".
   if (selectedOption == "Date") {
     await photographerMedia.sort((a, b) => {
       return new Date(a.date) - new Date(b.date);
     });
   }
 
-  // Sort the photographerMedia array using the title key if the selected option is "Titre"
+  // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Titre".
   if (selectedOption == "Titre") {
     await photographerMedia.sort((a, b) => {
       if (a.title < b.title) {
@@ -91,9 +89,10 @@ async function sortMediaSection() {
       return 0;
     });
   }
-  const selectMenu = document.getElementById("select-menu");
-  selectMenu.addEventListener("change", sortMediaSection);
+  
 }
+const selectMenu = document.getElementById("select-menu");
+selectMenu.addEventListener("change", sortMediaSection);
 
 // Fonction qui génère la galerie de médias
 function createMediaSection(array) {

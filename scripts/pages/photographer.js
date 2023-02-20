@@ -10,9 +10,6 @@ const photographerInfo = await getPhotographer();
 // Je récupère les médias des photographes
 const photographerMedia = await getMedia();
 
-// J'initialise une variable qui contiendra l'id du média actuel
-let currentLightboxMediaId = 0;
-
 // Fonction qui génère le header de chaque photographe
 function createPhotographHeader(photographerElement) {
 
@@ -51,7 +48,7 @@ function createFilterMenu() {
   selectDiv.style="width:170px";
 
   selectDiv.innerHTML =
-  ` <select class="select-selected">
+  ` <select class="select-selected" id="select-menu>
       <option value="Popularité">Popularité</option>
       <option value="Date">Date</option>
       <option value="Titre">Titre</option>
@@ -61,6 +58,41 @@ function createFilterMenu() {
   const main = document.getElementById("main");
   main.appendChild(selectDiv);
 
+}
+
+// Fonction qui effectue le tri
+async function sortMediaSection() {
+  // Retrieve the selected option value
+  const selectedOption = this.value;
+
+  // Sort the photographerMedia array using the likes key if the selected option is "Popularité"
+  if (selectedOption == "Popularité") {
+    await photographerMedia.sort((a, b) => {
+      return b.likes - a.likes;
+    });
+  }
+
+  // Sort the photographerMedia array using the date key if the selected option is "Date"
+  if (selectedOption == "Date") {
+    await photographerMedia.sort((a, b) => {
+      return new Date(a.date) - new Date(b.date);
+    });
+  }
+
+  // Sort the photographerMedia array using the title key if the selected option is "Titre"
+  if (selectedOption == "Titre") {
+    await photographerMedia.sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  const selectMenu = document.getElementById("select-menu");
+  selectMenu.addEventListener("change", sortMediaSection);
 }
 
 // Fonction qui génère la galerie de médias
@@ -114,7 +146,7 @@ async function createPhotographPage() {
   // Intégration du menu de sélection
   await createFilterMenu();
   await createSelectMenu();
-  // await sortMediaSection();
+  await sortMediaSection();
 
   // Intégration de la section de médias
   await createMediaSection(photographerMedia);

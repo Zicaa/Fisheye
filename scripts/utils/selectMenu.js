@@ -87,40 +87,6 @@ for (i = 0; i < customSelectL; i++) {
   });
 }
 
-// Je crée le tri grâce à la méthode sort
-async function sortMediaSection() {
-  // Retrieve the selected option value
-  const selectedOption = this.value;
-
-  // Sort the photographerMedia array using the likes key if the selected option is "Popularité"
-  if (selectedOption == "Popularité") {
-    await photographerMedia.sort((a, b) => {
-      return b.likes - a.likes;
-    });
-  }
-
-  // Sort the photographerMedia array using the date key if the selected option is "Date"
-  if (selectedOption == "Date") {
-    await photographerMedia.sort((a, b) => {
-      return new Date(a.date) - new Date(b.date);
-    });
-  }
-
-  // Sort the photographerMedia array using the title key if the selected option is "Titre"
-  if (selectedOption == "Titre") {
-    await photographerMedia.sort((a, b) => {
-      if (a.title < b.title) {
-        return -1;
-      }
-      if (a.title > b.title) {
-        return 1;
-      }
-      return 0;
-    });
-  }
-
-}sortMediaSection();
-
   function closeAllSelect(elmnt) {
   
     var x, y, i, xl, yl, arrNo = [];

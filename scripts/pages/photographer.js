@@ -37,24 +37,19 @@ function createPhotographHeader(photographerElement) {
 
 // Fonction qui génère le menu de tri
 function createFilterMenu() {
-  // Je crée le menu de tri
-  const selectDiv = document.createElement('div');
+    // Je crée le menu de tri
+    const selectDiv = document.createElement('div');
 
-  // J'ajoute une classe à mon élément
-  selectDiv.classList="custom-select";
-  selectDiv.style="width:170px";
-
-  selectDiv.innerHTML =
-  ` <div class="wrapper">
-    <div class="select-selected" id="select-menu">
-    <input type="text" placeholder="Popularité" readonly />
-    <ul class="options">
-      <li class="option" value="Popularité">Popularité</li>
-      <li class="option" value="Date">Date</li>
-      <li class="option" value="Titre">Titre</li>
-    </ul>
-  </div>
-</div>`;
+    // J'ajoute une classe à mon élément
+    selectDiv.classList="custom-select";
+    selectDiv.style="width:170px";
+  
+    selectDiv.innerHTML =
+    ` <select class="select-selected" id="select-menu">
+        <option value="Popularité">Popularité</option>
+        <option value="Date">Date</option>
+        <option value="Titre">Titre</option>
+      </select>`
 
   // J'injecte le menu de sélection dans ma balise main
   const main = document.getElementById("main");
@@ -64,7 +59,7 @@ function createFilterMenu() {
 
 }
 
-function createSelectMenu(){  
+/*function createSelectMenu(){  
  // Variables
 const selectMenu = document.getElementById("select-menu");
 const listOfOptions = document.querySelectorAll(".option");
@@ -96,7 +91,7 @@ listOfOptions.forEach((option) => {
 
 selectMenu.addEventListener('click', toggleDropdown);
 selectMenu.addEventListener("change", sortMediaSection);
-}
+}*/
 
 
 // Fonction qui génère la galerie de médias
@@ -245,6 +240,7 @@ function sortMediaSection() {
 
 }
 
+// Fonction qui rappelle tous les addEventlisteners nécessaires à l'exécution des animations
 function addEventListeners() {
 
   // J'ajoute un écouteur d'évènement sur chaque bouton de like pour déclencher la fonction countLike
@@ -261,7 +257,6 @@ async function createPhotographMedia() {
 
   // Je crée mon menu de tri
   await createFilterMenu();
-  await createSelectMenu();
 
   // Je crée mes médias 
   await createMediaSection(photographerMedia);

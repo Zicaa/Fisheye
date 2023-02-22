@@ -17,6 +17,30 @@
     <footer id="footer"></footer>
 
     <!-- Modale de contact -->
+
+    <!-- Modale de la lightbox -->
+    <dialog class="lightbox" id="lightboxModal" aria-hidden="true">
+      <!-- Container de la lightbox -->
+      <div class="lightbox-container">
+        <!-- Container de la section précédente de la lightbox -->
+        <div class="lightbox-previous">
+          <button class="lightbox-previous-btn" aria-label="Bouton précédent de la lightbox" id="lightboxPreviousBtn">
+            <em class="fa-solid fa-chevron-left"></em>
+          </button>
+        </div>
+      <!-- Container de la section centrale de la lightbox contenant les médias -->
+      <figure class="lightbox-center lightbox-media" id="lightboxMedia"></figure>
+        <!-- Container de la section suivante de la lightbox -->
+        <div class="lightbox-next">
+          <button class="lightbox-close" aria-label="Bouton de fermeture de la lightbox" id="lightboxCloseBtn">
+            <img class="lightbox-close-img" src="assets/icons/close-red.svg" alt="Red close button icon">
+          </button>
+          <button class="lightbox-next-btn" aria-label="Bouton suivant de la lightbox" id="lightboxNextBtn">
+            <em class="fa-solid fa-chevron-right"></em>
+          </button>
+        </div>
+      </div>
+    </dialog>
     <script src="data/photographers.js"></script>
     <script src="data/media.js"></script>
     <script src="scripts/factories/mediaFactory.js"></script>

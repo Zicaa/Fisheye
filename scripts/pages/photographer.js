@@ -42,27 +42,21 @@ function createFilterMenu() {
 
     // J'ajoute une classe à mon élément
     selectDiv.classList="custom-select";
-    selectDiv.style="width:170px";
   
     selectDiv.innerHTML =
-    ` <select class="select-selected" id="select-menu">
-        <option value="Popularité">Popularité</option>
-        <option value="Date">Date</option>
-        <option value="Titre">Titre</option>
-      </select>
-      <div class="topnav" id="select-menu2">
-      <button class="select-selected" id="Popularité" onclick="editNav()">Popularité</button>
-      <div class="main-navbar">
-        <li id="Date">Date</li>
-        <li id="Titre">Titre</li>
-      </div>
+    ` <div class="topnav" id="select-menu2">
+        <button class="select-selected" value="Popularité" onclick="editNav()">Popularité</button>
+        <div class="main-navbar">
+          <li value="Date">Date</li>
+          <li value="Titre">Titre</li>
+        </div>
     </div>`
 
   // J'injecte le menu de sélection dans ma balise main
   const main = document.getElementById("main");
   main.appendChild(selectDiv);
-  const selectMenu = document.getElementById("select-menu");
-  selectMenu.addEventListener("change", sortMediaSection);
+  const selectMenu = document.getElementById("select-menu2");
+  selectMenu.addEventListener("click", sortMediaSection);
 
 }
 
@@ -77,7 +71,7 @@ function editNav(){
     navbar.className = "topnav";
   }
 
-  navbar.addEventListener("click", sortMediaSection2);
+  navbar.addEventListener("click", sortMediaSection);
   
 }
 
@@ -209,17 +203,16 @@ function countLikes() {
 }
 
 // Fonction qui effectue le tri
-function sortMediaSection() {
+async function sortMediaSection() {
   // Je récupère la valeur de l'option sélectionnée
   const selectedOption = this.value;
   console.log({selectedOption});
-  // Je crée un tableau qui contient mes médias
-  let newOrder = [];
+  
 
   // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Popularité".
   if (selectedOption == "Popularité") {
     // Je parcours mon tableau de médias, j'utilise la méthode sort pour effectuer le tri et lui passe les variables a, b en paramètre
-    newOrder = photographerMedia.sort((a, b) => {
+    await photographerMedia.sort((a, b) => {
       // Je retourne le nombre de likes pour ma variable b, - le nombre de likes de ma variable a 
       return b.likes - a.likes;
     });
@@ -227,14 +220,14 @@ function sortMediaSection() {
 
   // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Date".
   if (selectedOption == "Date") {
-    newOrder = photographerMedia.sort((a, b) => {
+    await photographerMedia.sort((a, b) => {
       return new Date(a.date) - new Date(b.date);
     });
   }
 
   // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Titre".
   if (selectedOption == "Titre") {
-    newOrder = photographerMedia.sort((a, b) => {
+    await photographerMedia.sort((a, b) => {
       if (a.title < b.title) {
         return -1;
       }
@@ -244,14 +237,6 @@ function sortMediaSection() {
       return 0;
     });
   }
-
-    // Je récupère ma section de médias et la stocke dans une constante
-    const mediaSection = document.getElementsByClassName("media-section");
-    // Je supprime ma section de médias
-    mediaSection[0].remove();
-
-  // Je fais apparaître ma nouvelle section de médias avec le tri effectué
-  createMediaSection(newOrder);
 
   // J'ajoute un écouteur d'évènement sur chaque bouton de like pour déclencher la fonction countLike après le tri effectué
   const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");

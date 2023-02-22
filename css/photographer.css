@@ -315,6 +315,7 @@ form input {
   .select-selected {
     background-color: #901c1c;
     font-size: 20px;
+    width: 170px;
   }
   
   /* Style the arrow inside the select element: */
@@ -342,6 +343,11 @@ form input {
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     cursor: pointer;
+    font-family: 'DM Sans';
+    padding: 12px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 18px;
   }
   
   /* Style items (options): */
@@ -448,6 +454,7 @@ form input {
 .topnav {
   overflow: hidden;
   margin: 3.5%;
+  width: 170px;
 }
 
 .topnav li {
@@ -486,6 +493,7 @@ form input {
 
 .topnav.responsive {
   position: relative;
+  width: 170px;
 }
   
 .topnav.responsive li {

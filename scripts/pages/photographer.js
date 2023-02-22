@@ -50,11 +50,11 @@ function createFilterMenu() {
         <option value="Date">Date</option>
         <option value="Titre">Titre</option>
       </select>
-      <div class="topnav" id="myTopnav">
-      <button class="select-selected" onclick="editNav()">Popularité</button>
+      <div class="topnav" id="select-menu2">
+      <button class="select-selected" id="Popularité" onclick="editNav()">Popularité</button>
       <div class="main-navbar">
-        <li>Date</li>
-        <li>Titre</li>
+        <li id="Date">Date</li>
+        <li id="Titre">Titre</li>
       </div>
     </div>`
 
@@ -68,7 +68,7 @@ function createFilterMenu() {
 
 function editNav(){  
  // Variables
-  let navbar = document.getElementById("myTopnav");
+  let navbar = document.getElementById("select-menu2");
 
   if (navbar.className === "topnav") {
     navbar.className += " responsive";
@@ -76,7 +76,35 @@ function editNav(){
   } else {
     navbar.className = "topnav";
   }
+
+  navbar.addEventListener("click", sortMediaSection2);
+  
 }
+
+/*function closeOption(){
+  let optionPopularity = document.getElementById("Populaire");
+  let optionDate = document.getElementById("Date");
+  let optionTitre = document.getElementById("Titre");
+
+  if (optionPopularity.className === "topnav responsive") {
+    optionDate.className += "select-hide";
+    optionTitre.className += "select-hide";
+
+  } if (optionDate.className === "topnav responsive") {
+    optionPopularity.className += "select-hide";
+    optionTitre.className += "select-hide";
+
+  }
+  if (optionTitre.className === "topnav responsive") {
+    optionDate.className += "select-hide";
+    optionPopularity.className += "select-hide";
+
+  }
+  optionPopularity.addEventListener("click", closeOption);
+  optionDate.addEventListener("click", closeOption);
+  optionTitre.addEventListener("click", closeOption);
+}*/
+
 
 
 // Fonction qui génère la galerie de médias
@@ -206,6 +234,65 @@ function sortMediaSection() {
 
   // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Titre".
   if (selectedOption == "Titre") {
+    newOrder = photographerMedia.sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+
+    // Je récupère ma section de médias et la stocke dans une constante
+    const mediaSection = document.getElementsByClassName("media-section");
+    // Je supprime ma section de médias
+    mediaSection[0].remove();
+
+  // Je fais apparaître ma nouvelle section de médias avec le tri effectué
+  createMediaSection(newOrder);
+
+  // J'ajoute un écouteur d'évènement sur chaque bouton de like pour déclencher la fonction countLike après le tri effectué
+  const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");
+  mediaCardLikeButtons.forEach((button) => {
+  button.addEventListener("click", countLikes);
+  });
+
+}
+
+
+// Fonction qui effectue le tri
+function sortMediaSection2() {
+  // Je récupère la valeur de l'option sélectionnée
+  const optionPopularity = document.getElementById("Popularité");
+  const optionDate = document.getElementById("Date");
+  const optionTitre = document.getElementById("Titre");
+
+  console.log({optionPopularity});
+  console.log({optionDate});
+  console.log({optionTitre});
+  // Je crée un tableau qui contient mes médias
+  let newOrder = [];
+
+  // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Popularité".
+  if (optionPopularity == "Popularité") {
+    // Je parcours mon tableau de médias, j'utilise la méthode sort pour effectuer le tri et lui passe les variables a, b en paramètre
+    newOrder = photographerMedia.sort((a, b) => {
+      // Je retourne le nombre de likes pour ma variable b, - le nombre de likes de ma variable a 
+      return b.likes - a.likes;
+    });
+  }
+
+  // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Date".
+  if (optionDate == "Date") {
+    newOrder = photographerMedia.sort((a, b) => {
+      return new Date(a.date) - new Date(b.date);
+    });
+  }
+
+  // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Titre".
+  if (optionTitre == "Titre") {
     newOrder = photographerMedia.sort((a, b) => {
       if (a.title < b.title) {
         return -1;

@@ -1,17 +1,4 @@
 function createSelectMenu(){  
-  // Navbar qui se déploie/replie en cliquant sur le bouton select
-  let customSelect;
-  
-    customSelect = document.getElementsByClassName("custom-select");
-  
-    if (customSelect.className === "custom-select") {
-      customSelect.className += "select-selected";
-  
-    } else {
-      customSelect.className = "select-selected";
-    }
-}
-
 
 // Je crée les variables qui vont stocker mes éléments
 let i, j, customSelect, customSelectL, selectElmnt, selectElmntL, a, b, c;
@@ -116,4 +103,5 @@ for (i = 0; i < customSelectL; i++) {
         selectClass[0].innerHTML +="Popularité";
     }
   }
+}
   customSelect[0].addEventListener("click", modifySelect);

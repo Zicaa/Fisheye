@@ -49,7 +49,14 @@ function createFilterMenu() {
         <option value="Popularité">Popularité</option>
         <option value="Date">Date</option>
         <option value="Titre">Titre</option>
-      </select>`
+      </select>
+      <div class="topnav" id="myTopnav">
+      <button class="select-selected" onclick="editNav()">Popularité</button>
+      <div class="main-navbar">
+        <li>Date</li>
+        <li>Titre</li>
+      </div>
+    </div>`
 
   // J'injecte le menu de sélection dans ma balise main
   const main = document.getElementById("main");
@@ -59,39 +66,17 @@ function createFilterMenu() {
 
 }
 
-/*function createSelectMenu(){  
+function editNav(){  
  // Variables
-const selectMenu = document.getElementById("select-menu");
-const listOfOptions = document.querySelectorAll(".option");
-const input = document.querySelector('input');
+  let navbar = document.getElementById("myTopnav");
 
+  if (navbar.className === "topnav") {
+    navbar.className += " responsive";
 
-// Functions
-const toggleDropdown = (event) => {
-  event.stopPropagation();
-  selectMenu.classList.toggle("opened");
-};
-
-const selectOption = (event) => {
-  input.value = event.currentTarget.textContent;
-};
-
-const closeDropdownFromOutside = () => {
-  if (selectMenu.classList.contains("opened")) {
-    selectMenu.classList.remove("opened");
+  } else {
+    navbar.className = "topnav";
   }
-};
-// Event Listeners
-
-selectMenu.addEventListener('click', closeDropdownFromOutside);
-
-listOfOptions.forEach((option) => {
-  option.addEventListener('click', selectOption);
-});
-
-selectMenu.addEventListener('click', toggleDropdown);
-selectMenu.addEventListener("change", sortMediaSection);
-}*/
+}
 
 
 // Fonction qui génère la galerie de médias
@@ -199,11 +184,15 @@ function countLikes() {
 function sortMediaSection() {
   // Je récupère la valeur de l'option sélectionnée
   const selectedOption = this.value;
+  console.log({selectedOption});
+  // Je crée un tableau qui contient mes médias
   let newOrder = [];
 
   // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Popularité".
   if (selectedOption == "Popularité") {
+    // Je parcours mon tableau de médias, j'utilise la méthode sort pour effectuer le tri et lui passe les variables a, b en paramètre
     newOrder = photographerMedia.sort((a, b) => {
+      // Je retourne le nombre de likes pour ma variable b, - le nombre de likes de ma variable a 
       return b.likes - a.likes;
     });
   }
@@ -228,17 +217,23 @@ function sortMediaSection() {
     });
   }
 
-  const mediaSection = document.getElementsByClassName("media-section");
-  mediaSection[0].remove();
+    // Je récupère ma section de médias et la stocke dans une constante
+    const mediaSection = document.getElementsByClassName("media-section");
+    // Je supprime ma section de médias
+    mediaSection[0].remove();
+
+  // Je fais apparaître ma nouvelle section de médias avec le tri effectué
   createMediaSection(newOrder);
 
-  // J'ajoute un écouteur d'évènement sur chaque bouton de like pour déclencher la fonction countLike
+  // J'ajoute un écouteur d'évènement sur chaque bouton de like pour déclencher la fonction countLike après le tri effectué
   const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");
   mediaCardLikeButtons.forEach((button) => {
   button.addEventListener("click", countLikes);
   });
 
 }
+
+
 
 // Fonction qui rappelle tous les addEventlisteners nécessaires à l'exécution des animations
 function addEventListeners() {

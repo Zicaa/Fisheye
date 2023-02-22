@@ -44,35 +44,40 @@ function createFilterMenu() {
     selectDiv.classList="custom-select";
   
     selectDiv.innerHTML =
-    ` <div class="topnav" id="select-menu2">
+    ` <div class="topnav" id="select-menu">
         <button class="select-selected" value="Popularité" onclick="editNav()">Popularité</button>
-        <div class="main-navbar">
-          <li value="Date">Date</li>
-          <li value="Titre">Titre</li>
+        <div id="main-navbar">
+          <li classe="tri">Popularité</li>
+          <li classe="tri">Date</li>
+          <li classe="tri">Titre</li>
         </div>
     </div>`
 
   // J'injecte le menu de sélection dans ma balise main
   const main = document.getElementById("main");
   main.appendChild(selectDiv);
-  const selectMenu = document.getElementById("select-menu2");
-  selectMenu.addEventListener("click", sortMediaSection);
+  //const selectMenu = document.getElementById("select-menu");
+  //selectMenu.addEventListener("click", sortMediaSection);
 
 }
 
 function editNav(){  
  // Variables
-  let navbar = document.getElementById("select-menu2");
+  let navbar = document.getElementById("select-menu");
+  let main = document.getElementById("main-navbar");
 
   if (navbar.className === "topnav") {
     navbar.className += " responsive";
+    main.classlist+="main-navbar-up";
 
   } else {
     navbar.className = "topnav";
   }
 
-  navbar.addEventListener("click", sortMediaSection);
   
+
+  navbar.addEventListener("click", sortMediaSection);
+
 }
 
 /*function closeOption(){

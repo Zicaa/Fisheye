@@ -47,13 +47,13 @@ function createFilterMenu() {
     ` <p class="select-p">Trier par</p>
       <div class="dropdown" id="select-menu">
         <div class="button-style">
-          <button class="sort-btn" aria-haspopup="listbox" onclick="editDropdown()"
-          >Popularité<span class="fas fa-chevron-down arrow-down-open" role='button'></span>
+          <button class="sort-btn" aria-haspopup="listbox" onclick="editDropdown()">Popularité
+          <span class="fas fa-chevron-down arrow-down-open" role='button'></span>
           </button>
         </div>
         <ul id="dropdown-tri">
           <li class="tri" role='option'>Popularité<span class="fas fa-chevron-up arrow-up-close"></span></li>
-          <li class="tri" role="option">Date</li>
+          <li class="tri" role="option" id="date">Date</li>
           <li class="tri" role="option">Titre</li>
         </ul>
     </div>`
@@ -61,8 +61,8 @@ function createFilterMenu() {
   // J'injecte le menu de sélection dans ma balise main
   const main = document.getElementById("main");
   main.appendChild(selectDiv);
-  const sortBtn = Array.from(document.getElementsByClassName("tri"));
-  sortBtn.forEach((button) => button.addEventListener("click", sortMediaSection()));
+  const sortButton = Array.from(document.getElementsByClassName("tri"));
+  sortButton.forEach((button) => button.addEventListener("click", sortMediaSection()));
 
 
 }

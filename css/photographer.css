@@ -407,12 +407,7 @@ form input {
   color: #ffffff;
 }
 
-.dropdown li.active {
-  background-color: #ff0000;
-  color: #ffffff;
-}
-
-.dropdown .button {
+.dropdown .sort-btn {
   display: block;
 }
 
@@ -426,7 +421,6 @@ form input {
 
 .dropdown.open {
   position: relative;
-  width: 170px;
 }
 
 #dropdown-tri {
@@ -449,8 +443,8 @@ form input {
   color: #ffffff;
   border: none;
   padding: 12px;
-  width: 150px;
   text-align: left;
+  width: 150px;
 }
 
 ul{
@@ -464,7 +458,7 @@ ul{
   background-color: #901c1c;
 }
 
-button{
+.sort-btn{
   text-decoration: none;
   font-weight: 700;
   font-size: 18px;
@@ -472,14 +466,24 @@ button{
   color: #ffffff;
   border: none;
   padding: 12px;
-  width: 150px;
   text-align: left;
-  font-family: 'DM Sans'
+  font-family: 'DM Sans';
+  width:150px;
 }
 
 .fa-chevron-up{
-  margin-left: 50px;
+  margin-left: 10px;
 }
+
+.hidden{
+  display : none;
+}
+
+li#date.tri{
+  border-top: #fafafa 1px solid;
+  border-bottom: #fafafa 1px solid;
+}
+
 
 
 

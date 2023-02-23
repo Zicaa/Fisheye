@@ -179,22 +179,6 @@ h2{
     width: 350px;
 }
 
-.select{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-.select-p{
-    font-weight: 700;
-    font-size: 18px;
-    padding-right: 45px;
-}
-
-.select-button {
-   display: none;
-}
-
 .media-card {
     display: flex;
     flex-flow: column nowrap;
@@ -304,70 +288,6 @@ form input {
     margin-right: 0.5em;
   }
 
-/* SELECT */
-  
-  /* The container must be positioned relative: */
-.custom-select {
-    position: relative;
-    font-size: 20px;
-  }
-  
-  .select-selected {
-    background-color: #901c1c;
-    font-size: 20px;
-    width: 170px;
-  }
-  
-  /* Style the arrow inside the select element: */
-  .select-selected:after {
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
-  }
-  
-  /* Point the arrow upwards when the select box is open (active): */
-  .select-selected.select-arrow-active:after {
-    border-color: transparent transparent #fff transparent;
-    top: 7px;
-  }
-  
-  /* style the items (options), including the selected item: */
-  .select-items div,.select-selected {
-    color: #ffffff;
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    cursor: pointer;
-    font-family: 'DM Sans';
-    padding: 12px;
-    text-align: left;
-    font-weight: 700;
-    font-size: 18px;
-  }
-  
-  /* Style items (options): */
-  .select-items {
-    position: absolute;
-    background-color: #901c1c;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-  }
-  
-  /* Hide the items when the select box is closed: */
-  .select-hide {
-    display: none;
-  }
-  
-  .select-items div:hover, .same-as-selected {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
 
 /* MODALE LIGHTBOX */
 
@@ -450,14 +370,27 @@ form input {
   }
   
 /******************************************************************************************************************************/
+.custom-select {
+  position: relative;
+  font-size: 20px;
+  flex-direction: row;
+  display: flex;
+  align-items: baseline;
+}
 
-.topnav {
-  overflow: hidden;
-  margin: 3.5%;
+.select-selected {
+  background-color: #901c1c;
+  font-size: 20px;
   width: 170px;
 }
 
-.topnav li {
+.select-p{
+  font-weight: 700;
+  font-size: 18px;
+  padding-right: 45px;
+}
+
+.dropdown li {
   float: left;
   display: block;
   color: #ffff;
@@ -469,50 +402,85 @@ form input {
   background-color: #901c1c;
 }
 
-.topnav li:hover {
+.dropdown.open li:hover {
   background-color: #ff0000;
   color: #ffffff;
 }
 
-.topnav li.active {
+.dropdown li.active {
   background-color: #ff0000;
   color: #ffffff;
 }
 
-.topnav .button {
-  display: none;
+.dropdown .button {
+  display: block;
 }
 
-.topnav li {display: none;}
-  .topnav li.button {
+.dropdown li {display: none;}
+  .dropdown li.button {
     float: right;
     display: block;
     color: #f00;
   }
 
 
-.topnav.responsive {
+.dropdown.open {
   position: relative;
   width: 170px;
 }
+
+#dropdown-tri {
+  display: flex;
+  flex-direction: column;
+  margin-top: -1.4em;
+  position: absolute;
+  z-index: 99;
+}
   
-.topnav.responsive li {
+.dropdown.open li {
   float: none;
   display: block;
   text-align: left;
+  list-style-type: none;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+  background-color: #901c1c;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  width: 150px;
+  text-align: left;
 }
 
-.main-navbar-up{
-  margin-top: -50px;
+ul{
+  list-style-type: none;
+  padding: 0;
+  z-index: 99;
 }
 
-.main-navbar-up{
+.button-style{
   display: block;
+  color: #ffff;
+  background-color: #901c1c;
 }
 
+button{
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+  background-color: #901c1c;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  width: 150px;
+  text-align: left;
+  font-family: 'DM Sans'
+}
 
-
-
+.fa-chevron-up{
+  margin-left: 50px;
+}
 
 
 

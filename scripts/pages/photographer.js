@@ -44,39 +44,57 @@ function createFilterMenu() {
     selectDiv.classList="custom-select";
   
     selectDiv.innerHTML =
-    ` <div class="topnav" id="select-menu">
-        <p class="select-p">Trier par</p>
-        <button class="sort-btn" aria-haspopup="listbox" onclick="editNav()">Popularité</button>
-        <span class="fas fa-chevron-down arrow-down-open" role='button'></span>
-        <ul id="main-navbar">
-          <li classe="tri" role="option">Popularité</li>
-          <li classe="tri" role="option">Date</li>
-          <li classe="tri" role="option">Titre</li>
+    ` <p class="select-p">Trier par</p>
+      <div class="dropdown" id="select-menu">
+        <div class="button-style">
+          <button class="sort-btn" aria-haspopup="listbox" onclick="editDropdown()"
+          >Popularité<span class="fas fa-chevron-down arrow-down-open" role='button'></span>
+          </button>
+        </div>
+        <ul id="dropdown-tri">
+          <li class="tri" role='option'>Popularité<span class="fas fa-chevron-up arrow-up-close"></span></li>
+          <li class="tri" role="option">Date</li>
+          <li class="tri" role="option">Titre</li>
         </ul>
     </div>`
 
   // J'injecte le menu de sélection dans ma balise main
   const main = document.getElementById("main");
   main.appendChild(selectDiv);
-  //const selectMenu = document.getElementsByClassName("main-navbar");
-  //selectMenu[0].addEventListener("click", sortMediaSection);
+  const sortBtn = Array.from(document.getElementsByClassName("tri"));
+  sortBtn.forEach((button) => button.addEventListener("click", sortMediaSection()));
+
 
 }
 
-function editNav(){  
+function editDropdown(){  
  // Variables
-  let navbar = document.getElementById("select-menu");
-  let main = document.getElementById("main-navbar");
+  let dropdown = document.getElementById("select-menu");
+  let sortButton = document.getElementsByClassName("button-style");
 
-  if (navbar.className === "topnav") {
-    navbar.className += " responsive";
-    main.classlist+="main-navbar-up";
+  if (dropdown.className === "dropdown") {
+    dropdown.className += " open";
+    sortButton[0].style.display="none";
 
   } else {
-    navbar.className = "topnav";
+    dropdown.className = "dropdown";
   }
 
 }
+
+function closeDropdown(){  
+  // Variables
+   let dropdown = document.getElementById("select-menu");
+   let sortButton = document.getElementsByClassName("button-style");
+ 
+   if (dropdown.className === "dropdown open") {
+    dropdown.classList.remove("open");
+    sortButton[0].style.display="block";
+ 
+   } else {
+     dropdown.className = "dropdown";
+   }
+ }
 
 // Fonction qui génère la galerie de médias
 function createMediaSection(array) {
@@ -137,36 +155,19 @@ function createFooter(photographPrice) {
 
 // Fonction qui gère les likes
 function countLikes() {
-  // Je récupère le boutton like grâce au premier enfant du noeud parent
-  const mediaLikeButton = this.parentNode.firstElementChild;
+    // Je récupère le boutton like grâce au premier enfant du noeud parent
+    const mediaLikeButton = this.parentNode.firstElementChild;
 
-  // Je récupère l'icône like grâce au premier enfant de mon élément
-  const mediaLikeIcon = this.firstElementChild;
+    // Je récupère l'icône like grâce au premier enfant de mon élément
+    const mediaLikeIcon = this.firstElementChild;
 
-  // Je pose une condition : si la classe de mon icône inclue "fa-regular"
-  if (mediaLikeIcon.classList.contains("fa-regular")) {
-    // Je convertie le contenu du bouton de like en un nombre et je le stocke dans la variable mediaLikeCount
-    let mediaLikeCount = Number(mediaLikeButton.textContent);
-
-    // J'incrémente ma variable mediaLikeCount
-    mediaLikeCount++;
-
-    // Je définie la valeur de mediaLikeCount en tant que nouveau contenu du bouton de like
-    mediaLikeButton.textContent = mediaLikeCount;
-
-    // Je recalcule le nombre total de likes dans le footer en appelant la fonction createFooter
-    createFooter(photographerInfo);
-
-    // Je remplace la classe "fa regular" par "fa solid"
-    mediaLikeIcon.classList.replace("fa-regular", "fa-solid");
-
-    // Sinon : si la classe de mon icône inclue "fa-solid"
-    } else if (mediaLikeIcon.classList.contains("fa-solid")) {
+    // Je pose une condition : si la classe de mon icône inclue "fa-regular"
+    if (mediaLikeIcon.classList.contains("fa-regular")) {
       // Je convertie le contenu du bouton de like en un nombre et je le stocke dans la variable mediaLikeCount
       let mediaLikeCount = Number(mediaLikeButton.textContent);
 
-      // Je décrémente ma variable mediaLikeCount
-      mediaLikeCount--;
+      // J'incrémente ma variable mediaLikeCount
+      mediaLikeCount++;
 
       // Je définie la valeur de mediaLikeCount en tant que nouveau contenu du bouton de like
       mediaLikeButton.textContent = mediaLikeCount;
@@ -174,135 +175,97 @@ function countLikes() {
       // Je recalcule le nombre total de likes dans le footer en appelant la fonction createFooter
       createFooter(photographerInfo);
 
-      // Je remplace la classe "fa solid" par "fa regular" 
-      mediaLikeIcon.classList.replace("fa-solid", "fa-regular");
+      // Je remplace la classe "fa regular" par "fa solid"
+      mediaLikeIcon.classList.replace("fa-regular", "fa-solid");
+
+      // Sinon : si la classe de mon icône inclue "fa-solid"
+      } else if (mediaLikeIcon.classList.contains("fa-solid")) {
+        // Je convertie le contenu du bouton de like en un nombre et je le stocke dans la variable mediaLikeCount
+        let mediaLikeCount = Number(mediaLikeButton.textContent);
+
+        // Je décrémente ma variable mediaLikeCount
+        mediaLikeCount--;
+
+        // Je définie la valeur de mediaLikeCount en tant que nouveau contenu du bouton de like
+        mediaLikeButton.textContent = mediaLikeCount;
+
+        // Je recalcule le nombre total de likes dans le footer en appelant la fonction createFooter
+        createFooter(photographerInfo);
+
+        // Je remplace la classe "fa solid" par "fa regular" 
+        mediaLikeIcon.classList.replace("fa-solid", "fa-regular");
+      }
+  }
+
+  // Fonction qui effectue le tri
+  function sortMediaSection() {
+    // Je récupère la valeur de l'option sélectionnée
+    // const selectedOption = this.value;
+    let newOrder = [];
+    let btnSort = document.querySelector(".sort-btn");
+    //let mainNavbar = document.getElementsByClassName("main-navbar");
+    let sortBtn = Array.from(document.getElementsByClassName("tri"));
+
+    console.log({sortBtn});
+    
+    // Je parcours mon tableau de boutons indexés et déclenche une fonction au click
+    sortBtn.forEach((btn, index) => btn.addEventListener("click", () => {
+
+    // Si mon élément de liste est indexé à 0
+    if (index == 0) {
+      // Je change l'appelation de mon bouton
+      btnSort.innerHTML = "Popularité";
+      newOrder = photographerMedia.sort((a, b) => {
+        // Je retourne le nombre de likes pour ma variable b, - le nombre de likes de ma variable a 
+        return b.likes - a.likes;
+      });
     }
-}
 
-// Fonction qui effectue le tri
-function sortMediaSection() {
-  // Je récupère la valeur de l'option sélectionnée
-  // const selectedOption = this.value;
-  let newOrder = [];
-  let btnSort = document.querySelector(".sort-btn");
-  //let mainNavbar = document.getElementsByClassName("main-navbar");
-  let sortBtn = Array.from(document.getElementsByClassName("tri"));
+    // Si mon bouton est indexé à 1
+    if (index == 1) {
+      // Je change l'appelation de mon bouton
+      btnSort.innerHTML = "Date";
+      newOrder = photographerMedia.sort((a, b) => {
+        return new Date(a.date) - new Date(b.date);
+      });
+    }
 
-  console.log({sortBtn});
-  
-  // Je parcours mon tableau de boutons indexés et déclenche une fonction au click
-  sortBtn.forEach((btn, index) => btn.addEventListener("click", () => {
-
-  // Si mon élément de liste est indexé à 0
-  if (index == 0) {
-    // Je change l'appelation de mon bouton
-    btnSort.innerHTML = "Popularité";
-    newOrder.photographerMedia.sort((a, b) => {
-      // Je retourne le nombre de likes pour ma variable b, - le nombre de likes de ma variable a 
-      return b.likes - a.likes;
-    });
-  }
-
-  // Si mon bouton est indexé à 1
-  if (index == 1) {
-    // Je change l'appelation de mon bouton
-    btnSort.innerHTML = "Date";
-    newOrder.photographerMedia.sort((a, b) => {
-      return new Date(a.date) - new Date(b.date);
-    });
-  }
-
-  // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Titre".
-  if (index == 2) {
-    // Je change l'appelation de mon bouton
-    btnSort.innerHTML = "Titre";
-    newOrder.photographerMedia.sort((a, b) => {
-      if (a.title < b.title) {
-        return -1;
-      }
-      if (a.title > b.title) {
-        return 1;
-      }
-      return 0;
-    });
-  }
-
-  // Je récupère ma section de médias et la stocke dans une constante
-  const mediaSection = document.getElementsByClassName("media-section");
-  // Je supprime ma section de médias
-  mediaSection[0].remove();
-
-// Je fais apparaître ma nouvelle section de médias avec le tri effectué
-createMediaSection(newOrder);
-
-  // J'ajoute un écouteur d'évènement sur chaque bouton de like pour déclencher la fonction countLike après le tri effectué
-  const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");
-  mediaCardLikeButtons.forEach((button) => {
-  button.addEventListener("click", countLikes);
-  });
-
-}));
-
-}
-
-/*
-// Fonction qui effectue le tri
-function sortMediaSection2() {
-  // Je récupère la valeur de l'option sélectionnée
-  const optionPopularity = document.getElementById("Popularité");
-  const optionDate = document.getElementById("Date");
-  const optionTitre = document.getElementById("Titre");
-
-  console.log({optionPopularity});
-  console.log({optionDate});
-  console.log({optionTitre});
-  // Je crée un tableau qui contient mes médias
-  let newOrder = [];
-
-  // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Popularité".
-  if (optionPopularity == "Popularité") {
-    // Je parcours mon tableau de médias, j'utilise la méthode sort pour effectuer le tri et lui passe les variables a, b en paramètre
-    newOrder = photographerMedia.sort((a, b) => {
-      // Je retourne le nombre de likes pour ma variable b, - le nombre de likes de ma variable a 
-      return b.likes - a.likes;
-    });
-  }
-
-  // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Date".
-  if (optionDate == "Date") {
-    newOrder = photographerMedia.sort((a, b) => {
-      return new Date(a.date) - new Date(b.date);
-    });
-  }
-
-  // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Titre".
-  if (optionTitre == "Titre") {
-    newOrder = photographerMedia.sort((a, b) => {
-      if (a.title < b.title) {
-        return -1;
-      }
-      if (a.title > b.title) {
-        return 1;
-      }
-      return 0;
-    });
-  }
+    // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Titre".
+    if (index == 2) {
+      // Je change l'appelation de mon bouton
+      btnSort.innerHTML = "Titre";
+      newOrder = photographerMedia.sort((a, b) => {
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
+        return 0;
+      });
+    }
 
     // Je récupère ma section de médias et la stocke dans une constante
     const mediaSection = document.getElementsByClassName("media-section");
     // Je supprime ma section de médias
     mediaSection[0].remove();
 
-  // Je fais apparaître ma nouvelle section de médias avec le tri effectué
-  createMediaSection(newOrder);
+    // Je fais apparaître ma nouvelle section de médias avec le tri effectué
+    createMediaSection(newOrder);
 
-  // J'ajoute un écouteur d'évènement sur chaque bouton de like pour déclencher la fonction countLike après le tri effectué
-  const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");
-  mediaCardLikeButtons.forEach((button) => {
-  button.addEventListener("click", countLikes);
-  });
+    // J'ajoute un écouteur d'évènement sur chaque bouton de like pour déclencher la fonction countLike après le tri effectué
+    const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");
+    mediaCardLikeButtons.forEach((button) => {
+    button.addEventListener("click", countLikes);
+    });
 
-}*/
+    const sortBtn = Array.from(document.getElementsByClassName("tri"));
+    sortBtn.forEach((button) => button.addEventListener("click", closeDropdown()));
+
+  }));
+
+}
+
 
 /*function closeOption(){
   let optionPopularity = document.getElementById("Populaire");

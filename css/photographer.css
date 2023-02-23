@@ -402,22 +402,11 @@ form input {
   background-color: #901c1c;
 }
 
-.dropdown.open li:hover {
-  background-color: #ff0000;
-  color: #ffffff;
-}
-
-.dropdown .sort-btn {
-  display: block;
-}
-
 .dropdown li {display: none;}
-  .dropdown li.button {
-    float: right;
-    display: block;
-    color: #f00;
-  }
 
+.dropdown {
+  width: 190px;
+}
 
 .dropdown.open {
   position: relative;
@@ -426,14 +415,16 @@ form input {
 #dropdown-tri {
   display: flex;
   flex-direction: column;
-  margin-top: -1.49em;
+  margin-top: -1.8em;
   position: absolute;
   z-index: 2;
+  padding: 13px 10px 13px 10px;
+  background-color: #901c1c;
 }
-  
+
 .dropdown.open li {
   float: none;
-  display: block;
+  display: flex;
   text-align: left;
   list-style-type: none;
   text-decoration: none;
@@ -442,9 +433,10 @@ form input {
   background-color: #901c1c;
   color: #ffffff;
   border: none;
-  padding: 12px;
+  padding: 10px 10px 10px 10px;
   text-align: left;
   width: 150px;
+  justify-content: space-between;
 }
 
 ul{
@@ -459,16 +451,18 @@ ul{
 }
 
 .sort-btn{
+  display : flex;
   text-decoration: none;
   font-weight: 700;
   font-size: 18px;
   background-color: #901c1c;
   color: #ffffff;
   border: none;
-  padding: 12px;
+  padding: 23px 20px 23px 20px;
   text-align: left;
   font-family: 'DM Sans';
   width:150px;
+  justify-content: space-between;
 }
 
 .fa-chevron-up{
@@ -483,6 +477,7 @@ li#date.tri{
   border-top: #fafafa 1px solid;
   border-bottom: #fafafa 1px solid;
 }
+
 
 
 

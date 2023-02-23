@@ -432,9 +432,9 @@ form input {
 #dropdown-tri {
   display: flex;
   flex-direction: column;
-  margin-top: -1.4em;
+  margin-top: -1.49em;
   position: absolute;
-  z-index: 99;
+  z-index: 2;
 }
   
 .dropdown.open li {
@@ -456,7 +456,6 @@ form input {
 ul{
   list-style-type: none;
   padding: 0;
-  z-index: 99;
 }
 
 .button-style{

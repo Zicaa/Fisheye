@@ -48,11 +48,11 @@ function createFilterMenu() {
       <div class="dropdown" id="select-menu">
         <div class="button-style">
           <button class="sort-btn" aria-haspopup="listbox" onclick="editDropdown()">Popularité
-          <span class="fas fa-chevron-down arrow-down-open" role='button'></span>
+          <span class="fas fa-chevron-down" role='button'></span>
           </button>
         </div>
         <ul id="dropdown-tri">
-          <li class="tri" role='option'>Popularité<span class="fas fa-chevron-up arrow-up-close"></span></li>
+          <li class="tri" role='option'>Popularité<span class="fas fa-chevron-up"></span></li>
           <li class="tri" role="option" id="date">Date</li>
           <li class="tri" role="option">Titre</li>
         </ul>
@@ -63,7 +63,6 @@ function createFilterMenu() {
   main.appendChild(selectDiv);
   const sortButton = Array.from(document.getElementsByClassName("tri"));
   sortButton.forEach((button) => button.addEventListener("click", sortMediaSection()));
-
 
 }
 
@@ -86,10 +85,12 @@ function closeDropdown(){
   // Variables
    let dropdown = document.getElementById("select-menu");
    let sortButton = document.getElementsByClassName("button-style");
+   let iconeDown = document.getElementsByClassName("fa-chevron-down");
  
    if (dropdown.className === "dropdown open") {
     dropdown.classList.remove("open");
-    sortButton[0].style.display="block";
+    sortButton[0].style.display="flex";
+    sortButton[0].parentNode.appendChild(iconeDown);
  
    } else {
      dropdown.className = "dropdown";
@@ -265,32 +266,6 @@ function countLikes() {
   }));
 
 }
-
-
-/*function closeOption(){
-  let optionPopularity = document.getElementById("Populaire");
-  let optionDate = document.getElementById("Date");
-  let optionTitre = document.getElementById("Titre");
-
-  if (optionPopularity.className === "topnav responsive") {
-    optionDate.className += "select-hide";
-    optionTitre.className += "select-hide";
-
-  } if (optionDate.className === "topnav responsive") {
-    optionPopularity.className += "select-hide";
-    optionTitre.className += "select-hide";
-
-  }
-  if (optionTitre.className === "topnav responsive") {
-    optionDate.className += "select-hide";
-    optionPopularity.className += "select-hide";
-
-  }
-  optionPopularity.addEventListener("click", closeOption);
-  optionDate.addEventListener("click", closeOption);
-  optionTitre.addEventListener("click", closeOption);
-}*/
-
 
 // Fonction qui rappelle tous les addEventlisteners nécessaires à l'exécution des animations
 function addEventListeners() {

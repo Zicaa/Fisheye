@@ -48,11 +48,11 @@ function createFilterMenu() {
       <div class="dropdown" id="select-menu">
         <div class="button-style">
           <button class="sort-btn" aria-haspopup="listbox" onclick="editDropdown()">Popularité
-          <span class="fas fa-chevron-down" role='button'></span>
+          <span class="fas fa-chevron-down arrow-down-open" role='button'></span>
           </button>
         </div>
         <ul id="dropdown-tri">
-          <li class="tri" role='option'>Popularité<span class="fas fa-chevron-up"></span></li>
+          <li class="tri" role='option'>Popularité<span class="fas fa-chevron-up arrow-up-close"></span></li>
           <li class="tri" role="option" id="date">Date</li>
           <li class="tri" role="option">Titre</li>
         </ul>

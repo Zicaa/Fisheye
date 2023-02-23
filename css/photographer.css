@@ -405,7 +405,7 @@ form input {
 .dropdown li {display: none;}
 
 .dropdown {
-  width: 190px;
+  width: 170px;
 }
 
 .dropdown.open {
@@ -420,6 +420,7 @@ form input {
   z-index: 2;
   padding: 13px 10px 13px 10px;
   background-color: #901c1c;
+  border-radius: 5px;
 }
 
 .dropdown.open li {
@@ -435,8 +436,8 @@ form input {
   border: none;
   padding: 10px 10px 10px 10px;
   text-align: left;
-  width: 150px;
   justify-content: space-between;
+  width: 130px;
 }
 
 ul{
@@ -448,6 +449,7 @@ ul{
   display: block;
   color: #ffff;
   background-color: #901c1c;
+  border-radius: 5px;
 }
 
 .sort-btn{
@@ -461,8 +463,9 @@ ul{
   padding: 23px 20px 23px 20px;
   text-align: left;
   font-family: 'DM Sans';
-  width:190px;
   justify-content: space-between;
+  border-radius: 5px;
+  width:170px;
 }
 
 .fa-chevron-up{
@@ -478,6 +481,17 @@ li#date.tri{
   border-bottom: #fafafa 1px solid;
 }
 
+.arrow-down-open {
+  color: #fff;
+  position: absolute;
+  margin-left: 120px;
+}
+
+.arrow-up-close {
+  color: #fff;
+  position: absolute;
+  margin-left: 120px;
+}
 
 
 

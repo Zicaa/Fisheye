@@ -45,12 +45,14 @@ function createFilterMenu() {
   
     selectDiv.innerHTML =
     ` <div class="topnav" id="select-menu">
-        <button class="select-selected" value="Popularité" onclick="editNav()">Popularité</button>
-        <div id="main-navbar">
-          <li classe="tri">Popularité</li>
-          <li classe="tri">Date</li>
-          <li classe="tri">Titre</li>
-        </div>
+        <p class="select-p">Trier par</p>
+        <button class="sort-btn" value="Popularité" onclick="editNav()">Popularité</button>
+        <span class="fas fa-chevron-down arrow-down-open" role='button'></span>
+        <ul id="main-navbar">
+          <li classe="tri" value="Popularité">Popularité</li>
+          <li classe="tri" value="Date">Date</li>
+          <li classe="tri" value="Titre">Titre</li>
+        </ul>
     </div>`
 
   // J'injecte le menu de sélection dans ma balise main
@@ -74,37 +76,7 @@ function editNav(){
     navbar.className = "topnav";
   }
 
-  
-
-  navbar.addEventListener("click", sortMediaSection);
-
 }
-
-/*function closeOption(){
-  let optionPopularity = document.getElementById("Populaire");
-  let optionDate = document.getElementById("Date");
-  let optionTitre = document.getElementById("Titre");
-
-  if (optionPopularity.className === "topnav responsive") {
-    optionDate.className += "select-hide";
-    optionTitre.className += "select-hide";
-
-  } if (optionDate.className === "topnav responsive") {
-    optionPopularity.className += "select-hide";
-    optionTitre.className += "select-hide";
-
-  }
-  if (optionTitre.className === "topnav responsive") {
-    optionDate.className += "select-hide";
-    optionPopularity.className += "select-hide";
-
-  }
-  optionPopularity.addEventListener("click", closeOption);
-  optionDate.addEventListener("click", closeOption);
-  optionTitre.addEventListener("click", closeOption);
-}*/
-
-
 
 // Fonction qui génère la galerie de médias
 function createMediaSection(array) {
@@ -208,31 +180,43 @@ function countLikes() {
 }
 
 // Fonction qui effectue le tri
-async function sortMediaSection() {
+function sortMediaSection() {
   // Je récupère la valeur de l'option sélectionnée
-  const selectedOption = this.value;
-  console.log({selectedOption});
-  
+  // const selectedOption = this.value;
+  let newOrder = [];
+  let btnSort = document.querySelector(".sort-btn");
+  //let mainNavbar = document.getElementsByClassName("main-navbar");
+  let sortBtn = Array.from(document.getElementsByClassName("tri"));
 
-  // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Popularité".
-  if (selectedOption == "Popularité") {
-    // Je parcours mon tableau de médias, j'utilise la méthode sort pour effectuer le tri et lui passe les variables a, b en paramètre
-    await photographerMedia.sort((a, b) => {
+  console.log({sortBtn});
+  
+  // Je parcours mon tableau de boutons indexés et déclenche une fonction au click
+  sortBtn.forEach((btn, index) => btn.addEventListener("click", () => {
+
+  // Si mon élément de liste est indexé à 0
+  if (index == 0) {
+    // Je change l'appelation de mon bouton
+    btnSort.innerHTML = "Popularité";
+    newOrder.photographerMedia.sort((a, b) => {
       // Je retourne le nombre de likes pour ma variable b, - le nombre de likes de ma variable a 
       return b.likes - a.likes;
     });
   }
 
-  // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Date".
-  if (selectedOption == "Date") {
-    await photographerMedia.sort((a, b) => {
+  // Si mon bouton est indexé à 1
+  if (index == 1) {
+    // Je change l'appelation de mon bouton
+    btnSort.innerHTML = "Date";
+    newOrder.photographerMedia.sort((a, b) => {
       return new Date(a.date) - new Date(b.date);
     });
   }
 
   // Je trie le tableau photographerMedia en utilisant la clé likes si l'option sélectionnée est "Titre".
-  if (selectedOption == "Titre") {
-    await photographerMedia.sort((a, b) => {
+  if (index == 2) {
+    // Je change l'appelation de mon bouton
+    btnSort.innerHTML = "Titre";
+    newOrder.photographerMedia.sort((a, b) => {
       if (a.title < b.title) {
         return -1;
       }
@@ -243,15 +227,25 @@ async function sortMediaSection() {
     });
   }
 
+  // Je récupère ma section de médias et la stocke dans une constante
+  const mediaSection = document.getElementsByClassName("media-section");
+  // Je supprime ma section de médias
+  mediaSection[0].remove();
+
+// Je fais apparaître ma nouvelle section de médias avec le tri effectué
+createMediaSection(newOrder);
+
   // J'ajoute un écouteur d'évènement sur chaque bouton de like pour déclencher la fonction countLike après le tri effectué
   const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");
   mediaCardLikeButtons.forEach((button) => {
   button.addEventListener("click", countLikes);
   });
 
+}));
+
 }
 
-
+/*
 // Fonction qui effectue le tri
 function sortMediaSection2() {
   // Je récupère la valeur de l'option sélectionnée
@@ -308,8 +302,31 @@ function sortMediaSection2() {
   button.addEventListener("click", countLikes);
   });
 
-}
+}*/
 
+/*function closeOption(){
+  let optionPopularity = document.getElementById("Populaire");
+  let optionDate = document.getElementById("Date");
+  let optionTitre = document.getElementById("Titre");
+
+  if (optionPopularity.className === "topnav responsive") {
+    optionDate.className += "select-hide";
+    optionTitre.className += "select-hide";
+
+  } if (optionDate.className === "topnav responsive") {
+    optionPopularity.className += "select-hide";
+    optionTitre.className += "select-hide";
+
+  }
+  if (optionTitre.className === "topnav responsive") {
+    optionDate.className += "select-hide";
+    optionPopularity.className += "select-hide";
+
+  }
+  optionPopularity.addEventListener("click", closeOption);
+  optionDate.addEventListener("click", closeOption);
+  optionTitre.addEventListener("click", closeOption);
+}*/
 
 
 // Fonction qui rappelle tous les addEventlisteners nécessaires à l'exécution des animations

@@ -46,20 +46,20 @@ function createFilterMenu() {
     selectDiv.innerHTML =
     ` <div class="topnav" id="select-menu">
         <p class="select-p">Trier par</p>
-        <button class="sort-btn" value="Popularité" onclick="editNav()">Popularité</button>
+        <button class="sort-btn" aria-haspopup="listbox" onclick="editNav()">Popularité</button>
         <span class="fas fa-chevron-down arrow-down-open" role='button'></span>
         <ul id="main-navbar">
-          <li classe="tri" value="Popularité">Popularité</li>
-          <li classe="tri" value="Date">Date</li>
-          <li classe="tri" value="Titre">Titre</li>
+          <li classe="tri" role="option">Popularité</li>
+          <li classe="tri" role="option">Date</li>
+          <li classe="tri" role="option">Titre</li>
         </ul>
     </div>`
 
   // J'injecte le menu de sélection dans ma balise main
   const main = document.getElementById("main");
   main.appendChild(selectDiv);
-  //const selectMenu = document.getElementById("select-menu");
-  //selectMenu.addEventListener("click", sortMediaSection);
+  //const selectMenu = document.getElementsByClassName("main-navbar");
+  //selectMenu[0].addEventListener("click", sortMediaSection);
 
 }
 

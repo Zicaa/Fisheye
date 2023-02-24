@@ -468,10 +468,6 @@ ul{
   width:170px;
 }
 
-.fa-chevron-up{
-  margin-left: 10px;
-}
-
 .hidden{
   display : none;
 }
@@ -481,18 +477,23 @@ li#date.tri{
   border-bottom: #fafafa 1px solid;
 }
 
-.arrow-down-open {
-  color: #fff;
-  position: absolute;
-  margin-left: 120px;
-}
-
 .arrow-up-close {
   color: #fff;
   position: absolute;
   margin-left: 120px;
 }
 
+.fa-chevron-down{
+  color: #fff;
+  position: absolute;
+  margin-left: 120px;
+}
+
+.arrow-down-open{
+  position: absolute;
+  margin-top: 23px;
+  margin-left: 140px;
+}
 
 
 

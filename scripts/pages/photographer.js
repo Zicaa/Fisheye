@@ -48,7 +48,7 @@ function createFilterMenu() {
       <div class="dropdown" id="select-menu">
         <div class="button-style">
           <button class="sort-btn" aria-haspopup="listbox" onclick="editDropdown()">Popularité
-          <span class="fas fa-chevron-down arrow-down-open" role='button'></span>
+          <span class="fas fa-chevron-down" role='button'></span>
           </button>
         </div>
         <ul id="dropdown-tri">
@@ -85,12 +85,12 @@ function closeDropdown(){
   // Variables
    let dropdown = document.getElementById("select-menu");
    let sortButton = document.getElementsByClassName("button-style");
-   let iconeDown = document.getElementsByClassName("fa-chevron-down");
  
    if (dropdown.className === "dropdown open") {
     dropdown.classList.remove("open");
     sortButton[0].style.display="flex";
-    sortButton[0].parentNode.appendChild(iconeDown);
+    sortButton[0].innerHTML += 
+    `<span class="fas fa-chevron-down arrow-down-open" role='button'></span>`;
  
    } else {
      dropdown.className = "dropdown";
@@ -201,12 +201,10 @@ function countLikes() {
   // Fonction qui effectue le tri
   function sortMediaSection() {
     // Je récupère la valeur de l'option sélectionnée
-    // const selectedOption = this.value;
     let newOrder = [];
     let btnSort = document.querySelector(".sort-btn");
-    //let mainNavbar = document.getElementsByClassName("main-navbar");
     let sortBtn = Array.from(document.getElementsByClassName("tri"));
-
+    
     console.log({sortBtn});
     
     // Je parcours mon tableau de boutons indexés et déclenche une fonction au click

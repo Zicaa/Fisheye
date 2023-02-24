@@ -84,17 +84,18 @@ function editDropdown(){
 function closeDropdown(){  
   // Variables
    let dropdown = document.getElementById("select-menu");
-   let sortButton = document.getElementsByClassName("button-style");
+   const sortButton = Array.from(document.getElementsByClassName("button-style"))
+   
  
    if (dropdown.className === "dropdown open") {
     dropdown.classList.remove("open");
     sortButton[0].style.display="flex";
-    sortButton[0].innerHTML += 
-    `<span class="fas fa-chevron-down arrow-down-open" role='button'></span>`;
- 
+    
    } else {
      dropdown.className = "dropdown";
    }
+   
+ 
  }
 
 // Fonction qui génère la galerie de médias

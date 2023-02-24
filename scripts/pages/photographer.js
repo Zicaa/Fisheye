@@ -48,8 +48,8 @@ function createFilterMenu() {
       <div class="dropdown" id="select-menu">
         <div class="button-style">
           <button class="sort-btn" aria-haspopup="listbox" onclick="editDropdown()">Popularité
-          <span class="fas fa-chevron-down" role='button'></span>
           </button>
+          <span class="fas fa-chevron-down" id="chevron-down" role='button'></span>
         </div>
         <ul id="dropdown-tri">
           <li class="tri" role='option'>Popularité<span class="fas fa-chevron-up arrow-up-close"></span></li>
@@ -84,12 +84,14 @@ function editDropdown(){
 function closeDropdown(){  
   // Variables
    let dropdown = document.getElementById("select-menu");
-   const sortButton = Array.from(document.getElementsByClassName("button-style"))
+   const sortButton = document.getElementsByClassName("button-style");
+   const chevronDown = document.getElementById("chevron-down");
    
  
    if (dropdown.className === "dropdown open") {
     dropdown.classList.remove("open");
     sortButton[0].style.display="flex";
+    chevronDown.classList.add("arrow-down-open");
     
    } else {
      dropdown.className = "dropdown";
@@ -149,6 +151,40 @@ function createFooter(photographPrice) {
   // J'injecte le footer dans mon HTML
   const footerEl = document.querySelector("footer");
   footerEl.innerHTML = photographFooter;
+}
+
+// Fonction qui intègre les noms des photographes dans le h1 de ma modale de contact
+function photographNameInsert(photographerName) {
+  // Destructuring the photographer info object to extract the name property
+  const { name } = photographerName;
+
+  // Add the photographer name to the modalTitle element
+  const modalTitle = document.querySelector(".modal-title");
+  modalTitle.innerHTML = `Contactez-moi<br>${name}`;
+}
+
+function validateModalForm(event) {
+  // Prevent the default form submission
+  event.preventDefault();
+
+  // Get the elements of the modal form & its inputs
+  const modalForm = document.getElementById("modalForm");
+  const firstName = document.getElementById("firstName");
+  const lastName = document.getElementById("lastName");
+  const email = document.getElementById("email");
+  const message = document.getElementById("message");
+
+  // Check if the form input data is valid & console.log the data as an object
+  if (modalForm.checkValidity()) {
+    console.log({
+      firstName: firstName.value,
+      lastName: lastName.value,
+      email: email.value,
+      message: message.value,
+    });
+    modalForm.reset();
+    closeModal("contactModal");
+  }
 }
 
 /****************************************************************************************************************************************/
@@ -269,14 +305,27 @@ function countLikes() {
 // Fonction qui rappelle tous les addEventlisteners nécessaires à l'exécution des animations
 function addEventListeners() {
 
+  // J'ajoute un écouteur d'évènement sur le bouton de ma modale de contact pour l'ouvrir au click
+  const contactBtn = document.getElementById("contactBtn");
+  contactBtn.addEventListener("click", () => {
+    displayModal("contactModal");
+  });
+ 
+  // J'ajoute un écouteur d'évènement sur le bouton de ma modale de contact pour la fermer au click
+  const modalCloseBtn = document.getElementById("modalCloseBtn");
+  modalCloseBtn.addEventListener("click", () => {
+    closeModal("contactModal");
+   });
+
   // J'ajoute un écouteur d'évènement sur chaque bouton de like pour déclencher la fonction countLike
   const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");
   mediaCardLikeButtons.forEach((button) => {
-    button.addEventListener("click", countLikes);
+  button.addEventListener("click", countLikes);
   });
 
 }
 
+// Fonction asynchrone qui intègre les éléments statiques et les animations à ma page de photographes
 async function createPhotographMedia() {
   // Je crée mon header dans la page de photographes en appelant ma fonction createPhotographHeader
   await createPhotographHeader(photographerInfo);
@@ -289,6 +338,9 @@ async function createPhotographMedia() {
 
   // Je crée mon footer
   await createFooter(photographerInfo);
+
+  // J'insère le nom du photographe dans le titre de ma modale de contact
+  await photographNameInsert(photographerInfo);
 
   // J'appelle tous mes écouteurs d'évènement
   addEventListeners();

@@ -1,4 +1,4 @@
-#contact_modal {
+#contactModal {
     display: none;
 }
 
@@ -478,22 +478,30 @@ li#date.tri{
   border-bottom: #fafafa 1px solid;
 }
 
-.arrow-up-close {
+.fa-chevron-up {
   color: #fff;
   position: absolute;
   margin-left: 120px;
 }
 
-.fa-chevron-down{
+.fa-chevron-down {
   color: #fff;
   position: absolute;
-  margin-left: 120px;
+  top: 50px;
+  left: 250px;
 }
 
-.arrow-down-open{
-  position: absolute;
-  margin-top: 23px;
-  margin-left: 140px;
+.modal-submit {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901C1C;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 

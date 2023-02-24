@@ -16,7 +16,38 @@
     <main id="main"></main>
     <footer id="footer"></footer>
 
-    <!-- Modale de contact -->
+    <!-- Formulaire de contact -->
+    <dialog class="modal" id="contactModal" aria-hidden="true">
+      <header class="modal-header">
+        <h2 class="modal-title">Contactez-moi</h2>
+        <button class="modal-close" aria-label="Bouton de fermeture du formulaire de contact" id="modalCloseBtn">
+          <img class="modal-close-img" src="assets/icons/close-white.svg" alt="Croix blanche de fermeture du formulaire">
+        </button>
+      </header>
+      <!-- Champ prénom -->
+      <form class="modal-form" id="modalForm" aria-label="Formulaire de contact">
+        <label class="modal-label" for="firstName" aria-label="Champ du prénom">Prénom</label><br>
+        <input class="modal-input" type="text" id="firstName" name="firstName" minlength="2" pattern="(?!^ +$)^.+$"
+          required><br>
+  
+        <!-- Champ nom -->
+        <label class="modal-label" for="lastName" aria-label="Champ du nom">Nom</label><br>
+        <input class="modal-input" type="text" id="lastName" name="lastName" minlength="2" pattern="(?!^ +$)^.+$"
+          required><br>
+  
+        <!-- Champ email -->
+        <label class="modal-label" for="email" aria-label="Champ de l'email">E-mail</label><br>
+        <input class="modal-input" type="email" id="email" name="email" required><br>
+  
+        <!-- Champ d'écriture du message -->
+        <label class="modal-label" for="message" aria-label="Champ pour écrire le message">Votre message</label><br>
+        <input class="modal-input modal-msg" type="text" id="message" name="message" minlength="10" maxlength="100"
+          pattern="(?!^ +$)^.+$" required><br>
+  
+        <button class="button modal-submit" aria-label="Bouton de soumission du formulaire de contact"
+          id="submitButton" type="submit">Envoyer</button>
+      </form>
+    </dialog>
 
     <!-- Modale de la lightbox -->
     <dialog class="lightbox" id="lightboxModal" aria-hidden="true">

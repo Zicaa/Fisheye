@@ -388,6 +388,7 @@ form input {
   font-weight: 700;
   font-size: 18px;
   padding-right: 45px;
+  margin: 50px 0px;
 }
 
 .dropdown li {
@@ -415,7 +416,7 @@ form input {
 #dropdown-tri {
   display: flex;
   flex-direction: column;
-  margin-top: -1.8em;
+  margin-top: -2.05em;
   position: absolute;
   z-index: 2;
   padding: 13px 10px 13px 10px;

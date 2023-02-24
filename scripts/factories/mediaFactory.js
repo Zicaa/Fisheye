@@ -14,9 +14,10 @@ function mediaFactory(data) {
       // Je pose une condition : si le media est une image, je l'intègre grâce à un innerHTML dans l'article
       if (image) {
         article.innerHTML =
-        // Je crée le bouton ouvrant la lightbox et intègre les images dans les cards
+        // Je crée le bouton ouvrant la lightbox et y intègre les images, avec alt et aria-label
+        // Je crée la section sous le média qui comprend le titre et le nombre de likes
         `<button class="media-button-card" aria-label="Bouton ouvrant la lightbox">
-            <img class="media-img-card" src="assets/images/${photographerId}/${image}" alt="${title}">
+            <img class="media-img-card" src="assets/images/${photographerId}/${image}" alt="${title}" aria-label="${title}">
         </button>
         <section class="media-info-card">
             <h2 class="media-title-card">${title}</h2>
@@ -32,9 +33,10 @@ function mediaFactory(data) {
 
       } else {
         article.innerHTML =
-        // Je crée le bouton ouvrant la lightbox et intègre les vidéos dans les cards
+        // Je crée le bouton ouvrant la lightbox et y intègre les vidéos avec alt et aria-label
+        // Je crée la section sous le média qui comprend le titre et le nombre de likes
         `<button class="media-button-card" aria-label="Bouton ouvrant la lightbox">
-            <video class="media-video-card" title="${title}">
+            <video class="media-video-card" title="${title}" alt="${title}" aria-label="${title}">
                 <source src="assets/images/${photographerId}/${video}" type="video/mp4">
             </video>
         </button>

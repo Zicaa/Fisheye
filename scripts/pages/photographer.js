@@ -22,7 +22,7 @@ function createPhotographHeader(photographerElement) {
           <p class="photograph-location">${city}, ${country}</p>
           <p class="photograph-tagline">${tagline}</p>
       </div>
-      <button class="contact-button" id="contactBtn" aria-label="Bouton d'ouverture du modal de contact">Contactez-moi</button>
+      <button class="contact-button" id="contactBtn" aria-label="Bouton d'ouverture du modal de contact" onclick="displayModal('contactModal')">Contactez-moi</button>
       <div class="photograph-portrait">
           <img class="photograph-img" src="assets/photographers/${portrait}" alt="Photo de ${name}">
       </div>`;
@@ -52,7 +52,7 @@ function createFilterMenu() {
           <span class="fas fa-chevron-down" id="chevron-down" role='button'></span>
         </div>
         <ul id="dropdown-tri">
-          <li class="tri" role='option'>Popularité<span class="fas fa-chevron-up arrow-up-close"></span></li>
+          <li class="tri" role='option'>Popularité<span class="fas fa-chevron-up"></span></li>
           <li class="tri" role="option" id="date">Date</li>
           <li class="tri" role="option">Titre</li>
         </ul>
@@ -85,13 +85,11 @@ function closeDropdown(){
   // Variables
    let dropdown = document.getElementById("select-menu");
    const sortButton = document.getElementsByClassName("button-style");
-   const chevronDown = document.getElementById("chevron-down");
    
  
    if (dropdown.className === "dropdown open") {
     dropdown.classList.remove("open");
     sortButton[0].style.display="flex";
-    chevronDown.classList.add("arrow-down-open");
     
    } else {
      dropdown.className = "dropdown";
@@ -233,6 +231,7 @@ function countLikes() {
         // Je remplace la classe "fa solid" par "fa regular" 
         mediaLikeIcon.classList.replace("fa-solid", "fa-regular");
       }
+
   }
 
   // Fonction qui effectue le tri
@@ -300,23 +299,12 @@ function countLikes() {
 
   }));
 
+
 }
 
 // Fonction qui rappelle tous les addEventlisteners nécessaires à l'exécution des animations
 function addEventListeners() {
-
-  // J'ajoute un écouteur d'évènement sur le bouton de ma modale de contact pour l'ouvrir au click
-  const contactBtn = document.getElementById("contactBtn");
-  contactBtn.addEventListener("click", () => {
-    displayModal("contactModal");
-  });
  
-  // J'ajoute un écouteur d'évènement sur le bouton de ma modale de contact pour la fermer au click
-  const modalCloseBtn = document.getElementById("modalCloseBtn");
-  modalCloseBtn.addEventListener("click", () => {
-    closeModal("contactModal");
-   });
-
   // J'ajoute un écouteur d'évènement sur chaque bouton de like pour déclencher la fonction countLike
   const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");
   mediaCardLikeButtons.forEach((button) => {

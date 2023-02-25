@@ -23,7 +23,7 @@ function mediaFactory(data) {
             <h2 class="media-title-card">${title}</h2>
             <div class="media-like-content">
                 <div class="media-like-count">${likes}</div>
-                    <button class="media-like-button" aria-label="Coeur symbolisant un button like">
+                    <button class="media-like-button" aria-label="Emoji coeur symbolisant un bouton de like" onclick="countLikes()">
                     <i class="media-like-logo fa-heart fa-regular"></i>
                     </button>
             </div>
@@ -44,7 +44,7 @@ function mediaFactory(data) {
             <h2 class="media-title-card">${title}</h2>
             <div class="media-like-content">
                 <div class="media-like-count">${likes}</div>
-                <button class="media-like-button" aria-label="Coeur symbolisant un button like">
+                <button class="media-like-button" aria-label="Emoji coeur symbolisant un bouton de like" onclick="countLikes()">
                 <i class="media-like-logo fa-heart fa-regular"></i>
                 </button>
             </div>

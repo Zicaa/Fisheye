@@ -294,6 +294,7 @@ function countLikes() {
     button.addEventListener("click", countLikes);
     });
 
+    // J'appelle ma fonction closeDropdown pour fermer le menu déroulant après avoir effectué le tri
     const sortBtn = Array.from(document.getElementsByClassName("tri"));
     sortBtn.forEach((button) => button.addEventListener("click", closeDropdown()));
 

@@ -27,22 +27,27 @@
       <!-- Champ prénom -->
       <form class="modal-form" id="modalForm" aria-label="Formulaire de contact">
         <label class="modal-label" for="firstName" aria-label="Champ du prénom">Prénom</label><br>
-        <input class="modal-input" type="text" id="firstName" name="firstName" minlength="2" pattern="(?!^ +$)^.+$"
-          required><br>
+        <input class="modal-input" type="text" id="firstName" name="firstName"<br>
+        <!--Ajout des id d'erreur pour le js-->
+        <div id="first-error"></div>
   
         <!-- Champ nom -->
         <label class="modal-label" for="lastName" aria-label="Champ du nom">Nom</label><br>
-        <input class="modal-input" type="text" id="lastName" name="lastName" minlength="2" pattern="(?!^ +$)^.+$"
-          required><br>
+        <input class="modal-input" type="text" id="lastName" name="lastName"><br>
+        <!--Ajout des id d'erreur pour le js-->
+        <div id="last-error"></div>
   
         <!-- Champ email -->
         <label class="modal-label" for="email" aria-label="Champ de l'email">E-mail</label><br>
-        <input class="modal-input" type="email" id="email" name="email" required><br>
+        <input class="modal-input" type="email" id="email" name="email"><br>
+        <!--Ajout des id d'erreur pour le js-->
+        <div id="email-error"></div>
   
         <!-- Champ d'écriture du message -->
         <label class="modal-label" for="message" aria-label="Champ pour écrire le message">Votre message</label><br>
-        <input class="modal-input modal-msg" type="text" id="message" name="message" minlength="10" maxlength="100"
-          pattern="(?!^ +$)^.+$" required><br>
+        <input class="modal-input modal-msg" type="text" id="message" name="message"><br>
+        <!--Ajout des id d'erreur pour le js-->
+        <div id="message-error"></div>
   
         <button class="button modal-submit" aria-label="Bouton de soumission du formulaire de contact"
           id="submitButton" type="submit">Envoyer</button>

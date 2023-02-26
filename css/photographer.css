@@ -252,6 +252,10 @@ form input {
     border-radius: 5px;
 }
 
+.error-message{
+  color: red;
+}
+
 #modalCloseBtn{
   background-color: transparent;
   border: transparent;

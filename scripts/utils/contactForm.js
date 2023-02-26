@@ -50,7 +50,6 @@ function photographNameInsert(photographerName) {
   modalTitle.innerHTML = `Contactez-moi<br>${name}`;
 }
 
-4 // Vérification des données du formulaire
 
 // Je récupère les éléments nécessaires aux vérifications
 const firstname = document.getElementById ('firstName');
@@ -67,12 +66,13 @@ const messageError = document.getElementById ('message-error');
 let regexText= /^[A-ZÇÉÈÊËÀÂÎÏÔÙÛ]{1}[a-zçéèêëàâîïôùû]+[-]?[a-zçéèêëàâîïôùû]+$/i;
 let regexEmail = /^([a-z0-9]+(?:\.[a-z0-9]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])?$/;
 
-// Fonction qui valide les éléments du formulaire et prend l'event en paramètre
+4 // Fonction qui valide les éléments du formulaire et prend l'event en paramètre
 function validateForm(event) {
-  // Je désactive l'envoi du formulaire par défaut pour effectuer ma vérification
+
+  // Je désactive l'envoi du formulaire par défaut pour effectuer ma vérification de données
   event.preventDefault();
 
-  firstValidate=false;
+  let firstValidate=false;
 
     // Si le prénom ne correspond pas aux caractères autorisés par ma regex, si il y'a - de 2 caractères, si le champ est vide
     if (!firstname.value.match(regexText) || firstname.value.length < 2 || firstname.value == null) {
@@ -86,7 +86,7 @@ function validateForm(event) {
         firstValidate=true;
     };
 
-  lastValidate=false;
+  let lastValidate=false;
 
     // Si le nom ne correspond pas aux caractères autorisés par ma regex, si il y'a - de 2 caractères, si le champ est vide
     if (!lastname.value.match(regexText) || lastname.value.length < 2 || lastname.value == null) {
@@ -100,7 +100,7 @@ function validateForm(event) {
         lastValidate=true;
     };
 
-  emailValidate=false;
+  let emailValidate=false;
 
     // Si le mail ne correspond pas aux caractères autorisés par ma regex, si le champ est vide
     if (!email.value.match(regexEmail) || email.value == null) {
@@ -111,10 +111,10 @@ function validateForm(event) {
         emailError.style.display='none';
         emailError.classList.remove("error-message");
         email.classList.remove("error-class");
-        messageValidate=true;
+        emailValidate=true;
     };
 
-  messageValidate=false;
+  let messageValidate=false;
 
     // Si le format de message contient moins de 10 caractères, si le champ est vide
     if (message.value.length < 10 || message.value == null) { 
@@ -128,31 +128,24 @@ function validateForm(event) {
         messageValidate=true;
     };
 
-  if ((modalForm.firstValidate == true && modalForm.lastValidate == true && modalForm.emailValidate == true  && modalForm.messageValidate == true )) {
+  if ((firstValidate == true && lastValidate == true && emailValidate == true  && messageValidate == true )) {
     console.log('Prénom : ' + firstname.value)
     console.log('Nom : ' + lastname.value)
     console.log('email : ' + email.value)
     console.log('message : ' + message.value)
-    // Je vide les éléments du formulaire
-    modalForm.reset();
     // Je ferme ma modale
     closeModal("contactModal");
 
   };
-
-    // Je vide les éléments du formulaire
-    modalForm.reset();
-    // Je ferme ma modale
-    closeModal("contactModal");
     
-}
+};
 
-// J'ajoute un écouteur d'évènement pour fermer ma modale au click sur la croix
+5 // J'ajoute un écouteur d'évènement pour fermer ma modale au click sur la croix
 const modalCloseBtn = document.getElementById("modalCloseBtn");
 modalCloseBtn.addEventListener("click", () => {
   closeModal("contactModal");
 });
 
-// J'ajoute un écouteur d'évènement sur le btn submit pour déclencher ma fonction de validation
+6 // J'ajoute un écouteur d'évènement sur le btn submit pour déclencher ma fonction de validation
 const modalForm = document.getElementById("modalForm");
 modalForm.addEventListener("submit", validateForm);

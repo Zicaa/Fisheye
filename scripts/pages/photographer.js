@@ -11,7 +11,7 @@ const photographerMedia = getMedia();
 // Fonction qui génère le header de chaque photographe
 function createPhotographHeader(photographerElement) {
 
-  // Je destructurise l'objet relatif aux photographes pour stocker les éléments
+  // Je destructurise l'objet relatif aux photographes pour extraire les éléments
   const { name, city, country, tagline, portrait } = photographerElement;
 
   // Je crée la section photographes contenant les éléments
@@ -66,38 +66,6 @@ function createFilterMenu() {
 
 }
 
-function editDropdown(){  
- // Variables
-  let dropdown = document.getElementById("select-menu");
-  let sortButton = document.getElementsByClassName("button-style");
-
-  if (dropdown.className === "dropdown") {
-    dropdown.className += " open";
-    sortButton[0].style.display="none";
-
-  } else {
-    dropdown.className = "dropdown";
-  }
-
-}
-
-function closeDropdown(){  
-  // Variables
-   let dropdown = document.getElementById("select-menu");
-   const sortButton = document.getElementsByClassName("button-style");
-   
- 
-   if (dropdown.className === "dropdown open") {
-    dropdown.classList.remove("open");
-    sortButton[0].style.display="flex";
-    
-   } else {
-     dropdown.className = "dropdown";
-   }
-   
- 
- }
-
 // Fonction qui génère la galerie de médias
 function createMediaSection(array) {
 
@@ -124,7 +92,7 @@ function createMediaSection(array) {
 
 // Fonction qui génère le prix en bas de page
 function createFooter(photographPrice) {
-  // Je destructurise l'objet relatif aux photographes pour extraire les prix et les stocker
+  // Je destructurise l'objet relatif aux photographes pour extraire les prix 
   const {price} = photographPrice;
 
   // Je calcule le total des likes à ajouter à ma section footer
@@ -151,39 +119,6 @@ function createFooter(photographPrice) {
   footerEl.innerHTML = photographFooter;
 }
 
-// Fonction qui intègre les noms des photographes dans le h1 de ma modale de contact
-function photographNameInsert(photographerName) {
-  // Destructuring the photographer info object to extract the name property
-  const { name } = photographerName;
-
-  // Add the photographer name to the modalTitle element
-  const modalTitle = document.querySelector(".modal-title");
-  modalTitle.innerHTML = `Contactez-moi<br>${name}`;
-}
-
-function validateModalForm(event) {
-  // Prevent the default form submission
-  event.preventDefault();
-
-  // Get the elements of the modal form & its inputs
-  const modalForm = document.getElementById("modalForm");
-  const firstName = document.getElementById("firstName");
-  const lastName = document.getElementById("lastName");
-  const email = document.getElementById("email");
-  const message = document.getElementById("message");
-
-  // Check if the form input data is valid & console.log the data as an object
-  if (modalForm.checkValidity()) {
-    console.log({
-      firstName: firstName.value,
-      lastName: lastName.value,
-      email: email.value,
-      message: message.value,
-    });
-    modalForm.reset();
-    closeModal("contactModal");
-  }
-}
 
 /****************************************************************************************************************************************/
 /*****************************************************ANIMATIONS*************************************************************************/
@@ -234,17 +169,57 @@ function countLikes() {
 
   }
 
-  // Fonction qui effectue le tri
-  function sortMediaSection() {
-    // Je récupère la valeur de l'option sélectionnée
-    let newOrder = [];
-    let btnSort = document.querySelector(".sort-btn");
-    let sortBtn = Array.from(document.getElementsByClassName("tri"));
+// Fonction qui déploie le menu déroulant
+function editDropdown(){  
+  // Je récupère les éléments dont j'ai besoin
+   let dropdown = document.getElementById("select-menu");
+   let sortButton = document.getElementsByClassName("button-style");
+ 
+   // Je pause une condition : si mon menu possède la classe dropdown
+   if (dropdown.className === "dropdown") {
+    // Je lui ajoute la classe "open" pour qu'il s'affiche
+     dropdown.className += " open";
+     // J'applique un display none à mon bouton pour le masquer
+     sortButton[0].style.display="none";
+ 
+  // Sinon la classe de mon menu passe à "dropdown open"
+   } else {
+     dropdown.className = "dropdown open";
+   }
+   
+}
+
+// Fonction qui ferme le menu déroulant
+function closeDropdown(){  
+  // Je récupère les éléments dont j'ai besoin
+    let dropdown = document.getElementById("select-menu");
+    const sortButton = document.getElementsByClassName("button-style");
     
-    console.log({sortBtn});
+  // Je pause une condition : si mon menu possède la classe dropdown open
+  if (dropdown.className === "dropdown open") {
+    // Je supprime la classe "open" pour le masquer
+     dropdown.classList.remove("open");
+     // Je passe mon bouton en display flex pour l'afficher
+     sortButton[0].style.display="flex";
+     
+    // Sinon la classe de mon menu passe à "dropdown"
+    } else {
+      dropdown.className = "dropdown";
+    }
+
+}
+
+// Fonction qui effectue le tri
+function sortMediaSection() {
+  // Je récupère la valeur de l'option sélectionnée
+  let newOrder = [];
+  let btnSort = document.querySelector(".sort-btn");
+  let sortBtn = Array.from(document.getElementsByClassName("tri"));
     
-    // Je parcours mon tableau de boutons indexés et déclenche une fonction au click
-    sortBtn.forEach((btn, index) => btn.addEventListener("click", () => {
+  console.log({sortBtn});
+    
+  // Je parcours mon tableau de boutons indexés et déclenche une fonction au click
+  sortBtn.forEach((btn, index) => btn.addEventListener("click", () => {
 
     // Si mon élément de liste est indexé à 0
     if (index == 0) {
@@ -300,8 +275,41 @@ function countLikes() {
 
   }));
 
-
 }
+
+// Fonction asynchrone qui ouvre la lightbox et passe l'Id de chaque média en paramètre
+async function createLightBox(mediaId) {
+  // Je vais récupérer chaque ID de médias présent dans mon tableau et les stocke dans ma constante
+  const mediaArray = await photographerMedia.find((media) => media.id == mediaId);
+
+  // Je fais correspondre la variable currentMediaId avec l'identifiant actuel de ma lightbox
+  currentMediaId = mediaId;
+
+  // Je destructurise l'objet relatif aux photographes pour extraire les éléments
+  const { title, photographerId, image, video } = mediaArray;
+
+  // Je récupère L'ID de ma Lightbox 
+  const lightboxMedia = document.getElementById("lightboxMedia");
+
+  // Je pause une condition : si le média est une image, j'injecte mon image dans le HTML de ma lightbox
+  if (image) {
+    lightboxMedia.innerHTML = `
+      <img class="lightbox-img" src="assets/images/${photographerId}/${image}" alt="${title}">
+      <figcaption class="lightbox-caption">${title}</figcaption>
+  `;
+  }
+
+  // Je pause une condition : si le média est une image, j'injecte mon image dans le HTML de ma lightbox
+  if (video) {
+    lightboxMedia.innerHTML = `
+      <video class="lightbox-video" title="${title}" controls>
+        <source src="assets/images/${photographerId}/${video}" type="video/mp4">
+      </video>
+      <figcaption class="lightbox-caption">${title}</figcaption>
+  `;
+  }
+}
+
 
 // Fonction qui rappelle tous les addEventlisteners nécessaires à l'exécution des animations
 function addEventListeners() {

@@ -39,3 +39,40 @@ function closeModal(contactModal) {
   main.setAttribute("aria-hidden", "false");
   footer.setAttribute("aria-hidden", "false");
 }
+
+// Fonction qui intègre les noms des photographes dans le h1 de ma modale de contact
+function photographNameInsert(photographerName) {
+  // Je destructurise l'objet relatif aux photographes pour extraire les noms
+  const { name } = photographerName;
+
+  // J'ajoute le nom du photographe dans le H1 de ma modale de contact
+  const modalTitle = document.querySelector(".modal-title");
+  modalTitle.innerHTML = `Contactez-moi<br>${name}`;
+}
+
+// Fonction qui valide les éléments du formulaire
+function validateForm(event) {
+  // Je désactive l'envoi du formulaire par défaut pour effectuer ma vérification
+  event.preventDefault();
+
+  // Je récupère mes éléments de modale et leurs inputs
+  const modalForm = document.getElementById("modalForm");
+
+  // J'utilise la méthode checkValidity pour vérifie si les éléments sont valides par rapport aux patterns du HTML
+  if (modalForm.checkValidity()) {
+    // Je vide les éléments du formulaire
+    modalForm.reset();
+    // Je ferme ma modale
+    closeModal("contactModal");
+  }
+}
+
+// J'ajoute un écouteur d'évènement pour fermer ma modale au click sur la croix
+const modalCloseBtn = document.getElementById("modalCloseBtn");
+modalCloseBtn.addEventListener("click", () => {
+  closeModal("contactModal");
+});
+
+// J'ajoute un écouteur d'évènement sur le submit pour déclencher ma fonction de validation
+const modalForm = document.getElementById("modalForm");
+modalForm.addEventListener("submit", validateForm);

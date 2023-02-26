@@ -80,6 +80,7 @@ header {
     width: 200px;
     object-fit: cover;
     border-radius: 50%;
+    box-shadow: -9px 4px 24px -5px rgba(0,0,0,0.19);
 }
 
 
@@ -170,6 +171,10 @@ h2{
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+.contact-button:hover {
+  background: #db8876;
+  color: #000000;
 }
 
 .media-button-card {
@@ -439,6 +444,7 @@ form input {
   text-align: left;
   justify-content: space-between;
   width: 130px;
+  cursor: pointer;
 }
 
 ul{
@@ -467,6 +473,7 @@ ul{
   justify-content: space-between;
   border-radius: 5px;
   width:170px;
+  cursor : pointer;
 }
 
 .hidden{

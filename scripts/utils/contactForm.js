@@ -50,7 +50,7 @@ function photographNameInsert(photographerName) {
   modalTitle.innerHTML = `Contactez-moi<br>${name}`;
 }
 
-// Fonction qui valide les éléments du formulaire
+// Fonction qui valide les éléments du formulaire et prend l'event en paramètre
 function validateForm(event) {
   // Je désactive l'envoi du formulaire par défaut pour effectuer ma vérification
   event.preventDefault();
@@ -73,6 +73,6 @@ modalCloseBtn.addEventListener("click", () => {
   closeModal("contactModal");
 });
 
-// J'ajoute un écouteur d'évènement sur le submit pour déclencher ma fonction de validation
+// J'ajoute un écouteur d'évènement sur le btn submit pour déclencher ma fonction de validation
 const modalForm = document.getElementById("modalForm");
 modalForm.addEventListener("submit", validateForm);

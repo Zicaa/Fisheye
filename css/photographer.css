@@ -207,6 +207,7 @@ h2{
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    border: transparent;
 }
 
 .modal header {
@@ -218,11 +219,10 @@ h2{
     cursor: pointer;
 }
 
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
-    object-fit: cover;
+.modal-title h2{
+  vertical-align: top;
+  font-size: 5rem;
+  font-weight: 400;
 }
 
 form {
@@ -250,6 +250,11 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+#modalCloseBtn{
+  background-color: transparent;
+  border: transparent;
 }
 
 /* FOOTER */

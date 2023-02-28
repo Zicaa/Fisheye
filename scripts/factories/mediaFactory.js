@@ -1,4 +1,4 @@
-// Fonction servant à créer les médias à partir du fichier json
+// Fonction servant à créer les médias de ma page photographe à partir du fichier json
 function mediaFactory(data) {
     // Extraction des données nécessaires et stockage dans une constante
     const { id, photographerId, title, image, video, likes } = data;
@@ -11,7 +11,7 @@ function mediaFactory(data) {
       // J'ajoute un id à cet article correspondant à l'id du média
       article.id = id;
   
-      // Je pose une condition : si le media est une image, je l'intègre grâce à un innerHTML dans l'article
+      // Je pause une condition : si le media est une image, je l'intègre grâce à un innerHTML dans l'article
       if (image) {
         article.innerHTML =
         // Je crée le bouton ouvrant la lightbox et y intègre les images, avec alt et aria-label
@@ -23,7 +23,7 @@ function mediaFactory(data) {
             <h2 class="media-title-card">${title}</h2>
             <div class="media-like-content">
                 <div class="media-like-count">${likes}</div>
-                    <button class="media-like-button" aria-label="Emoji coeur symbolisant un bouton de like" onclick="countLikes()">
+                    <button class="media-like-button" aria-label="Emoji coeur symbolisant un bouton de like">
                     <i class="media-like-logo fa-heart fa-regular"></i>
                     </button>
             </div>
@@ -35,7 +35,7 @@ function mediaFactory(data) {
         article.innerHTML =
         // Je crée le bouton ouvrant la lightbox et y intègre les vidéos avec alt et aria-label
         // Je crée la section sous le média qui comprend le titre et le nombre de likes
-        `<button class="media-button-card" aria-label="Bouton ouvrant la lightbox">
+        `<button class="media-button-card" aria-label="Bouton ouvrant la lightbox")>
             <video class="media-video-card" title="${title}" alt="${title}" aria-label="${title}">
                 <source src="assets/images/${photographerId}/${video}" type="video/mp4">
             </video>
@@ -44,7 +44,7 @@ function mediaFactory(data) {
             <h2 class="media-title-card">${title}</h2>
             <div class="media-like-content">
                 <div class="media-like-count">${likes}</div>
-                <button class="media-like-button" aria-label="Emoji coeur symbolisant un bouton de like" onclick="countLikes()">
+                <button class="media-like-button" aria-label="Emoji coeur symbolisant un bouton de like">
                 <i class="media-like-logo fa-heart fa-regular"></i>
                 </button>
             </div>

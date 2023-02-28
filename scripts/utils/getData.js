@@ -1,4 +1,4 @@
-// Fonction qui récupère les données des photographes dans le Json grâce à leur ID
+// Fonction qui récupère les données des photographes grâce à leur ID
 function getPhotographer() {
   // J'extrais les données des photographes que je stocke dans une constante
   // J'accède aux données de la requête "get" grâce à searchParams
@@ -9,7 +9,7 @@ function getPhotographer() {
   return photographers.find((photographer) => photographer.id === photographerId);
 }
 
-// Fonction qui récupère les médias des photographes dans le Json grâce à leur ID
+// Fonction qui récupère les médias des photographes grâce à leur ID
 function getMedia() {
   // J'accède aux données de la requête "get" grâce à searchParams
   const params = new URL(document.location).searchParams;

@@ -22,7 +22,7 @@ header {
 
 h1 {
     color: #901C1C;
-    margin-right: 100px;
+    margin: 0px 100px 0px 0px;
     font-weight: 400;
     font-size: 36px;
 }
@@ -41,6 +41,8 @@ h1 {
         margin-left: 0px;
     }
 }
+
+/****************SECTION PHOTOGRAPHES********************/
 
 .photographer_section {
     display: grid;

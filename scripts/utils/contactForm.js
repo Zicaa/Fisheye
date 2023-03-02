@@ -42,7 +42,7 @@ function validateForm(event) {
         firstnameError.classList.remove("error-message");
         firstname.classList.remove("error-class");
         firstValidate=true;
-    };
+    }
 
   let lastValidate=false;
 
@@ -56,7 +56,7 @@ function validateForm(event) {
         lastnameError.classList.remove("error-message");
         lastname.classList.remove("error-class");
         lastValidate=true;
-    };
+    }
 
   let emailValidate=false;
 
@@ -70,7 +70,7 @@ function validateForm(event) {
         emailError.classList.remove("error-message");
         email.classList.remove("error-class");
         emailValidate=true;
-    };
+    }
 
   let messageValidate=false;
 
@@ -84,7 +84,7 @@ function validateForm(event) {
         messageError.classList.remove("error-message");
         message.classList.remove("error-class");
         messageValidate=true;
-    };
+    }
 
   if ((firstValidate == true && lastValidate == true && emailValidate == true  && messageValidate == true )) {
     console.log('Prénom : ' + firstname.value)
@@ -94,9 +94,9 @@ function validateForm(event) {
     // Je ferme ma modale
     closeModal("contactModal");
 
-  };
+  }
     
-};
+}
 
 // J'ajoute un écouteur d'évènement pour fermer ma modale au click sur la croix
 const modalCloseBtn = document.getElementById("modalCloseBtn");

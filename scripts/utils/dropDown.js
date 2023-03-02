@@ -1,3 +1,6 @@
+// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
+/* eslint-disable no-unused-vars */
+
 // Fonction qui déploie le menu déroulant
 function editDropdown(){  
     // Je récupère les éléments dont j'ai besoin

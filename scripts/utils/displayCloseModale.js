@@ -1,3 +1,6 @@
+// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
+/* eslint-disable no-unused-vars */
+
 // Fonction qui ouvre les modales
 function displayModal(contactModal) {
     // Je récupère l'ID de ma modale et le passe en paramètre de ma fonction

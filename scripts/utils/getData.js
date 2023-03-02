@@ -1,3 +1,7 @@
+// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 // Fonction qui récupère les données des photographes grâce à leur ID
 function getPhotographer() {
   // J'extrais les données des photographes que je stocke dans une constante

@@ -1,0 +1,23 @@
+{
+  "name": "fisheye",
+  "version": "1.0.0",
+  "description": "Projet Fisheye : développement d'un site pour photographes avec Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zicaa/Fisheye.git"
+  },
+  "author": "Nausicaa CRESTA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zicaa/Fisheye/issues"
+  },
+  "homepage": "https://github.com/Zicaa/Fisheye#readme",
+  "devDependencies": {
+    "eslint": "^8.35.0",
+    "eslint-plugin-react": "^7.32.2"
+  }
+}

@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-undef */
+
 let currentMediaId=0;
 
 // Fonction asynchrone qui crée le contenu de la lightbox

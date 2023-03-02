@@ -7,7 +7,7 @@ async function createLightBoxMedia(mediaId) {
       (media) => media.id == mediaId
     );
   
-    // Je mets à jour la variable currentMediaId avec l'identifiant actuel de la boîte à lumière.
+    // Je mets à jour la variable currentMediaId avec l'identifiant actuel de la lightbox.
     currentMediaId = mediaId;
   
     // Je destructurise l'objet relatif aux photographes pour extraire les éléments
@@ -37,7 +37,7 @@ async function createLightBoxMedia(mediaId) {
 }
   
 // Fonction qui active le média suivant au click
-function nextLightBoxMedia() {
+function nextMedia() {
 // Je récupère l'index de l'élément média actuel dans le tableau photographerMedia
 const currentIndex = photographerMedia.findIndex(
     (media) => media.id == currentMediaId
@@ -55,12 +55,12 @@ const currentIndex = photographerMedia.findIndex(
 
 }
   
-// J'ajoute un écouteur d'événements qui déclenche la fonction nextLightBoxMedia au click
+// J'ajoute un écouteur d'événements qui déclenche la fonction nextMedia au click
 const nextBtn = document.getElementById("lightboxNextBtn");
-nextBtn.addEventListener("click", nextLightBoxMedia);
+nextBtn.addEventListener("click", nextMedia);
   
 // Fonction qui active le média précédent au click
-function previousLightBoxMedia() {
+function previousMedia() {
     // Je récupère l'index de l'élément média actuel dans le tableau photographerMedia
     const currentIndex = photographerMedia.findIndex(
       (media) => media.id == currentMediaId
@@ -77,7 +77,7 @@ function previousLightBoxMedia() {
     }
 }
   
-// J'ajoute un écouteur d'événements qui déclenche la fonction nextLightBoxMedia au click
+// J'ajoute un écouteur d'événements qui déclenche la fonction nextMedia au click
 const previousBtn = document.getElementById("lightboxPreviousBtn");
-previousBtn.addEventListener("click", previousLightBoxMedia);
+previousBtn.addEventListener("click", previousMedia);
   

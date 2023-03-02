@@ -80,4 +80,19 @@ function previousMedia() {
 // J'ajoute un écouteur d'événements qui déclenche la fonction nextMedia au click
 const previousBtn = document.getElementById("lightboxPreviousBtn");
 previousBtn.addEventListener("click", previousMedia);
-  
+
+// Add an event listener to lightboxModal to switch to the previous/next media on press of left/right arrow keys
+document.addEventListener("keydown", (event) => {
+  // Get the lightboxModal element
+  const lightboxModal = document.getElementById("lightboxModal");
+
+  // If lightboxModal is open & the left arrow key is pressed, call the previousLightBoxMedia function
+  if (lightboxModal.open && event.key === "ArrowLeft") {
+    previousMedia();
+  }
+
+  // If lightboxModal is open & the right arrow key is pressed, call the nextLightBoxMedia function
+  if (lightboxModal.open && event.key === "ArrowRight") {
+    nextMedia();
+  }
+});

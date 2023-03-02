@@ -214,6 +214,17 @@ color: #000000;
     border: transparent;
     box-shadow: -9px 4px 24px -5px rgba(0,0,0,0.19);
 }
+  @media only screen and (max-width: 767px){
+  .modal {
+      width: 100%;
+      padding: 1em;
+  }
+}
+  @media only screen and (max-width: 767px){
+  .modal-label {
+      font-size: 28px;
+  }
+}
 
 .modal header {
     justify-content: space-between;
@@ -230,6 +241,12 @@ h2.modal-title {
   font-weight: 400;
   color: #000000;
   line-height: 50px;
+} 
+@media only screen and (max-width: 992px) {
+  h2.modal-title {
+    font-size: 36px;
+    line-height: 30px;
+  }
 }
 
 form {

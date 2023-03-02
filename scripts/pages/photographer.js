@@ -94,8 +94,10 @@ function createFooter(photographPrice) {
 
   // Je calcule le total des likes à ajouter à ma section footer
   const mediaLikeCount = document.querySelectorAll(".media-like-count");
+
   let totalMediaLikeCount = 0;
 
+  // Je parcours mon tableau de médias, pour chaque média je convertie mes likes en nombre
   mediaLikeCount.forEach((media) => {
     totalMediaLikeCount += Number(media.textContent);
   });
@@ -135,6 +137,13 @@ function animations() {
       displayModal("lightboxModal");
     });
   });
+
+  // J'ajoute un écouteur d'évènement sur chaque croix de lightbox pour la clôturer au click
+ const modalCloseBtn = document.getElementById("lightboxCloseBtn");
+ modalCloseBtn.addEventListener("click", () => {
+   closeModal("lightboxModal");
+ });
+
 }
 
 // Fonction asynchrone qui intègre les éléments statiques et les animations à ma page de photographes

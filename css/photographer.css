@@ -332,6 +332,8 @@ form input {
   .lightbox-container {
     display: grid;
     grid-template-columns: 8% 84% 8%;
+    max-width: 100%;
+    max-height: 100%;
   }
   .lightbox-previous, .lightbox-next {
     display: flex;
@@ -361,7 +363,7 @@ form input {
     margin: 0 1em;
   }
   .lightbox-img, .lightbox-video {
-    max-width: 95%;
+    max-width: 100%;
     max-height: 100%;
     overflow: hidden;
   }

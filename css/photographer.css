@@ -19,6 +19,7 @@ body {
     margin: 0;
 }
 
+/****************SECTION PHOTOGRAPHES********************/
 
 header {
     display: flex;
@@ -89,6 +90,47 @@ img, picture, video, canvas, svg {
     max-width: 100%;
 }
 
+h1{
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  color: #D3573C;
+  margin: 0px;
+}
+
+h2{
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
+  color: #911C1C;
+  margin: 0px;
+}
+
+.logo {
+  height: 50px;
+  margin-left: 100px;
+}
+
+.contact-button {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901C1C;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.contact-button:hover {
+background: #db8876;
+color: #000000;
+}
+
+/****************SECTION MEDIAS********************/
+
 .media-section {
     display: grid;
     grid-template-columns: repeat(auto-fill, 350px);
@@ -130,51 +172,11 @@ img, picture, video, canvas, svg {
     cursor: pointer;
 }
 
-
 .media-card-img, .media-card-video {
     width: 35rem;
     height: 30rem;
     object-fit: cover;
     border-radius: 0.5rem;
-}
-
-h1{
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 64px;
-    color: #D3573C;
-    margin: 0px;
-}
-
-h2{
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 31px;
-    color: #911C1C;
-    margin: 0px;
-}
-
-.logo {
-    height: 50px;
-    margin-left: 100px;
-}
-
-.contact-button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.contact-button:hover {
-  background: #db8876;
-  color: #000000;
 }
 
 .media-button-card {
@@ -197,6 +199,8 @@ h2{
     border-radius: 0.5rem;
 }
 
+/****************MODALE********************/
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -208,6 +212,7 @@ h2{
     padding: 35px;
     margin: auto;
     border: transparent;
+    box-shadow: -9px 4px 24px -5px rgba(0,0,0,0.19);
 }
 
 .modal header {
@@ -219,10 +224,12 @@ h2{
     cursor: pointer;
 }
 
-.modal-title h2{
+h2.modal-title {
   vertical-align: top;
-  font-size: 5rem;
+  font-size: 50px;
   font-weight: 400;
+  color: #000000;
+  line-height: 50px;
 }
 
 form {
@@ -266,7 +273,7 @@ form input {
   border: transparent;
 }
 
-/* FOOTER */
+/****************FOOTER********************/
 
 .footer {
     z-index: 1;
@@ -275,7 +282,7 @@ form input {
     right: 10%;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 10px;
     background: #db8876;
@@ -283,6 +290,8 @@ form input {
     border-radius: 0.5rem;
     font-weight: 500;
     font-size: 20px;
+    width: 300px;
+    height: 60px;
   }
   @media only screen and (max-width: 1024px) {
     .footer {
@@ -291,9 +300,6 @@ form input {
   }
   @media only screen and (max-width: 760px) {
     .footer {
-      width: 300px;
-      height: 60px;
-      font-size: 20px;
       left: calc((100vw - 300px) / 2);
       right: calc((100vw - 30px) / 2);
     }
@@ -308,7 +314,7 @@ form input {
   }
 
 
-/* MODALE LIGHTBOX */
+/****************LIGHTBOX********************/
 
 .lightbox {
     position: fixed;
@@ -355,11 +361,9 @@ form input {
     margin: 0 1em;
   }
   .lightbox-img, .lightbox-video {
-    max-width: 100%;
+    max-width: 95%;
     max-height: 100%;
     overflow: hidden;
-    -o-object-fit: scale-down;
-       object-fit: scale-down;
   }
   .lightbox-close {
     position: absolute;
@@ -388,7 +392,8 @@ form input {
     margin: 0.5em 0;
   }
   
-/******************************************************************************************************************************/
+/****************SELECT MENU********************/
+
 .custom-select {
   position: relative;
   font-size: 20px;
@@ -437,7 +442,7 @@ form input {
   flex-direction: column;
   margin-top: -2.05em;
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   padding: 13px 10px 13px 10px;
   background-color: #901c1c;
   border-radius: 5px;

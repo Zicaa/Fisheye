@@ -1,10 +1,12 @@
+/* eslint-disable no-undef */
+
 // Je récupère les données des photographes
 const photographerInfo = getPhotographer();
 
 // Je récupère les médias des photographes
 const photographerMedia = getMedia();
 
-// Fonction qui génère le header de chaque photographe
+// Fonction qui crée le header de chaque photographe
 function createPhotographHeader(photographerElement) {
 
   // Je destructurise l'objet relatif aux photographes pour extraire les éléments
@@ -89,12 +91,14 @@ function createMediaSection(array) {
 
 // Fonction qui génère le prix en bas de page
 function createFooter(photographPrice) {
+  
   // Je destructurise l'objet relatif aux photographes pour extraire les prix 
   const {price} = photographPrice;
 
   // Je calcule le total des likes à ajouter à ma section footer
   const mediaLikeCount = document.querySelectorAll(".media-like-count");
 
+  // J'initialise une variable de total à zéro
   let totalMediaLikeCount = 0;
 
   // Je parcours mon tableau de médias, pour chaque média je convertie mes likes en nombre
@@ -102,7 +106,7 @@ function createFooter(photographPrice) {
     totalMediaLikeCount += Number(media.textContent);
   });
 
-  // Je crée le HTML de mon footer
+  // Je crée le HTML de mon footer en intégrant mon total de like 
   const photographFooter = `
     <aside class="footer">
       <div class="footer-container">
@@ -139,10 +143,10 @@ function animations() {
   });
 
   // J'ajoute un écouteur d'évènement sur chaque croix de lightbox pour la clôturer au click
- const modalCloseBtn = document.getElementById("lightboxCloseBtn");
- modalCloseBtn.addEventListener("click", () => {
-   closeModal("lightboxModal");
- });
+  const modalCloseBtn = document.getElementById("lightboxCloseBtn");
+  modalCloseBtn.addEventListener("click", () => {
+    closeModal("lightboxModal");
+  });
 
 }
 

@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 // Fonction qui crée les éléments dans la page index
 function displayData(photographers) {
 	// Je recupere la div ou injecter les éléments dans le DOM

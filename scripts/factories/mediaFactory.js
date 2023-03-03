@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 // Fonction servant à créer les médias de ma page photographe à partir du fichier json
 function mediaFactory(data) {
     // Extraction des données nécessaires et stockage dans une constante
@@ -55,6 +57,6 @@ function mediaFactory(data) {
       return article;
     }
   
-    // Je retourne un objet avec la fonction getMediaCarDom
+    // Je retourne la fonction crée avec tous les éléments
     return { getMediaCardDOM };
   }

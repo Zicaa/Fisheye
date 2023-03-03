@@ -1,5 +1,6 @@
 // Fonction qui intègre les noms des photographes dans le h1 de ma modale de contact
  function photographNameInsert(photographerName) {
+
   // Je destructurise l'objet relatif aux photographes pour extraire les noms
   const { name } = photographerName;
 
@@ -86,6 +87,7 @@ function validateForm(event) {
         messageValidate=true;
     }
 
+  // Si toutes mes variables de comparaison sont à true
   if ((firstValidate == true && lastValidate == true && emailValidate == true  && messageValidate == true )) {
     console.log('Prénom : ' + firstname.value)
     console.log('Nom : ' + lastname.value)

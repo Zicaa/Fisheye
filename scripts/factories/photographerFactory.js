@@ -1,10 +1,12 @@
-// Fonction servant à créer les photographes à partir du fichier json
+/* eslint-disable no-unused-vars */
+
+// Fonction servant à créer les photographes de la page d'accueil à partir du fichier json
 function photographerFactory(data) {
      // Extraction des données nécessaires et stockage dans une constante
     const { name, portrait, city, country, tagline, price, id } = data;
     const picture = `assets/photographers/${portrait}`;
 
-    // Fonction qui crée les cartes des photographes en retournqant les éléments du DOM
+    // Fonction qui crée les cartes des photographes en intégrant les éléments du DOM
     function getUserCardDOM() {
         // Je crée l'article à intégrer dans le HTML pour contenir ma carte photographe 
         const article = document.createElement( 'article' );

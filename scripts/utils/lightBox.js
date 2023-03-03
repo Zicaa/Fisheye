@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
 /* eslint-disable no-undef */
 
 let currentMediaId=0;
@@ -10,7 +10,7 @@ async function createLightBoxMedia(mediaId) {
       (media) => media.id == mediaId
     );
   
-    // Je mets à jour la variable currentMediaId avec l'identifiant actuel de la lightbox.
+    // Je mets à jour la variable currentMediaId avec l'identifiant actuel du média
     currentMediaId = mediaId;
   
     // Je destructurise l'objet relatif aux photographes pour extraire les éléments
@@ -39,15 +39,16 @@ async function createLightBoxMedia(mediaId) {
 
 }
   
-// Fonction qui active le média suivant au click
+// Fonction qui affiche le média suivant au click
 function nextMedia() {
 // Je récupère l'index de l'élément média actuel dans le tableau photographerMedia
 const currentIndex = photographerMedia.findIndex(
     (media) => media.id == currentMediaId
     );
   
-    // Si l'élément multimédia actuel n'est pas le dernier élément du tableau, j'affiche l'élément suivant
+    // Si l'élément multimédia actuel n'est pas le dernier élément du tableau
     if (currentIndex < photographerMedia.length - 1) {
+      // J'affiche l'élément suivant en avançant de +1 dans mon tableau
       const nextMediaId = photographerMedia[currentIndex + 1].id;
       createLightBoxMedia(nextMediaId);
       // Sinon, j'affiche le premier élément du tableau
@@ -62,15 +63,16 @@ const currentIndex = photographerMedia.findIndex(
 const nextBtn = document.getElementById("lightboxNextBtn");
 nextBtn.addEventListener("click", nextMedia);
   
-// Fonction qui active le média précédent au click
+// Fonction qui affiche le média précédent au click
 function previousMedia() {
     // Je récupère l'index de l'élément média actuel dans le tableau photographerMedia
     const currentIndex = photographerMedia.findIndex(
       (media) => media.id == currentMediaId
     );
   
-    // Si l'élément multimédia actuel n'est pas le premier élément du tableau, j'affiche l'élément précédent
+    // Si l'élément multimédia actuel n'est pas le premier élément du tableau
     if (currentIndex > 0) {
+      // J'affiche l'élément précédent en reculant de -1 dans mon tableau
       const previousMediaId = photographerMedia[currentIndex - 1].id;
       createLightBoxMedia(previousMediaId);
       // Sinon, j'affiche le dernier élément du tableau
@@ -86,7 +88,7 @@ previousBtn.addEventListener("click", previousMedia);
 
 // J'ajoute un écouteur d'évènement à ma lightboxModal pour voir les médias précédent/suivant en appuyant sur les touches de mon clavier
 document.addEventListener("keydown", (event) => {
-  // Get the lightboxModal element
+  // Je récupère l'ID de ma lightbox
   const lightboxModal = document.getElementById("lightboxModal");
 
   // Si la lightbox est ouverte et que la touche flèche gauche est enfoncée : j'appelle la fonction previousMedia

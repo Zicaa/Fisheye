@@ -19,6 +19,6 @@ function getMedia() {
   const params = new URL(document.location).searchParams;
   // J'extrais les ID des photographes grâce aux paramètres de l'URL - parseInt récupère le 1er entier d'une chaîne
   const photographerId = parseInt(params.get("id"));
-  // Je fais correspondre chaque ID de photographe à l'ID récupéré dans l'URL grâce à la méthod filter()
+  // Je fais correspondre chaque ID de médias à l'ID du photographe grâce à la méthod filter()
   return media.filter((mediaItem) => mediaItem.photographerId === photographerId);
 }

@@ -3,9 +3,11 @@
 
 // Je récupère les données des photographes
 const photographerInfo = getPhotographer();
+console.log(photographerInfo);
 
 // Je récupère les médias des photographes
 const photographerMedia = getMedia();
+console.log(photographerMedia);
 
 // Fonction qui crée le header de chaque photographe
 function createPhotographHeader(photographerElement) {

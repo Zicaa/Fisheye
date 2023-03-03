@@ -76,9 +76,9 @@ function createMediaSection(array) {
 
   // Je parcours mon tableau de médias
   array.forEach((media) => {
-    // Je crée une nouvelle card pour chacun d'entre eux en appelant ma fonction mediaFactory
+    // Je crée un nouvel article pour chacun d'entre eux en appelant ma fonction mediaFactory
     const mediaCardModel = mediaFactory(media);
-    // Je crée les éléments de médias grâce à ma fonction callback getMediaCardDOM
+    // A l'intérieur de ces articles, je crée les éléments de médias grâce à ma fonction callback getMediaCardDOM
     const mediaCardDOM = mediaCardModel.getMediaCardDOM();
     // J'injecte les nouvelles cards de medias dans ma section medias
     mediaSection.appendChild(mediaCardDOM);
@@ -98,18 +98,19 @@ function createFooter(photographPrice) {
   // Je destructurise l'objet relatif aux photographes pour extraire les prix 
   const {price} = photographPrice;
 
-  // Je calcule le total des likes à ajouter à ma section footer
+  // Je récupère le contenu de toutes mes div "media-like-count" contenant le nb de likes
   const mediaLikeCount = document.querySelectorAll(".media-like-count");
 
   // J'initialise une variable de total à zéro
   let totalMediaLikeCount = 0;
 
-  // Je parcours mon tableau de médias, pour chaque média je convertie mes likes en nombre
+  // Je parcours mon tableau de médias
   mediaLikeCount.forEach((media) => {
+    // J'additionne le total de tous mes likes pour chaque média
     totalMediaLikeCount += Number(media.textContent);
   });
 
-  // Je crée le HTML de mon footer en intégrant mon total de like 
+  // Je crée le HTML de mon footer en intégrant mon total de likes
   const photographFooter = `
     <aside class="footer">
       <div class="footer-container">
@@ -149,7 +150,8 @@ function animations() {
   // J'ajoute un écouteur d'évènement sur chaque croix de lightbox pour la clôturer au click
   const modalCloseBtn = document.getElementById("lightboxCloseBtn");
   modalCloseBtn.addEventListener("click", () => {
-    closeModal("lightboxModal");
+  closeModal("lightboxModal");
+
   });
 
 }

@@ -109,3 +109,14 @@ modalCloseBtn.addEventListener("click", () => {
 // J'ajoute un écouteur d'évènement sur le btn submit pour déclencher ma fonction de validation
 const modalForm = document.getElementById("modalForm");
 modalForm.addEventListener("submit", validateForm);
+
+// J'ajoute un écouteur d'évènement à ma modale pour la fermer avec la touche Escape
+document.addEventListener("keydown", (event) => {
+  // Je récupère l'ID de ma lightbox
+  const contactModal = document.getElementById("contactModal");
+
+  // Si la lightbox est ouverte et que la touche escape est enfoncée : je ferme la modale
+  if (contactModal.open && event.key === "Escape") {
+    closeModal("contactModal");
+  }
+});

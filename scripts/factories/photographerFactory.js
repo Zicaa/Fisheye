@@ -1,3 +1,4 @@
+// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
 /* eslint-disable no-unused-vars */
 
 // Fonction servant à créer les photographes de la page d'accueil à partir du fichier json

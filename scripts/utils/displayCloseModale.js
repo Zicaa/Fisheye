@@ -1,7 +1,7 @@
 // eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
 /* eslint-disable no-unused-vars */
 
-// Fonction qui ouvre les modales
+// Fonction qui ouvre les modales en passant l'ID de la modale en paramètre
 function displayModal(contactModal) {
     // Je récupère l'ID de ma modale et le passe en paramètre de ma fonction
     const modal = document.getElementById(contactModal);
@@ -22,7 +22,7 @@ function displayModal(contactModal) {
     footer.setAttribute("aria-hidden", "true");
   }
   
-// Fonction qui ferme les modales
+// Fonction qui ferme les modales en passant l'ID de la modale en paramètre
 function closeModal(contactModal) {
     // Je récupère l'ID de ma modale et le passe en paramètre de ma fonction
     const modal = document.getElementById(contactModal);

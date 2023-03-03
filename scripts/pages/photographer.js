@@ -1,3 +1,4 @@
+// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
 /* eslint-disable no-undef */
 
 // Je récupère les données des photographes
@@ -60,12 +61,14 @@ function createFilterMenu() {
   // J'injecte le menu de sélection dans ma balise main
   const main = document.getElementById("main");
   main.appendChild(selectDiv);
+
+  // J'appelle la fonction de tri à chaque click sur mon bouton
   const sortButton = Array.from(document.getElementsByClassName("tri"));
   sortButton.forEach((button) => button.addEventListener("click", sortMediaSection()));
 
 }
 
-// Fonction qui génère la galerie de médias
+// Fonction qui génère la galerie de médias avec un tableau en entrée
 function createMediaSection(array) {
 
   // Je crée la section contenant les médias
@@ -75,7 +78,7 @@ function createMediaSection(array) {
   array.forEach((media) => {
     // Je crée une nouvelle card pour chacun d'entre eux en appelant ma fonction mediaFactory
     const mediaCardModel = mediaFactory(media);
-    // Je vais chercher les éléments du DOM grâce à ma fonction callback getMediaCardDOM
+    // Je crée les éléments de médias grâce à ma fonction callback getMediaCardDOM
     const mediaCardDOM = mediaCardModel.getMediaCardDOM();
     // J'injecte les nouvelles cards de medias dans ma section medias
     mediaSection.appendChild(mediaCardDOM);
@@ -91,7 +94,7 @@ function createMediaSection(array) {
 
 // Fonction qui génère le prix en bas de page
 function createFooter(photographPrice) {
-  
+
   // Je destructurise l'objet relatif aux photographes pour extraire les prix 
   const {price} = photographPrice;
 
@@ -120,6 +123,7 @@ function createFooter(photographPrice) {
   // J'injecte le footer dans mon HTML
   const footerEl = document.querySelector("footer");
   footerEl.innerHTML = photographFooter;
+
 }
 
 // Fonction qui déclenche les animations de la page
@@ -134,7 +138,7 @@ function animations() {
   // J'ajoute un écouteur d'évènement sur chaque bouton de médias pour ouvrir la lightbox au click
   const mediaCardButtons = document.querySelectorAll(".media-button-card");
   mediaCardButtons.forEach((card) => {
-    card.addEventListener("click", () => {
+      card.addEventListener("click", () => {
       const mediaId = card.parentElement.id;
       createLightBoxMedia(mediaId);
       // J'ouvre ma modale

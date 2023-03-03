@@ -1,3 +1,4 @@
+// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
 /* eslint-disable no-unused-vars */
 
 // Fonction servant à créer les médias de ma page photographe à partir du fichier json
@@ -7,6 +8,7 @@ function mediaFactory(data) {
   
     // Fonction qui crée les cartes des photographes en retournqant les éléments du DOM
     function getMediaCardDOM() {
+
       // Je crée l'article à intégrer dans le HTML pour contenir mon média
       const article = document.createElement("article");
       article.classList.add("media-card");
@@ -53,10 +55,11 @@ function mediaFactory(data) {
         </section>`;
       }
   
-      // Je retourne l'élément article
+      // Je retourne l'élément article créé
       return article;
     }
   
-    // Je retourne la fonction crée avec tous les éléments
+    // Je retourne la fonction getMediaCarDom pour générer le contenu des médias à l'intérieur de mes articles
     return { getMediaCardDOM };
+    
   }

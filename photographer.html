@@ -11,7 +11,7 @@
   </head>
   <body>
     <header>
-      <a href="index.html"><img src="assets/images/logo.png" alt="Logo de Fisheye" class="logo" aria-label="Lien vers la page d'accueil"></a>
+      <a href="index.html"><img src="assets/images/logo.png" alt="Logo de Fisheye" class="logo" aria-label="Logo de Fisheye, lien vers la page d'accueil"></a>
     </header>
     <main id="main"></main>
     <footer id="footer"></footer>
@@ -29,25 +29,25 @@
         <label class="modal-label" for="firstName" aria-label="Champ du prénom">Prénom</label><br>
         <input class="modal-input" type="text" id="firstName" name="firstName"><br>
         <!--Ajout des id d'erreur pour le js-->
-        <div id="first-error"></div>
+        <div id="first-error" aria-label="Votre prénom est incomplet ou mal orthographié, veuillez le ressaisir"></div>
   
         <!-- Champ nom -->
         <label class="modal-label" for="lastName" aria-label="Champ du nom">Nom</label><br>
         <input class="modal-input" type="text" id="lastName" name="lastName"><br>
         <!--Ajout des id d'erreur pour le js-->
-        <div id="last-error"></div>
+        <div id="last-error" aria-label="Votre nom est incomplet ou mal orthographié, veuillez le ressaisir."></div>
   
         <!-- Champ email -->
         <label class="modal-label" for="email" aria-label="Champ de l'email">E-mail</label><br>
         <input class="modal-input" type="email" id="email" name="email"><br>
         <!--Ajout des id d'erreur pour le js-->
-        <div id="email-error"></div>
+        <div id="email-error" aria-label="Veuillez entrer une adresse email valide."></div>
   
         <!-- Champ d'écriture du message -->
         <label class="modal-label" for="message" aria-label="Champ pour écrire le message">Votre message</label><br>
         <input class="modal-input modal-msg" type="text" id="message" name="message"><br>
         <!--Ajout des id d'erreur pour le js-->
-        <div id="message-error"></div>
+        <div id="message-error" aria-label="Veuillez saisir au minimum 10 caractères."></div>
   
         <button class="button modal-submit" aria-label="Bouton de soumission du formulaire de contact"
           id="submitButton" type="submit">Envoyer</button>

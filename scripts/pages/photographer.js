@@ -80,7 +80,7 @@ function createMediaSection(array) {
   array.forEach((media) => {
     // Je crée un nouvel article pour chacun d'entre eux en appelant ma fonction mediaFactory
     const mediaCardModel = mediaFactory(media);
-    // A l'intérieur de ces articles, je crée les éléments de médias grâce à ma fonction callback getMediaCardDOM
+    // A l'intérieur de ces articles, je crée les éléments de médias grâce à ma fonction getMediaCardDOM
     const mediaCardDOM = mediaCardModel.getMediaCardDOM();
     // J'injecte les nouvelles cards de medias dans ma section medias
     mediaSection.appendChild(mediaCardDOM);

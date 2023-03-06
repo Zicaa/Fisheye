@@ -20,7 +20,7 @@ async function createLightBoxMedia(mediaId) {
     // Je récupère l'ID de la lightbox
     const lightboxMedia = document.getElementById("lightboxMedia");
   
-    // Si le média est une image, j'ajoute le html approprié à l'élément lightboxMedia
+    // Si le média est une image, j'ajoute le html approprié à l'élément lightboxMedia ainsi que sa classe et sa légende
     if (image) {
       lightboxMedia.innerHTML = `
         <img class="lightbox-img" src="assets/images/${photographerId}/${image}" alt="${title}">
@@ -28,7 +28,7 @@ async function createLightBoxMedia(mediaId) {
     `;
     }
   
-    // Si le média est une vidéo, j'ajoute le html approprié à l'élément lightboxMedia
+    // Si le média est une vidéo, j'ajoute le html approprié à l'élément lightboxMedia ainsi que sa classe et sa légende
     if (video) {
       lightboxMedia.innerHTML = `
         <video class="lightbox-video" title="${title}" controls>
@@ -52,6 +52,7 @@ const currentIndex = photographerMedia.findIndex(
     if (currentIndex < photographerMedia.length - 1) {
       // J'affiche l'élément suivant en avançant de +1 dans mon tableau
       const nextMediaId = photographerMedia[currentIndex + 1].id;
+      // J'appelle ma fonction createLightBoxMedia pour générer les éléments et lui passe ma fonction callBack en paramètre
       createLightBoxMedia(nextMediaId);
       // Sinon, j'affiche le premier élément du tableau
     } else {
@@ -77,6 +78,7 @@ function previousMedia() {
     if (currentIndex > 0) {
       // J'affiche l'élément précédent en reculant de -1 dans mon tableau
       const previousMediaId = photographerMedia[currentIndex - 1].id;
+      // J'appelle ma fonction createLightBoxMedia pour générer les éléments et lui passe ma fonction callBack en paramètre
       createLightBoxMedia(previousMediaId);
       // Sinon, j'affiche le dernier élément du tableau
     } else {

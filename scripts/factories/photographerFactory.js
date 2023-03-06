@@ -1,7 +1,7 @@
 // eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
 /* eslint-disable no-unused-vars */
 
-// Fonction servant à créer les photographes de la page d'accueil à partir du fichier json
+// Fonction servant à créer les photographes de la page d'accueil 
 function photographerFactory(data) {
      // Extraction des données nécessaires et stockage dans une constante
     const { name, portrait, city, country, tagline, price, id } = data;
@@ -31,7 +31,7 @@ function photographerFactory(data) {
         const photographerName = document.createElement( 'h2' );
         photographerName.textContent = name;
 
-        // J'ajoute les noms des photographes
+        // J'ajoute les slogans des photographes
         const textContent = document.createElement( 'div' );
         textContent.classList.add("photographer-description");
 

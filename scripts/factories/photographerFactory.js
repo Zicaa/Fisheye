@@ -64,6 +64,6 @@ function photographerFactory(data) {
         article.appendChild(textContent);
         return (article);
     }
-    // Je retourne la fonction crée avec tous les éléments
+    // Je retourne la fonction crée avec tous les éléments : fin d'éxecution de la fonction
     return { getUserCardDOM }
 }

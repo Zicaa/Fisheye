@@ -158,22 +158,22 @@ function animations() {
 
 }
 
-// Fonction asynchrone qui intègre les éléments statiques et les animations à ma page de photographes
+// Fonction qui intègre les éléments statiques et les animations à ma page de photographes
 async function createPhotographMedia() {
   // Je crée mon header dans la page de photographes en appelant ma fonction createPhotographHeader
-  await createPhotographHeader(photographerInfo);
+  createPhotographHeader(photographerInfo);
 
   // Je crée mon menu de tri
-  await createFilterMenu();
+  createFilterMenu();
 
   // Je crée mes médias 
-  await createMediaSection(photographerMedia);
+  createMediaSection(photographerMedia);
 
   // Je crée mon footer
-  await createFooter(photographerInfo);
+  createFooter(photographerInfo);
 
   // J'insère le nom du photographe dans le titre de ma modale de contact
-  await photographNameInsert(photographerInfo);
+  photographNameInsert(photographerInfo);
 
   // J'appelle tous mes écouteurs d'évènement pour déclencher les animations
   animations();

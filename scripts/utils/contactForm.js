@@ -1,5 +1,7 @@
+import { closeModal } from "./displayCloseModale";
+
 // Fonction qui intègre les noms des photographes dans le h1 de ma modale de contact
- function photographNameInsert(photographerName) {
+ export function photographNameInsert(photographerName) {
 
   // Je destructurise l'objet relatif aux photographes pour extraire les noms
   const { name } = photographerName;
@@ -23,10 +25,10 @@ const messageError = document.getElementById ('message-error');
 // Initialisation des expressions régulières
 
 let regexText= /^[A-ZÇÉÈÊËÀÂÎÏÔÙÛ]{1}[a-zçéèêëàâîïôùû]+[-]?[a-zçéèêëàâîïôùû]+$/i;
-let regexEmail = /^([a-z0-9]+(?:\.[a-z0-9]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])?$/;
+let regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 // Fonction qui valide les éléments du formulaire et prend l'event en paramètre
-function validateForm(event) {
+export function validateForm(event) {
 
   // Je désactive l'envoi du formulaire par défaut pour effectuer ma vérification de données
   event.preventDefault();

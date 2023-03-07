@@ -1,8 +1,5 @@
-// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-/* eslint-disable no-unused-vars */
-
 // Fonction servant à créer les photographes de la page d'accueil 
-function photographerFactory(data) {
+export function photographerFactory(data) {
      // Extraction des données nécessaires et stockage dans une constante
     const { name, portrait, city, country, tagline, price, id } = data;
     const picture = `assets/photographers/${portrait}`;

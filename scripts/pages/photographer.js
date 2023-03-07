@@ -1,11 +1,20 @@
-// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-/* eslint-disable no-undef */
+import { getPhotographer } from "../utils/getData";
+import { getMedia } from "../utils/getData";
+import { sortMediaSection } from "../utils/sortMedias";
+import { mediaFactory } from "../factories/mediaFactory";
+import { photographNameInsert } from "../utils/contactForm";
+import { countLikes } from "../utils/countLikes";
+import { createLightBoxMedia } from "../utils/lightBox";
+import { editDropdown } from "../utils/dropDown";
+import { displayModal } from "../utils/displayCloseModale";
+import { closeModal } from "../utils/displayCloseModale";
 
-// Je récupère les données des photographes
+
+// Je récupère les données de mon photographe
 const photographerInfo = getPhotographer();
 console.log(photographerInfo);
 
-// Je récupère les médias des photographes
+// Je récupère les médias associés au photographe
 const photographerMedia = getMedia();
 console.log(photographerMedia);
 
@@ -23,8 +32,7 @@ function createPhotographHeader(photographerElement) {
           <p class="photograph-location">${city}, ${country}</p>
           <p class="photograph-tagline">${tagline}</p>
       </div>
-      <button class="contact-button" id="contactBtn" aria-label="Bouton d'ouverture du modal de contact" 
-      onclick="displayModal('contactModal')">Contactez-moi</button>
+      <button class="contact-button" id="contactBtn" aria-label="Bouton d'ouverture du modal de contact">Contactez-moi</button>
       <div class="photograph-portrait">
           <img class="photograph-img" src="assets/photographers/${portrait}" alt="Photo de ${name}">
       </div>`;
@@ -35,6 +43,7 @@ function createPhotographHeader(photographerElement) {
   // J'injecte la section des photographes dans ma balise main
   const main = document.getElementById("main");
   main.appendChild(photographSection);
+
 }
 
 // Fonction qui génère le menu de tri
@@ -49,8 +58,7 @@ function createFilterMenu() {
     ` <p class="select-p">Trier par</p>
       <div class="dropdown" id="select-menu">
         <div class="button-style">
-          <button class="sort-btn" aria-haspopup="listbox" onclick="editDropdown()">Popularité
-          </button>
+          <button class="sort-btn" aria-haspopup="listbox">Popularité</button>
           <span class="fas fa-chevron-down" id="chevron-down" role='button'></span>
         </div>
         <ul id="dropdown-tri">
@@ -64,6 +72,9 @@ function createFilterMenu() {
   const main = document.getElementById("main");
   main.appendChild(selectDiv);
 
+  const openDropDown = document.getElementsByClassName("sort-btn");
+  openDropDown[0].addEventListener("click", editDropdown);
+
   // J'appelle la fonction de tri à chaque click sur mon bouton
   const sortButton = Array.from(document.getElementsByClassName("tri"));
   sortButton.forEach((button) => button.addEventListener("click", sortMediaSection()));
@@ -71,7 +82,7 @@ function createFilterMenu() {
 }
 
 // Fonction qui génère la galerie de médias avec un tableau en entrée
-function createMediaSection(array) {
+export function createMediaSection(array) {
 
   // Je crée la section contenant les médias
   const mediaSection = document.createElement("section");
@@ -95,7 +106,7 @@ function createMediaSection(array) {
 }
 
 // Fonction qui génère le prix en bas de page
-function createFooter(photographPrice) {
+export function createFooter(photographPrice) {
 
   // Je destructurise l'objet relatif aux photographes pour extraire les prix 
   const {price} = photographPrice;
@@ -124,13 +135,18 @@ function createFooter(photographPrice) {
   `;
 
   // J'injecte le footer dans mon HTML
-  const footerEl = document.querySelector("footer");
+  const footerEl = document.getElementById("footer");
   footerEl.innerHTML = photographFooter;
 
 }
 
 // Fonction qui déclenche les animations de la page
 function animations() {
+
+  const contactBtn = document.getElementById("contactBtn");
+  contactBtn.addEventListener("click", () => {
+  displayModal("contactModal");
+  });
  
   // J'ajoute un écouteur d'évènement sur chaque bouton de like pour déclencher la fonction countLike
   const mediaCardLikeButtons = document.querySelectorAll(".media-like-button");
@@ -158,26 +174,21 @@ function animations() {
 
 }
 
-// Fonction qui intègre les éléments statiques et les animations à ma page de photographes
-async function createPhotographMedia() {
-  // Je crée mon header dans la page de photographes en appelant ma fonction createPhotographHeader
-  createPhotographHeader(photographerInfo);
+// Je crée mon header dans la page de photographes en appelant ma fonction createPhotographHeader
+createPhotographHeader(photographerInfo);
 
-  // Je crée mon menu de tri
-  createFilterMenu();
+// Je crée mon menu de tri
+createFilterMenu();
 
-  // Je crée mes médias 
-  createMediaSection(photographerMedia);
+// Je crée mes médias 
+createMediaSection(photographerMedia);
 
-  // Je crée mon footer
-  createFooter(photographerInfo);
+// Je crée mon footer
+createFooter(photographerInfo);
 
-  // J'insère le nom du photographe dans le titre de ma modale de contact
-  photographNameInsert(photographerInfo);
+// J'insère le nom du photographe dans le titre de ma modale de contact
+photographNameInsert(photographerInfo);
 
-  // J'appelle tous mes écouteurs d'évènement pour déclencher les animations
-  animations();
-}
+// J'appelle tous mes écouteurs d'évènement pour déclencher les animations
+animations();
 
-// J'appelle la fonction createPhotographMedia() qui va générer tous ces éléments
-createPhotographMedia();

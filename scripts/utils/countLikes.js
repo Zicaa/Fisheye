@@ -1,5 +1,11 @@
+import { createFooter } from "../pages/photographer";
+import { getPhotographer } from "./getData";
+
+const photographerInfo = getPhotographer();
+
 // Fonction qui gère les likes
-function countLikes() {
+export function countLikes() {
+  
     // Je récupère la div contenant le nombre de likes en sélectionnant le 1er enfant du noeud parent de mon btn
     const mediaLikeContent = this.parentNode.firstElementChild;
 

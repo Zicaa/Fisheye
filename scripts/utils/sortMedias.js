@@ -1,11 +1,18 @@
+import { getMedia } from "./getData";
+import { closeDropdown } from "./dropDown";
+import { createMediaSection } from "../pages/photographer";
+import { countLikes } from "./countLikes";
+import { createLightBoxMedia } from "./lightBox";
+import { displayModal } from "./displayCloseModale";
+
+const photographerMedia = getMedia();
+
 // Fonction qui effectue le tri
-function sortMediaSection() {
+export async function sortMediaSection() {
     // Je récupère la valeur de l'option sélectionnée
     let newOrder = [];
     let btnSort = document.querySelector(".sort-btn");
     let sortBtn = Array.from(document.getElementsByClassName("tri"));
-      
-    console.log({sortBtn});
       
     // Je parcours mon tableau de boutons indexés et déclenche une fonction au click
     sortBtn.forEach((btn, index) => btn.addEventListener("click", () => {

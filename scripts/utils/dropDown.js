@@ -1,8 +1,5 @@
-// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-/* eslint-disable no-unused-vars */
-
 // Fonction qui déploie le menu déroulant
-function editDropdown(){  
+export function editDropdown(){  
     // Je récupère les éléments dont j'ai besoin
      let dropdown = document.getElementById("select-menu");
      let sortButton = document.getElementsByClassName("button-style");
@@ -22,7 +19,7 @@ function editDropdown(){
 }
   
 // Fonction qui ferme le menu déroulant
-function closeDropdown(){  
+export function closeDropdown(){  
     // Je récupère les éléments dont j'ai besoin
       let dropdown = document.getElementById("select-menu");
       const sortButton = document.getElementsByClassName("button-style");

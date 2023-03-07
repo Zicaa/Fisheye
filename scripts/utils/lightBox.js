@@ -1,11 +1,14 @@
-// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-/* eslint-disable no-undef */
+import { getMedia } from "./getData";
+import { closeModal } from "./displayCloseModale";
 
 // J'initialise une variable à zéro qui contiendra l'id du média actuel
 let currentMediaId=0;
 
+// Je récupère les médias associés au photographe
+const photographerMedia = getMedia();
+
 // Fonction qui crée le contenu de la lightbox avec l'ID de chaque média en paramètre
-function createLightBoxMedia(mediaId) {
+export function createLightBoxMedia(mediaId) {
     // La méthode find me retourne le 1er élément trouvé : j'indique qu'il correspond à chaque ID de média
     const IdArray = photographerMedia.find(
       (media) => media.id == mediaId

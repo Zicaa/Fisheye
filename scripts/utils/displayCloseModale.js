@@ -1,8 +1,5 @@
-// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-/* eslint-disable no-unused-vars */
-
 // Fonction qui ouvre les modales en passant l'ID de la modale en paramètre
-function displayModal(contactModal) {
+export function displayModal(contactModal) {
     // Je récupère l'ID de ma modale et le passe en paramètre de ma fonction
     const modal = document.getElementById(contactModal);
     // Je récupère le header, le corps et le footer de ma page
@@ -10,6 +7,8 @@ function displayModal(contactModal) {
     const main = document.querySelector("main");
     const footer = document.querySelector("footer");
   
+    // Je désactive le comportement par défaut pour éviter les erreurs
+    modal.removeAttribute("open")
     // J'affiche ma modale grâce à la méthode showModal()
     modal.showModal();
     // Je lui applique le display flex pour qu'elle soie visible 
@@ -23,7 +22,7 @@ function displayModal(contactModal) {
   }
   
 // Fonction qui ferme les modales en passant l'ID de la modale en paramètre
-function closeModal(contactModal) {
+export function closeModal(contactModal) {
     // Je récupère l'ID de ma modale et le passe en paramètre de ma fonction
     const modal = document.getElementById(contactModal);
     // Je récupère le header, le corps et le footer de ma page

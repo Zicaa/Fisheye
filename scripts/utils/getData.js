@@ -1,9 +1,8 @@
-// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+import { photographers } from "../../data/photographers";
+import { media } from "../../data/media";
 
 // Fonction qui récupère les données des photographes grâce à leur ID
-function getPhotographer() {
+export function getPhotographer() {
   // J'extrais les données des photographes que je stocke dans une constante
   // J'accède aux données de la requête "get" grâce à searchParams
   const params = new URL(document.location).searchParams;
@@ -14,7 +13,7 @@ function getPhotographer() {
 }
 
 // Fonction qui récupère les médias des photographes grâce à leur ID
-function getMedia() {
+export function getMedia() {
   // J'accède aux données de la requête "get" grâce à searchParams
   const params = new URL(document.location).searchParams;
   // J'extrais les ID des photographes grâce aux paramètres de l'URL - parseInt récupère le 1er entier d'une chaîne

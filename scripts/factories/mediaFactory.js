@@ -1,8 +1,5 @@
-// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-/* eslint-disable no-unused-vars */
-
 // Fonction servant à créer les médias de ma page photographe à partir du fichier json
-function mediaFactory(data) {
+export function mediaFactory(data) {
     
     // Extraction des données nécessaires et stockage dans une constante
     const { id, photographerId, title, image, video, likes } = data;

@@ -1,4 +1,4 @@
-const media = [
+export const media = [
     {
         "id": 342550,
         "photographerId": 82,

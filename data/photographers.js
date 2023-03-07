@@ -1,4 +1,4 @@
-const photographers= [
+export const photographers= [
     {
         "name": "Mimi Keel",
         "id": 243,

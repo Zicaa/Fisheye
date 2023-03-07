@@ -112,6 +112,10 @@ h2{
   margin-left: 100px;
 }
 
+#indexLink{
+  height: 55px;
+}
+
 .contact-button {
   font-size: 20px;
   font-weight: bold;

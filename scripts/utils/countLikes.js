@@ -1,8 +1,3 @@
-// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-// des imports et exports corrigent ce phénomène mais sont non lisibles par les navigateurs récents (CORS policy)
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-
 // Fonction qui gère les likes
 function countLikes() {
     // Je récupère la div contenant le nombre de likes en sélectionnant le 1er enfant du noeud parent de mon btn

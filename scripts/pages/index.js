@@ -1,7 +1,5 @@
 // eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-// des imports et exports corrigent ce phénomène mais sont non lisibles par les navigateurs récents (CORS policy)
 /* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 
 // Fonction qui récupère les éléments de ma factory
 function displayData(photographers) {

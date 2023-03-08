@@ -1,8 +1,3 @@
-// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-// des imports et exports corrigent ce phénomène mais sont non lisibles par les navigateurs récents (CORS policy)
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-
 // Fonction qui effectue le tri
 function sortMediaSection() {
     // Je récupère la valeur de l'option sélectionnée

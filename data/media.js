@@ -1,7 +1,3 @@
-// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-// des imports et exports corrigent ce phénomène mais sont non lisibles par les navigateurs récents (CORS policy)
-/* eslint-disable no-unused-vars */
-
 const media = [
     {
         "id": 342550,

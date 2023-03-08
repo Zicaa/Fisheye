@@ -1,5 +1,4 @@
 // eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-// des imports et exports corrigent ce phénomène mais sont non lisibles par les navigateurs récents (CORS policy)
 /* eslint-disable no-undef */
 
 // Je récupère les données des photographes
@@ -18,7 +17,6 @@ function createPhotographHeader(photographerElement) {
 
   // Je crée la section photographes contenant les éléments
   const photographSection = document.createElement('section');
-
   photographSection.innerHTML =
   `   <div class="photograph-info">
           <h1 class="photograph-name">${name}</h1>
@@ -37,7 +35,6 @@ function createPhotographHeader(photographerElement) {
   // J'injecte la section des photographes dans ma balise main
   const main = document.getElementById("main");
   main.appendChild(photographSection);
-
 }
 
 // Fonction qui génère le menu de tri
@@ -95,7 +92,6 @@ function createMediaSection(array) {
   // J'injecte la section de médias dans ma balise main
   const main = document.getElementById("main");
   main.appendChild(mediaSection);
-
 }
 
 // Fonction qui génère le prix en bas de page

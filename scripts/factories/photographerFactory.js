@@ -1,5 +1,4 @@
 // eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-// des imports et exports corrigent ce problème mais sont non lisibles par les navigateurs récents (CORS policy)
 /* eslint-disable no-unused-vars */
 
 // Fonction servant à créer les photographes de la page d'accueil 

@@ -1,8 +1,3 @@
-// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
-// des imports et exports corrigent ce phénomène mais sont non lisibles par les navigateurs récents (CORS policy)
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-
 // Fonction qui intègre les noms des photographes dans le h1 de ma modale de contact
  function photographNameInsert(photographerName) {
 
@@ -29,7 +24,6 @@ const messageError = document.getElementById ('message-error');
 
 let regexText= /^[A-ZÇÉÈÊËÀÂÎÏÔÙÛ]{1}[a-zçéèêëàâîïôùû]+[-]?[a-zçéèêëàâîïôùû]+$/i;
 let regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
 // Fonction qui valide les éléments du formulaire et prend l'event en paramètre
 function validateForm(event) {
 

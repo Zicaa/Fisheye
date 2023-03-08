@@ -1,13 +1,13 @@
-import { getPhotographer } from "../utils/getData";
-import { getMedia } from "../utils/getData";
-import { sortMediaSection } from "../utils/sortMedias";
-import { mediaFactory } from "../factories/mediaFactory";
-import { photographNameInsert } from "../utils/contactForm";
-import { countLikes } from "../utils/countLikes";
-import { createLightBoxMedia } from "../utils/lightBox";
-import { editDropdown } from "../utils/dropDown";
-import { displayModal } from "../utils/displayCloseModale";
-import { closeModal } from "../utils/displayCloseModale";
+import { getPhotographer } from "../utils/getData.js";
+import { getMedia } from "../utils/getData.js";
+import { sortMediaSection } from "../utils/sortMedias.js";
+import { mediaFactory } from "../factories/mediaFactory.js";
+import { photographNameInsert } from "../utils/contactForm.js";
+import { countLikes } from "../utils/countLikes.js";
+import { createLightBoxMedia } from "../utils/lightBox.js";
+import { editDropdown } from "../utils/dropDown.js";
+import { displayModal } from "../utils/displayCloseModale.js";
+import { closeModal } from "../utils/displayCloseModale.js";
 
 
 // Je récupère les données de mon photographe

@@ -2,7 +2,7 @@
 
 ## Démarrer le projet
 
-#titreCréation d'un site accessible pour une entreprise de photographes.  
+#titre Création d'un site accessible pour une entreprise de photographes.  
 Les navigateurs récents rencontrent des problèmes de CORS policy avec la methode fetch(), ce qui nécessite l'utilisation d'un serveur local.
 Le projet a été adapté pour pallier à ce phénomène. Il est donc téléchargeable et visible directement dans le navigateur via la page index.html.
 

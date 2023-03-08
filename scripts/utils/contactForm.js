@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 // Fonction qui intègre les noms des photographes dans le h1 de ma modale de contact
  function photographNameInsert(photographerName) {
 

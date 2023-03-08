@@ -1,3 +1,7 @@
+// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 // Fonction qui effectue le tri
 function sortMediaSection() {
     // Je récupère la valeur de l'option sélectionnée

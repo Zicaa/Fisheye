@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 // Fonction qui gère les likes
 function countLikes() {
     // Je récupère la div contenant le nombre de likes en sélectionnant le 1er enfant du noeud parent de mon btn

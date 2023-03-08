@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const media = [
     {
         "id": 342550,
@@ -534,3 +535,4 @@ const media = [
         "price": 80
     }
 ]
+console.log(media);

@@ -1,3 +1,6 @@
+// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
+/* eslint-disable no-unused-vars */
+
 const photographers= [
     {
         "name": "Mimi Keel",
@@ -54,3 +57,4 @@ const photographers= [
         "portrait": "MarcelNikolic.jpg"
     }
 ]
+console.log(photographers);

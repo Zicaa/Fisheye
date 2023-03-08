@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Projet Fisheye : développement d'un site pour photographes avec Javascript",
   "main": "index.js",
-    "scripts": {
-      "lint": "eslint ."
-    },
+  "scripts": {
+    "lint": "eslint ."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Zicaa/Fisheye.git"

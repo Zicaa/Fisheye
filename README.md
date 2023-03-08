@@ -2,5 +2,7 @@
 
 ## Démarrer le projet
 
-Attention, il est nécessaire d'utiliser un serveur local comme wamp server pour visualiser le site. Les navigateurs récents rencontrent des erreurs de type CORS.
+Création d'un site accessible pour une entreprise de photographes.
+Les navigateurs récents rencontrent des problèmes de CORS policy qui nécessitent l'utilisation d'un serveur local.
+Le projet a été adapté pour pallier à ce phénomène. Il est donc téléchargeable et visible directement dans le navigateur via la page index.html.
 

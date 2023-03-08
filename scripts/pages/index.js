@@ -20,6 +20,7 @@ function displayData(photographers) {
 function init() {
 	// J'appelle ma fonction displayData et lui passe mon tableau de photographes en paramètre
 	displayData(photographers)
+	console.log(photographers);
 }
 // J'appelle ma fonction init pour créer les éléments
 init()

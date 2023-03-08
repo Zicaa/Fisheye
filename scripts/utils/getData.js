@@ -1,5 +1,5 @@
-import { photographers } from "../../data/photographers";
-import { media } from "../../data/media";
+import { photographers } from "../../data/photographers.js";
+import { media } from "../../data/media.js";
 
 // Fonction qui récupère les données des photographes grâce à leur ID
 export function getPhotographer() {

@@ -26,6 +26,7 @@ function createPhotographHeader(photographerElement) {
 
   // Je crée la section photographes contenant les éléments
   const photographSection = document.createElement('section');
+
   photographSection.innerHTML =
   `   <div class="photograph-info">
           <h1 class="photograph-name">${name}</h1>

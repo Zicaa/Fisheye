@@ -1,5 +1,5 @@
-import { createFooter } from "../pages/photographer";
-import { getPhotographer } from "./getData";
+import { createFooter } from "../pages/photographer.js";
+import { getPhotographer } from "./getData.js";
 
 const photographerInfo = getPhotographer();
 

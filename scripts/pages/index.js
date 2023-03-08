@@ -1,6 +1,6 @@
-import { media } from "../../data/media";
-import { photographers } from "../../data/photographers"
-import { photographerFactory } from "../factories/photographerFactory";
+import { media } from "../../data/media.js";
+import { photographers } from "../../data/photographers.js"
+import { photographerFactory } from "../factories/photographerFactory.js";
 
 console.log(photographers);
 console.log(media);

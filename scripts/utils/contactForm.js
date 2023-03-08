@@ -1,4 +1,4 @@
-import { closeModal } from "./displayCloseModale";
+import { closeModal } from "./displayCloseModale.js";
 
 // Fonction qui intègre les noms des photographes dans le h1 de ma modale de contact
  export function photographNameInsert(photographerName) {

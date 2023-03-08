@@ -1,9 +1,9 @@
-import { getMedia } from "./getData";
-import { closeDropdown } from "./dropDown";
-import { createMediaSection } from "../pages/photographer";
-import { countLikes } from "./countLikes";
-import { createLightBoxMedia } from "./lightBox";
-import { displayModal } from "./displayCloseModale";
+import { getMedia } from "./getData.js";
+import { closeDropdown } from "./dropDown.js";
+import { createMediaSection } from "../pages/photographer.js";
+import { countLikes } from "./countLikes.js";
+import { createLightBoxMedia } from "./lightBox.js";
+import { displayModal } from "./displayCloseModale.js";
 
 const photographerMedia = getMedia();
 

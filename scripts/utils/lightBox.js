@@ -1,5 +1,5 @@
-import { getMedia } from "./getData";
-import { closeModal } from "./displayCloseModale";
+import { getMedia } from "./getData.js";
+import { closeModal } from "./displayCloseModale.js";
 
 // J'initialise une variable à zéro qui contiendra l'id du média actuel
 let currentMediaId=0;

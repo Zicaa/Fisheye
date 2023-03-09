@@ -21,7 +21,7 @@ function mediaFactory(data) {
         article.innerHTML =
         // Je crée le bouton ouvrant la lightbox et y intègre les images, avec alt et aria-label
         // Je crée la section sous le média qui comprend le titre et le nombre de likes
-        `<button class="media-button-card" aria-label="Bouton ouvrant la lightbox">
+        `<button class="media-button-card" aria-label="Bouton ouvrant le portfolio du photographe">
             <img class="media-img-card" src="assets/images/${photographerId}/${image}" alt="${title}" aria-label="${title}">
         </button>
         <section class="media-info-card">
@@ -40,7 +40,7 @@ function mediaFactory(data) {
         article.innerHTML =
         // Je crée le bouton ouvrant la lightbox et y intègre les vidéos avec alt et aria-label
         // Je crée la section sous le média qui comprend le titre et le nombre de likes
-        `<button class="media-button-card" aria-label="Bouton ouvrant la lightbox")>
+        `<button class="media-button-card" aria-label="Bouton ouvrant le portfolio du photographe")>
             <video class="media-video-card" title="${title}" alt="${title}" aria-label="${title}">
                 <source src="assets/images/${photographerId}/${video}" type="video/mp4">
             </video>

@@ -1,4 +1,6 @@
+// eslint ne reconnaît pas les fonctions et variables qui sont déjà déclarées et utilisées
 /* eslint-disable no-unused-vars */
+
 const media = [
     {
         "id": 342550,

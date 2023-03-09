@@ -14,7 +14,7 @@ function createLightBoxMedia(mediaId) {
     // Je mets à jour la variable currentMediaId avec l'identifiant actuel du média
     currentMediaId = mediaId;
   
-    // Je destructurise l'objet relatif aux photographes pour extraire les éléments
+    // Je destructurise l'objet relatif aux médias pour extraire les éléments
     const { title, photographerId, image, video } = IdArray;
   
     // Je récupère l'ID de la lightbox

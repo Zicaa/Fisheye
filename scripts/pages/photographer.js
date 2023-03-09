@@ -23,7 +23,7 @@ function createPhotographHeader(photographerElement) {
           <p class="photograph-location">${city}, ${country}</p>
           <p class="photograph-tagline">${tagline}</p>
       </div>
-      <button class="contact-button" id="contactBtn" aria-label="Bouton d'ouverture du modal de contact" 
+      <button class="contact-button" id="contactBtn" aria-label="Bouton d'ouverture du formulaire de contact" 
       onclick="displayModal('contactModal')">Contactez-moi</button>
       <div class="photograph-portrait">
           <img class="photograph-img" src="assets/photographers/${portrait}" alt="Photo de ${name}">

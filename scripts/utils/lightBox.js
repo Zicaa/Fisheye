@@ -6,6 +6,7 @@ let currentMediaId=0;
 
 // Fonction qui crée le contenu de la lightbox avec l'ID de chaque média en paramètre
 function createLightBoxMedia(mediaId) {
+  
     // La méthode find me retourne le 1er élément trouvé : j'indique qu'il correspond à chaque ID de média
     const IdArray = photographerMedia.find(
       (media) => media.id == mediaId
@@ -42,8 +43,9 @@ function createLightBoxMedia(mediaId) {
 
 // Fonction qui affiche le média suivant au click
 function nextMedia() {
-// Je récupère l'index de l'élément média actuel dans le tableau photographerMedia
-const currentIndex = photographerMedia.findIndex(
+
+  // Je récupère l'index de l'élément média actuel dans le tableau photographerMedia
+  const currentIndex = photographerMedia.findIndex(
     // La condition recherchée avec findIndex : l'ID du média correspond à celui affiché
     (media) => media.id == currentMediaId
     );
@@ -68,17 +70,18 @@ nextBtn.addEventListener("click", nextMedia);
   
 // Fonction qui affiche le média précédent au click
 function previousMedia() {
-    // Je récupère l'index de l'élément média actuel dans le tableau photographerMedia
-    const currentIndex = photographerMedia.findIndex(
-      // La condition recherchée avec findIndex : l'ID du média correspond à celui affiché
-      (media) => media.id == currentMediaId
+
+  // Je récupère l'index de l'élément média actuel dans le tableau photographerMedia
+   const currentIndex = photographerMedia.findIndex(
+    // La condition recherchée avec findIndex : l'ID du média correspond à celui affiché
+    (media) => media.id == currentMediaId
     );
   
     // Si l'élément multimédia actuel n'est pas le premier élément du tableau (indexé à zéro)
     if (currentIndex > 0) {
       // J'affiche l'élément précédent en reculant de -1 dans mon tableau
       const previousMediaId = photographerMedia[currentIndex - 1].id;
-      // J'appelle ma fonction createLightBoxMedia pour générer les éléments et lui passe ma fonction callBack en paramètre
+      // J'appelle ma fonction createLightBoxMedia pour générer les éléments 
       createLightBoxMedia(previousMediaId);
       // Sinon, j'affiche le dernier élément du tableau
     } else {

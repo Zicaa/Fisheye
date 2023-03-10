@@ -526,6 +526,8 @@ ul{
   border-radius: 5px;
   width:170px;
   cursor : pointer;
+  position: absolute;
+  margin-top: -2.3em;
 }
 
 .hidden{

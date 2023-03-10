@@ -47,22 +47,25 @@ function createFilterMenu() {
   
     selectDiv.innerHTML =
     ` <p class="select-p">Trier par</p>
-      <div class="dropdown" id="select-menu">
+      <div class="dropdown" id="select-menu" aria-label="menu de tri">
         <div class="button-style">
-          <button class="sort-btn" aria-haspopup="listbox" onclick="editDropdown()">Popularité
-          </button>
+          <button class="sort-btn" aria-haspopup="listbox">Popularité</button>
           <span class="fas fa-chevron-down" id="chevron-down" role='button'></span>
         </div>
         <ul id="dropdown-tri">
-          <li class="tri" role='option'>Popularité<span class="fas fa-chevron-up"></span></li>
-          <li class="tri" role="option" id="date">Date</li>
-          <li class="tri" role="option">Titre</li>
+          <li class="tri" role="option" tabindex="0">Popularité<span class="fas fa-chevron-up"></span></li>
+          <li class="tri" role="option" id="date" tabindex="0">Date</li>
+          <li class="tri" role="option"tabindex="0">Titre</li>
         </ul>
-    </div>`
+      </div>`
 
   // J'injecte le menu de sélection dans ma balise main
   const main = document.getElementById("main");
   main.appendChild(selectDiv);
+
+  // Je déploie le menu déroulant au click sur le bouton
+  const openDropDown = document.getElementsByClassName("sort-btn");
+  openDropDown[0].addEventListener("click", editDropdown);
 
   // J'appelle la fonction de tri à chaque click sur mon bouton
   const sortButton = Array.from(document.getElementsByClassName("tri"));

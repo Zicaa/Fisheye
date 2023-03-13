@@ -54,7 +54,7 @@ function nextMedia() {
     if (currentIndex < photographerMedia.length - 1) {
       // J'affiche l'élément suivant en avançant de +1 dans mon tableau
       const nextMediaId = photographerMedia[currentIndex + 1].id;
-      // J'appelle ma fonction createLightBoxMedia pour générer les éléments et lui passe ma fonction callBack en paramètre
+      // J'appelle ma fonction createLightBoxMedia pour générer les éléments 
       createLightBoxMedia(nextMediaId);
       // Sinon, j'affiche le premier élément du tableau
     } else {

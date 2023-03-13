@@ -12,7 +12,7 @@ function countLikes() {
     // Je pose une condition : si la classe de mon icône inclue "fa-regular"
     if (mediaLikeIcon.classList.contains("fa-regular")) {
       // J'accède au nombre de like de chaque média et le stocke dans la variable mediaLikeCount
-      let mediaLikeCount = Number(mediaLikeContent.textContent);
+      let mediaLikeCount = mediaLikeContent.textContent;
 
       // J'incrémente ma variable mediaLikeCount : le nombre de like augmente de 1
       mediaLikeCount++;
@@ -29,7 +29,7 @@ function countLikes() {
       // Sinon : si la classe de mon icône inclue "fa-solid"
       } else if (mediaLikeIcon.classList.contains("fa-solid")) {
         // J'accède au nombre de like de chaque média et le stocke dans la variable mediaLikeCount
-        let mediaLikeCount = Number(mediaLikeContent.textContent);
+        let mediaLikeCount = mediaLikeContent.textContent;
 
         // Je décrémente ma variable mediaLikeCount
         mediaLikeCount--;
